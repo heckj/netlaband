@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */; };
+		1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA423B685D800D56BE1 /* ContentView.swift */; };
+		1AD6AFA723B685D900D56BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA623B685D900D56BE1 /* Assets.xcassets */; };
+		1AD6AFAA23B685D900D56BE1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA923B685D900D56BE1 /* Preview Assets.xcassets */; };
+		1AD6AFAD23B685D900D56BE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6AFAB23B685D900D56BE1 /* Main.storyboard */; };
+		1AD6AFB923B685D900D56BE1 /* netlabandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFB823B685D900D56BE1 /* netlabandTests.swift */; };
+		1AD6AFC423B685D900D56BE1 /* netlabandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFC323B685D900D56BE1 /* netlabandUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1AD6AFB523B685D900D56BE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AD6AF9723B685D800D56BE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AD6AF9E23B685D800D56BE1;
+			remoteInfo = netlaband;
+		};
+		1AD6AFC023B685D900D56BE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AD6AF9723B685D800D56BE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AD6AF9E23B685D800D56BE1;
+			remoteInfo = netlaband;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1AD6AF9F23B685D800D56BE1 /* netlaband.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netlaband.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1AD6AFA423B685D800D56BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1AD6AFA623B685D900D56BE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1AD6AFA923B685D900D56BE1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1AD6AFAC23B685D900D56BE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1AD6AFAE23B685D900D56BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AD6AFAF23B685D900D56BE1 /* netlaband.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = netlaband.entitlements; sourceTree = "<group>"; };
+		1AD6AFB423B685D900D56BE1 /* netlabandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = netlabandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AD6AFB823B685D900D56BE1 /* netlabandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netlabandTests.swift; sourceTree = "<group>"; };
+		1AD6AFBA23B685D900D56BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AD6AFBF23B685D900D56BE1 /* netlabandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = netlabandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AD6AFC323B685D900D56BE1 /* netlabandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netlabandUITests.swift; sourceTree = "<group>"; };
+		1AD6AFC523B685D900D56BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1AD6AF9C23B685D800D56BE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AD6AFB123B685D900D56BE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AD6AFBC23B685D900D56BE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1AD6AF9623B685D800D56BE1 = {
+			isa = PBXGroup;
+			children = (
+				1AD6AFA123B685D800D56BE1 /* netlaband */,
+				1AD6AFB723B685D900D56BE1 /* netlabandTests */,
+				1AD6AFC223B685D900D56BE1 /* netlabandUITests */,
+				1AD6AFA023B685D800D56BE1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1AD6AFA023B685D800D56BE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1AD6AF9F23B685D800D56BE1 /* netlaband.app */,
+				1AD6AFB423B685D900D56BE1 /* netlabandTests.xctest */,
+				1AD6AFBF23B685D900D56BE1 /* netlabandUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1AD6AFA123B685D800D56BE1 /* netlaband */ = {
+			isa = PBXGroup;
+			children = (
+				1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */,
+				1AD6AFA423B685D800D56BE1 /* ContentView.swift */,
+				1AD6AFA623B685D900D56BE1 /* Assets.xcassets */,
+				1AD6AFAB23B685D900D56BE1 /* Main.storyboard */,
+				1AD6AFAE23B685D900D56BE1 /* Info.plist */,
+				1AD6AFAF23B685D900D56BE1 /* netlaband.entitlements */,
+				1AD6AFA823B685D900D56BE1 /* Preview Content */,
+			);
+			path = netlaband;
+			sourceTree = "<group>";
+		};
+		1AD6AFA823B685D900D56BE1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1AD6AFA923B685D900D56BE1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1AD6AFB723B685D900D56BE1 /* netlabandTests */ = {
+			isa = PBXGroup;
+			children = (
+				1AD6AFB823B685D900D56BE1 /* netlabandTests.swift */,
+				1AD6AFBA23B685D900D56BE1 /* Info.plist */,
+			);
+			path = netlabandTests;
+			sourceTree = "<group>";
+		};
+		1AD6AFC223B685D900D56BE1 /* netlabandUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1AD6AFC323B685D900D56BE1 /* netlabandUITests.swift */,
+				1AD6AFC523B685D900D56BE1 /* Info.plist */,
+			);
+			path = netlabandUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1AD6AF9E23B685D800D56BE1 /* netlaband */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AD6AFC823B685D900D56BE1 /* Build configuration list for PBXNativeTarget "netlaband" */;
+			buildPhases = (
+				1AD6AF9B23B685D800D56BE1 /* Sources */,
+				1AD6AF9C23B685D800D56BE1 /* Frameworks */,
+				1AD6AF9D23B685D800D56BE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = netlaband;
+			productName = netlaband;
+			productReference = 1AD6AF9F23B685D800D56BE1 /* netlaband.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1AD6AFB323B685D900D56BE1 /* netlabandTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AD6AFCB23B685D900D56BE1 /* Build configuration list for PBXNativeTarget "netlabandTests" */;
+			buildPhases = (
+				1AD6AFB023B685D900D56BE1 /* Sources */,
+				1AD6AFB123B685D900D56BE1 /* Frameworks */,
+				1AD6AFB223B685D900D56BE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1AD6AFB623B685D900D56BE1 /* PBXTargetDependency */,
+			);
+			name = netlabandTests;
+			productName = netlabandTests;
+			productReference = 1AD6AFB423B685D900D56BE1 /* netlabandTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1AD6AFBE23B685D900D56BE1 /* netlabandUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AD6AFCE23B685D900D56BE1 /* Build configuration list for PBXNativeTarget "netlabandUITests" */;
+			buildPhases = (
+				1AD6AFBB23B685D900D56BE1 /* Sources */,
+				1AD6AFBC23B685D900D56BE1 /* Frameworks */,
+				1AD6AFBD23B685D900D56BE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1AD6AFC123B685D900D56BE1 /* PBXTargetDependency */,
+			);
+			name = netlabandUITests;
+			productName = netlabandUITests;
+			productReference = 1AD6AFBF23B685D900D56BE1 /* netlabandUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1AD6AF9723B685D800D56BE1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "JFH Consulting";
+				TargetAttributes = {
+					1AD6AF9E23B685D800D56BE1 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					1AD6AFB323B685D900D56BE1 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 1AD6AF9E23B685D800D56BE1;
+					};
+					1AD6AFBE23B685D900D56BE1 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 1AD6AF9E23B685D800D56BE1;
+					};
+				};
+			};
+			buildConfigurationList = 1AD6AF9A23B685D800D56BE1 /* Build configuration list for PBXProject "netlaband" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1AD6AF9623B685D800D56BE1;
+			productRefGroup = 1AD6AFA023B685D800D56BE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1AD6AF9E23B685D800D56BE1 /* netlaband */,
+				1AD6AFB323B685D900D56BE1 /* netlabandTests */,
+				1AD6AFBE23B685D900D56BE1 /* netlabandUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1AD6AF9D23B685D800D56BE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AD6AFAD23B685D900D56BE1 /* Main.storyboard in Resources */,
+				1AD6AFAA23B685D900D56BE1 /* Preview Assets.xcassets in Resources */,
+				1AD6AFA723B685D900D56BE1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AD6AFB223B685D900D56BE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AD6AFBD23B685D900D56BE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1AD6AF9B23B685D800D56BE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */,
+				1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AD6AFB023B685D900D56BE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AD6AFB923B685D900D56BE1 /* netlabandTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AD6AFBB23B685D900D56BE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AD6AFC423B685D900D56BE1 /* netlabandUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1AD6AFB623B685D900D56BE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AD6AF9E23B685D800D56BE1 /* netlaband */;
+			targetProxy = 1AD6AFB523B685D900D56BE1 /* PBXContainerItemProxy */;
+		};
+		1AD6AFC123B685D900D56BE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AD6AF9E23B685D800D56BE1 /* netlaband */;
+			targetProxy = 1AD6AFC023B685D900D56BE1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1AD6AFAB23B685D900D56BE1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AD6AFAC23B685D900D56BE1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1AD6AFC623B685D900D56BE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1AD6AFC723B685D900D56BE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		1AD6AFC923B685D900D56BE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = netlaband/netlaband.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"netlaband/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = netlaband/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonabwy.netlaband;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1AD6AFCA23B685D900D56BE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = netlaband/netlaband.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"netlaband/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = netlaband/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonabwy.netlaband;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		1AD6AFCC23B685D900D56BE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = netlabandTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonabwy.netlabandTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/netlaband.app/Contents/MacOS/netlaband";
+			};
+			name = Debug;
+		};
+		1AD6AFCD23B685D900D56BE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = netlabandTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonabwy.netlabandTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/netlaband.app/Contents/MacOS/netlaband";
+			};
+			name = Release;
+		};
+		1AD6AFCF23B685D900D56BE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = netlabandUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonabwy.netlabandUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = netlaband;
+			};
+			name = Debug;
+		};
+		1AD6AFD023B685D900D56BE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = netlabandUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonabwy.netlabandUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = netlaband;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1AD6AF9A23B685D800D56BE1 /* Build configuration list for PBXProject "netlaband" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AD6AFC623B685D900D56BE1 /* Debug */,
+				1AD6AFC723B685D900D56BE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AD6AFC823B685D900D56BE1 /* Build configuration list for PBXNativeTarget "netlaband" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AD6AFC923B685D900D56BE1 /* Debug */,
+				1AD6AFCA23B685D900D56BE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AD6AFCB23B685D900D56BE1 /* Build configuration list for PBXNativeTarget "netlabandTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AD6AFCC23B685D900D56BE1 /* Debug */,
+				1AD6AFCD23B685D900D56BE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AD6AFCE23B685D900D56BE1 /* Build configuration list for PBXNativeTarget "netlabandUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AD6AFCF23B685D900D56BE1 /* Debug */,
+				1AD6AFD023B685D900D56BE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1AD6AF9723B685D800D56BE1 /* Project object */;
+}
