@@ -27,9 +27,11 @@ view destinations:
 
 do a build:
 
-    xcodebuild -scheme netlaband -sdk iphoneos13.2 -configuration Debug
-    xcodebuild -scheme netlaband -sdk iphoneos13.2 -configuration Release
+    # xcodebuild -scheme netlaband -sdk iphoneos13.2 -configuration Debug
+    # xcodebuild -scheme netlaband -sdk iphoneos13.2 -configuration Release
+    xcodebuild -scheme netlaband
 
 run the tests:
 
-    xcodebuild clean test -scheme netlaband -sdk iphoneos13.2 -destination 'platform=iOS Simulator,OS=13.3,name=iPhone 8'
+    # xcodebuild clean test -scheme netlaband -sdk iphoneos13.2 -destination 'platform=iOS Simulator,OS=13.3,name=iPhone 8'
+    xcodebuild clean test -scheme netlaband
