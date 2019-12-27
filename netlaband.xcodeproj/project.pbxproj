@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A730F3E23B68A81007F8828 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1AD6AF9F23B685D800D56BE1 /* netlaband.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netlaband.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AD6AFA423B685D800D56BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		1AD6AF9623B685D800D56BE1 = {
 			isa = PBXGroup;
 			children = (
+				1A730F3E23B68A81007F8828 /* README.md */,
 				1AD6AFA123B685D800D56BE1 /* netlaband */,
 				1AD6AFB723B685D900D56BE1 /* netlabandTests */,
 				1AD6AFC223B685D900D56BE1 /* netlabandUITests */,
