@@ -37,8 +37,8 @@ jobs:
 
     - name: Homebrew build helpers install
       run: |
-      brew install swiftlint
-      brew install swiftformat
+        brew install swiftlint
+        brew install swiftformat
 
     - name: build and test
       run: xcodebuild clean test -scheme netlaband
