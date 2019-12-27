@@ -42,7 +42,8 @@ public class NetworkAnalyzer: NSObject, URLSessionDelegate {
     private let concurrentURLUpdateQueue =
         DispatchQueue(
             label: "networkAnalyzer.urlupdates",
-            attributes: .concurrent)
+            attributes: .concurrent
+        )
     // references the dataTask objects for validating URLs indexed by string/URL
     // - gives us a handle the cancel them if needed...
     private var dataTasks: [String: URLSessionDataTask]
@@ -61,10 +62,10 @@ public class NetworkAnalyzer: NSObject, URLSessionDelegate {
     //   case .unsatisfied:
     // }
     public var path: NWPath? { // read-only 'computed' property
-        return monitor?.currentPath
+        monitor?.currentPath
     }
 
-    public init(wifi wifiRouter: String, urlsToCheck: [String]) {
+    public init(wifi _: String, urlsToCheck: [String]) {
         active = false
         dataTasks = [:]
         dataTaskResponses = [:]

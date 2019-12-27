@@ -149,6 +149,8 @@
 			buildConfigurationList = 1AD6AFC823B685D900D56BE1 /* Build configuration list for PBXNativeTarget "netlaband" */;
 			buildPhases = (
 				1AD6AF9B23B685D800D56BE1 /* Sources */,
+				1A730F3C23B688A4007F8828 /* Run Script (swiftformat) */,
+				1A730F3D23B688CF007F8828 /* Run Script (swiftlint) */,
 				1AD6AF9C23B685D800D56BE1 /* Frameworks */,
 				1AD6AF9D23B685D800D56BE1 /* Resources */,
 			);
@@ -266,6 +268,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A730F3C23B688A4007F8828 /* Run Script (swiftformat) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script (swiftformat)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat >/dev/null; then\nswiftformat . --exclude dependencies\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+		1A730F3D23B688CF007F8828 /* Run Script (swiftlint) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script (swiftlint)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1AD6AF9B23B685D800D56BE1 /* Sources */ = {
