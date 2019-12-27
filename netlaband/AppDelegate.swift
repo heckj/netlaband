@@ -27,6 +27,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
+
+        let netanalysis = NetworkAnalyzer(wifi: "foo", urlsToCheck: ["https://google.com/"])
+        netanalysis.start()
     }
 
     func applicationWillTerminate(_: Notification) {
