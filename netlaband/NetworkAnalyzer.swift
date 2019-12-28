@@ -28,17 +28,36 @@ enum NetworkAccessible {
     case unavailable
 }
 
-struct NetworkAnalyzerUrlResponse {
-    let url: String
-    var status: NetworkAccessible
-}
-
 public struct NetworkAnalysisDataPoint {
     let url: String
     let status: NetworkAccessible
     let timestamp: Date
-    let latency: Double
-    let bandwidth: Double
+    let latency: Double // in ms
+    let bandwidth: Double // in Kbytes per second
+
+    init(fromMetric metric: URLSessionTaskTransactionMetrics) {
+        url = metric.request.debugDescription
+
+        if let _: URLResponse = metric.response {
+            status = .available
+        } else {
+            status = .unknown
+        }
+        timestamp = metric.fetchStartDate ?? Date()
+
+        if let requestEnd = metric.requestEndDate, let responseStart = metric.responseStartDate {
+            latency = responseStart.timeIntervalSince(requestEnd) * 1000
+        } else {
+            latency = 0
+        }
+
+        if let responseStart = metric.responseStartDate, let responseEnd = metric.responseEndDate {
+            bandwidth = Double(metric.countOfResponseBodyBytesReceived)
+                / responseEnd.timeIntervalSince(responseStart) / 1024
+        } else {
+            bandwidth = 0
+        }
+    }
 }
 
 public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
@@ -58,9 +77,6 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
     // references the dataTask objects for validating URLs indexed by string/URL
     // - gives us a handle the cancel them if needed...
     private var dataTasks: [String: URLSessionDataTask]
-    private var dataTaskResponses: [String: NetworkAnalyzerUrlResponse]
-
-    weak var delegate: NetworkAnalyzerDelegate?
 
     public var urlsToValidate: [String]
     public var timerinterval: TimeInterval = 5 // seconds
@@ -77,14 +93,14 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
         monitor?.currentPath
     }
 
-    public var publisher: PassthroughSubject<NetworkAnalysisDataPoint, Never>
+    public var metricPublisher = PassthroughSubject<NetworkAnalysisDataPoint, Never>()
+    public var networkCheckTimerPublisher = PassthroughSubject<Date, Never>()
+    public var networkPathPublisher = PassthroughSubject<NWPath, Never>()
 
     public init(wifi _: String, urlsToCheck: [String]) {
         active = false
         dataTasks = [:]
-        dataTaskResponses = [:]
         urlsToValidate = urlsToCheck
-        publisher = PassthroughSubject<NetworkAnalysisDataPoint, Never>()
 
         super.init()
 
@@ -97,9 +113,15 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
         os_log("Activating network analyzer!", log: OSLog.netcheck, type: .info)
         active = true
         monitor?.start(queue: queue)
-        cancellableTimer = Timer.publish(every: timerinterval, on: RunLoop.main, in: .default).autoconnect().sink { _ in
-            self.checkURLs()
-        }
+        cancellableTimer = Timer.publish(every: timerinterval, on: RunLoop.main, in: .default)
+            .autoconnect()
+            .sink { timestamp in
+                // send a notification to any external subscribers wanting to know we are
+                // triggering a URL check sequence
+                self.networkCheckTimerPublisher.send(timestamp)
+                // And actually do the checking...
+                self.resetAndCheckURLS()
+            }
     }
 
     public func stop() {
@@ -136,8 +158,6 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
                           delegateQueue: urlRequestQueue)
     }
 
-    // callbacks and the cascade of checking
-
     private func networkPathUpdate(_ path: NWPath) {
         // called when the network path changes
         switch path.status {
@@ -150,11 +170,11 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
         @unknown default:
             fatalError("unknown and unexpected NWPathMonitor path update")
         }
-
-        resetAndCheckURLS()
+        networkPathPublisher.send(path)
     }
 
     private func resetAndCheckURLS() {
+        os_log("resetAndCheckURLS", log: OSLog.netcheck, type: .debug)
         session?.reset {
             // test each of the URLs for access
             for urlString in self.urlsToValidate {
@@ -165,17 +185,6 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
                 }
 
                 self.dataTasks[urlString] = self.testURLaccess(urlString: urlString)
-                let response = NetworkAnalyzerUrlResponse(url: urlString, status: .unknown)
-                self.concurrentURLUpdateQueue.async(flags: .barrier) { [weak self] in
-                    // make sure [weak self] is still assigned/valid before continuing
-                    guard let self = self else {
-                        return
-                    }
-                    // store it
-                    self.dataTaskResponses[urlString] = response
-                    // and send it over to the delegate
-                    self.delegate?.urlUpdate(urlresponse: response)
-                }
             }
         }
     }
@@ -197,104 +206,81 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
          tasks by calling the URLSessionTask object’s cancel() method.
          */
 
-        let dataTask = session?.dataTask(with: urlRequest) { data, response, error in
-            // clean up after ourselves...
-            // defer { self.dataTask = nil }
-
-            // check for errors
-            guard error == nil else {
-                os_log("%{public}@ error:  %{public}@",
-                       log: OSLog.netcheck, type: .error, urlString, String(describing: error))
-                let updatedResponse = NetworkAnalyzerUrlResponse(url: urlString, status: .unavailable)
-
-                self.concurrentURLUpdateQueue.async(flags: .barrier) { [weak self] in
-                    // make sure [weak self] is still assigned/valid before continuing
-                    guard let self = self else {
-                        return
-                    }
-                    // store it
-                    self.dataTaskResponses[urlString] = updatedResponse
-                    // and send it over to the delegate
-                    self.delegate?.urlUpdate(urlresponse: updatedResponse)
-                }
-                return
-            }
-            // make sure we gots the data
-            if data != nil,
-                let response = response as? HTTPURLResponse {
-                os_log("%{public}@ status code: %{public}d",
-                       log: OSLog.netcheck, type: OSLogType.info, urlString, response.statusCode)
-                let updatedResponse = NetworkAnalyzerUrlResponse(url: urlString, status: .available)
-                self.concurrentURLUpdateQueue.async(flags: .barrier) { [weak self] in
-                    // make sure [weak self] is still assigned/valid before continuing
-                    guard let self = self else {
-                        return
-                    }
-                    // store it
-                    self.dataTaskResponses[urlString] = updatedResponse
-                    // and send it over to the delegate
-                    self.delegate?.urlUpdate(urlresponse: updatedResponse)
-                }
-            }
-        }
+        let dataTask = session?.dataTask(with: urlRequest)
         dataTask?.resume()
         return dataTask
     }
 
     // MARK: URLSessionTaskDelegate methods
 
+    // NOTE(heckj): lesson learned - URLSession (even with `.reset()` will re-use an established connection,
+    // so future connections will happen *very* quickly, and some metrics are likely to be missing. What I
+    // saw is that the first request had a full set of metrics, but follow on requests are missing the domain
+    // and connection metrics, and the metric had "Reused Connection == true" set on it.
+    //
+    // You still get a requestDuration and responseDuration for the (final) redirected request
+    //
+    // You also get a metric for every segment of the request. In my sample case, I'm requesting "google.com"
+    // and the first thing is a 301 redirect to www.google.com, followed by the request there, following the
+    // redirect. The final metric is the more "useful" one, especially w/ bandwith - as it seems you really need
+    // to transfer a fair bit to get to a meaningful value there.
+
     public func urlSession(_: URLSession,
                            task _: URLSessionTask,
                            didFinishCollecting metrics: URLSessionTaskMetrics) {
         // check the metrics
         print("task duration (ms): ", metrics.taskInterval.duration * 1000)
-        print("redirect count was: ", metrics.redirectCount)
-        print("details...")
-        let transactionMetricsList = metrics.transactionMetrics
-        for metric in transactionMetricsList {
+        // rather than iterate over the whole set, we'll just grab the final metric under the (hopefully
+        // correct) assumption that it is the final data/redirect location for getting the URL data
+        if let metric = metrics.transactionMetrics.last {
+            // metric : URLSessionTaskTransactionMetrics
+            metricPublisher.send(NetworkAnalysisDataPoint(fromMetric: metric))
+            //
+            print("========================================================================")
             print("request ", metric.request.debugDescription)
-            print("fetchStart ", metric.fetchStartDate!)
+
             print("url.absoluteString ", metric.request.url?.absoluteString as Any)
             // some of the rest of this may not actually exist if the request fails... need to check nils...
+            if let fetchStartDate = metric.fetchStartDate {
+                print("fetchStart ", fetchStartDate)
+            }
 
             // the metrics don't universally exist on the "repeat" checkings...
             // not entirely sure why, need to spend a while with the debugger and seeing what's getting triggered
             if let domainStart = metric.domainLookupStartDate,
-                let domainEnd = metric.domainLookupEndDate,
-                let connectStart = metric.connectStartDate,
-                let connectEnd = metric.connectEndDate,
-                let requestStart = metric.requestStartDate,
-                let requestEnd = metric.requestEndDate,
-                let responseStart = metric.responseStartDate,
-                let responseEnd = metric.responseEndDate {
+                let domainEnd = metric.domainLookupEndDate {
                 print("domainDuration (ms) ", domainEnd.timeIntervalSince(domainStart) * 1000)
+            } else {
+                print("NO domainDuration")
+            }
+
+            if let connectStart = metric.connectStartDate, let connectEnd = metric.connectEndDate {
                 print("connectDuration (ms) ", connectEnd.timeIntervalSince(connectStart) * 1000) // <<= latency
+            } else {
+                print("NO connectDuration")
+            }
+
+            if let requestEnd = metric.requestEndDate, let responseStart = metric.responseStartDate {
+                print("alt latency (req end -> resp start) (ms) ", responseStart.timeIntervalSince(requestEnd) * 1000)
+            } else {
+                print("NO altLatency")
+            }
+
+            if let requestStart = metric.requestStartDate, let requestEnd = metric.requestEndDate {
                 print("requestDuration (ms) ", requestEnd.timeIntervalSince(requestStart) * 1000)
+            } else {
+                print("NO requestDuration")
+            }
+
+            if let responseStart = metric.responseStartDate, let responseEnd = metric.responseEndDate {
                 print("responseDuration (ms) ", responseEnd.timeIntervalSince(responseStart) * 1000)
+
                 print("bandwidth (K/sec) ",
                       Double(metric.countOfResponseBodyBytesReceived)
                           / responseEnd.timeIntervalSince(responseStart)
                           / 1024)
-                guard let fetchStartDate = metric.fetchStartDate else {
-                    break
-                }
-                let datapoint = NetworkAnalysisDataPoint(url: metric.request.debugDescription,
-                                                         status: .available,
-                                                         timestamp: fetchStartDate,
-                                                         latency: connectEnd.timeIntervalSince(connectStart) * 1000,
-                                                         bandwidth: Double(metric.countOfResponseBodyBytesReceived)
-                                                             / responseEnd.timeIntervalSince(responseStart)
-                                                             / 1024)
-
-                publisher.send(datapoint)
-//                concurrentURLUpdateQueue.async(flags: .barrier) { [weak self] in
-//                    // make sure [weak self] is still assigned/valid before continuing
-//                    guard let self = self else {
-//                        return
-//                    }
-//                    // store it
-//                    self.dataTaskMetrics[datapoint.url] = datapoint
-//                }
+            } else {
+                print("NO responseDuration (or bandwidth)")
             }
         }
     }
