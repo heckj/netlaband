@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_: Notification) {
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let contentView = ContentView(message: "Hello, World!")
 
         // Create the window and set the content view.
         window = NSWindow(

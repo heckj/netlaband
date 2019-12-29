@@ -14,7 +14,6 @@
 		1AD6AFAD23B685D900D56BE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6AFAB23B685D900D56BE1 /* Main.storyboard */; };
 		1AD6AFB923B685D900D56BE1 /* netlabandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFB823B685D900D56BE1 /* netlabandTests.swift */; };
 		1AD6AFC423B685D900D56BE1 /* netlabandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFC323B685D900D56BE1 /* netlabandUITests.swift */; };
-		1AD6AFD323B6877700D56BE1 /* NetworkAnalyzerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFD123B6877700D56BE1 /* NetworkAnalyzerDelegate.swift */; };
 		1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +50,6 @@
 		1AD6AFBF23B685D900D56BE1 /* netlabandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = netlabandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD6AFC323B685D900D56BE1 /* netlabandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netlabandUITests.swift; sourceTree = "<group>"; };
 		1AD6AFC523B685D900D56BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AD6AFD123B6877700D56BE1 /* NetworkAnalyzerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAnalyzerDelegate.swift; sourceTree = "<group>"; };
 		1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAnalyzer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */,
-				1AD6AFD123B6877700D56BE1 /* NetworkAnalyzerDelegate.swift */,
 				1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */,
 				1AD6AFA423B685D800D56BE1 /* ContentView.swift */,
 				1AD6AFA623B685D900D56BE1 /* Assets.xcassets */,
@@ -316,7 +313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */,
-				1AD6AFD323B6877700D56BE1 /* NetworkAnalyzerDelegate.swift in Sources */,
 				1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */,
 				1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */,
 			);
@@ -483,11 +479,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = netlaband/netlaband.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"netlaband/Preview Content\"";
-				DEVELOPMENT_TEAM = BDV4VC27D3;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = netlaband/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -506,11 +502,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = netlaband/netlaband.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"netlaband/Preview Content\"";
-				DEVELOPMENT_TEAM = BDV4VC27D3;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = netlaband/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
