@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AD2261723BE80370084FBF7 /* SwiftViz in Frameworks */ = {isa = PBXBuildFile; productRef = 1AD2261623BE80370084FBF7 /* SwiftViz */; };
 		1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */; };
 		1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA423B685D800D56BE1 /* ContentView.swift */; };
 		1AD6AFA723B685D900D56BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA623B685D900D56BE1 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD2261723BE80370084FBF7 /* SwiftViz in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +160,9 @@
 			dependencies = (
 			);
 			name = netlaband;
+			packageProductDependencies = (
+				1AD2261623BE80370084FBF7 /* SwiftViz */,
+			);
 			productName = netlaband;
 			productReference = 1AD6AF9F23B685D800D56BE1 /* netlaband.app */;
 			productType = "com.apple.product-type.application";
@@ -230,6 +235,9 @@
 				Base,
 			);
 			mainGroup = 1AD6AF9623B685D800D56BE1;
+			packageReferences = (
+				1AD2261523BE80370084FBF7 /* XCRemoteSwiftPackageReference "swiftviz" */,
+			);
 			productRefGroup = 1AD6AFA023B685D800D56BE1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -640,6 +648,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1AD2261523BE80370084FBF7 /* XCRemoteSwiftPackageReference "swiftviz" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftviz/swiftviz";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1AD2261623BE80370084FBF7 /* SwiftViz */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AD2261523BE80370084FBF7 /* XCRemoteSwiftPackageReference "swiftviz" */;
+			productName = SwiftViz;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1AD6AF9723B685D800D56BE1 /* Project object */;
 }
