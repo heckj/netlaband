@@ -13,10 +13,24 @@ struct BasicSiteView: View {
     var body: some View {
         HStack {
             Text(site)
-            Rectangle().stroke(Color.black)
+            VStack {
+//                Rectangle().stroke(Color.black)
+                GeometryReader { geometry in
+                    // geometry here provides us access to know the size of the
+                    // object we've been placed within...
+                    // geometry.size (CGSize)
+                    // geometry.frame (CGRect)
+                    Path { path in
+                        path.move(to: CGPoint(x: 0, y: geometry.size.height - 5))
+                        path.addLine(to: CGPoint(x: geometry.size.width, y: geometry.size.height - 5))
+                    }.stroke(Color.blue)
+                }
+            }
         }
     }
 }
+
+// https://developer.apple.com/tutorials/swiftui/drawing-paths-and-shapes
 
 struct BasicSiteView_Previews: PreviewProvider {
     let singleExamplePoint = NetworkAnalysisDataPoint(

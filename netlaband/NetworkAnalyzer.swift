@@ -35,6 +35,7 @@ public struct NetworkAnalysisDataPoint {
     public let latency: Double // in ms
     public let bandwidth: Double // in Kbytes per second
 
+    /// Convenience initializer for quick sample data points
     public init(url: String, latency: Double, bandwidth: Double) {
         self.url = url
         status = .available
