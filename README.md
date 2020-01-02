@@ -1,8 +1,9 @@
 # NetLaBand
 
-Network Latency Bandwidth
+Network Latency and Bandwidth tool
 
-Review and advise on the network connectivity status for my favorite local coffee shop
+Connects to one or more remote sites to validate the connectivity, reviewing
+and displaying visual metrics for network latency and bandwidth to those sites.
 
 ## Project Setup
 
