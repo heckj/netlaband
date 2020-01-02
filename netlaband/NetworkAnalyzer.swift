@@ -22,20 +22,28 @@ extension OSLog {
     //   process:netlaband category:NetworkAnalyzer
 }
 
-enum NetworkAccessible {
+public enum NetworkAccessible {
     case unknown
     case available
     case unavailable
 }
 
 public struct NetworkAnalysisDataPoint {
-    let url: String
-    let status: NetworkAccessible
-    let timestamp: Date
-    let latency: Double // in ms
-    let bandwidth: Double // in Kbytes per second
+    public let url: String
+    public let status: NetworkAccessible
+    public let timestamp: Date
+    public let latency: Double // in ms
+    public let bandwidth: Double // in Kbytes per second
 
-    init(fromMetric metric: URLSessionTaskTransactionMetrics) {
+    public init(url: String, latency: Double, bandwidth: Double) {
+        self.url = url
+        status = .available
+        timestamp = Date()
+        self.latency = latency
+        self.bandwidth = bandwidth
+    }
+
+    public init(fromMetric metric: URLSessionTaskTransactionMetrics) {
         url = metric.request.debugDescription
 
         if let _: URLResponse = metric.response {
