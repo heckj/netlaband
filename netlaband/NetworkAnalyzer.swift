@@ -138,7 +138,7 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
         // immediately cease all network operations in URLSession
         session?.invalidateAndCancel()
         monitor?.cancel()
-        if let cancellable = self.cancellableTimer {
+        if let cancellable = cancellableTimer {
             cancellable.cancel()
         }
         active = false
