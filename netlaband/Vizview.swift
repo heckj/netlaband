@@ -80,17 +80,30 @@ public struct AxisView<ScaleType: Scale>: View {
                 path.move(to: CGPoint(x: self.leftInset, y: 3))
                 path.addLine(to: CGPoint(x: width - self.rightInset, y: 3))
 
-                let ticks = self.scale.ticks(10)
+                let ticks = self.scale.ticks(nil)
+                // I kind of want to set the scale range here... since
+                // this is where I know the geometry limits I'm working
+                // within... The domain needs to come from the
+                // underlying data, but the range needs definition at
+                // time of use.
+                // range is 0...(width - leftInset - rightInset)
+
 
                 // get list of ticks from associated scale, draw them
+                for tick in ticks {
+                    path.move(to: CGPoint(x: self.leftInset + CGFloat(tick), y: 3))
+                    path.addLine(to: CGPoint(x: self.leftInset + CGFloat(tick), y: 8))
+
+                    // let xLoc = self.scale.scale(tick)
+                }
 
                 // then label the ticks by using scale.invert(//) with the values provided
-            }.stroke(lineWidth: 2.1)
+            }.stroke()
         }
     }
 }
 
-let myScale = LinearScale(domain: 0 ... 1.0, range: 0 ... 100.0, isClamped: false)
+let myScale = LinearScale(domain: 0 ... 1.0, range: 0 ... 400.0, isClamped: false)
 
 let start = Date() - TimeInterval(300)
 let end = Date()
@@ -98,6 +111,6 @@ let myTimeScale = TimeScale(domain: start ... end, range: 0 ... 100.0, isClamped
 
 struct Vizview_Previews: PreviewProvider {
     static var previews: some View {
-        AxisView(scale: myTimeScale, leftInset: 5.0, rightInset: 10.0)
+        AxisView(scale: myScale, leftInset: 5.0, rightInset: 10.0)
     }
 }
