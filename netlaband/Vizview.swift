@@ -88,7 +88,6 @@ public struct AxisView<ScaleType: Scale>: View {
                 // time of use.
                 // range is 0...(width - leftInset - rightInset)
 
-
                 // get list of ticks from associated scale, draw them
                 for tick in ticks {
                     path.move(to: CGPoint(x: self.leftInset + CGFloat(tick), y: 3))

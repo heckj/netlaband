@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1A4A608623E273F800D10766 /* Vizview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A608523E273F800D10766 /* Vizview.swift */; };
 		1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59732523BE84A000AB30EB /* BasicSiteView.swift */; };
-		1AD2261723BE80370084FBF7 /* SwiftViz in Frameworks */ = {isa = PBXBuildFile; productRef = 1AD2261623BE80370084FBF7 /* SwiftViz */; };
+		1A9A202823E3E76000C29A1D /* SwiftViz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9A202223E3E70400C29A1D /* SwiftViz.framework */; };
+		1A9A202923E3E76000C29A1D /* SwiftViz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9A202223E3E70400C29A1D /* SwiftViz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */; };
 		1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA423B685D800D56BE1 /* ContentView.swift */; };
 		1AD6AFA723B685D900D56BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA623B685D900D56BE1 /* Assets.xcassets */; };
@@ -21,6 +22,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1A9A202123E3E70400C29A1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A9A201A23E3E70400C29A1D /* SwiftViz.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftViz::SwiftViz::Product";
+			remoteInfo = SwiftViz;
+		};
+		1A9A202323E3E70400C29A1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A9A201A23E3E70400C29A1D /* SwiftViz.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftViz::SwiftVizTests::Product";
+			remoteInfo = SwiftVizTests;
+		};
 		1AD6AFB523B685D900D56BE1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AD6AF9723B685D800D56BE1 /* Project object */;
@@ -37,10 +52,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1A9A202A23E3E76000C29A1D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1A9A202923E3E76000C29A1D /* SwiftViz.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1A4A608523E273F800D10766 /* Vizview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vizview.swift; sourceTree = "<group>"; };
 		1A59732523BE84A000AB30EB /* BasicSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSiteView.swift; sourceTree = "<group>"; };
 		1A730F3E23B68A81007F8828 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1A9A201A23E3E70400C29A1D /* SwiftViz.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftViz.xcodeproj; path = ../swiftviz/SwiftViz.xcodeproj; sourceTree = "<group>"; };
 		1AD6AF9F23B685D800D56BE1 /* netlaband.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netlaband.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AD6AFA423B685D800D56BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AD2261723BE80370084FBF7 /* SwiftViz in Frameworks */,
+				1A9A202823E3E76000C29A1D /* SwiftViz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,14 +114,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A9A201B23E3E70400C29A1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A9A202223E3E70400C29A1D /* SwiftViz.framework */,
+				1A9A202423E3E70400C29A1D /* SwiftVizTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A9A202723E3E76000C29A1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1AD6AF9623B685D800D56BE1 = {
 			isa = PBXGroup;
 			children = (
+				1A9A201A23E3E70400C29A1D /* SwiftViz.xcodeproj */,
 				1A730F3E23B68A81007F8828 /* README.md */,
 				1AD6AFA123B685D800D56BE1 /* netlaband */,
 				1AD6AFB723B685D900D56BE1 /* netlabandTests */,
 				1AD6AFC223B685D900D56BE1 /* netlabandUITests */,
 				1AD6AFA023B685D800D56BE1 /* Products */,
+				1A9A202723E3E76000C29A1D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +208,7 @@
 				1A730F3D23B688CF007F8828 /* Run Script (swiftlint) */,
 				1AD6AF9C23B685D800D56BE1 /* Frameworks */,
 				1AD6AF9D23B685D800D56BE1 /* Resources */,
+				1A9A202A23E3E76000C29A1D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,7 +216,6 @@
 			);
 			name = netlaband;
 			packageProductDependencies = (
-				1AD2261623BE80370084FBF7 /* SwiftViz */,
 			);
 			productName = netlaband;
 			productReference = 1AD6AF9F23B685D800D56BE1 /* netlaband.app */;
@@ -242,10 +290,15 @@
 			);
 			mainGroup = 1AD6AF9623B685D800D56BE1;
 			packageReferences = (
-				1AD2261523BE80370084FBF7 /* XCRemoteSwiftPackageReference "swiftviz" */,
 			);
 			productRefGroup = 1AD6AFA023B685D800D56BE1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1A9A201B23E3E70400C29A1D /* Products */;
+					ProjectRef = 1A9A201A23E3E70400C29A1D /* SwiftViz.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1AD6AF9E23B685D800D56BE1 /* netlaband */,
@@ -254,6 +307,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1A9A202223E3E70400C29A1D /* SwiftViz.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftViz.framework;
+			remoteRef = 1A9A202123E3E70400C29A1D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1A9A202423E3E70400C29A1D /* SwiftVizTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = file;
+			path = SwiftVizTests.xctest;
+			remoteRef = 1A9A202323E3E70400C29A1D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1AD6AF9D23B685D800D56BE1 /* Resources */ = {
@@ -656,25 +726,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		1AD2261523BE80370084FBF7 /* XCRemoteSwiftPackageReference "swiftviz" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/swiftviz/swiftviz";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1AD2261623BE80370084FBF7 /* SwiftViz */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1AD2261523BE80370084FBF7 /* XCRemoteSwiftPackageReference "swiftviz" */;
-			productName = SwiftViz;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1AD6AF9723B685D800D56BE1 /* Project object */;
 }
