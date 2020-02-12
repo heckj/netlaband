@@ -62,54 +62,16 @@ import SwiftViz
 
 // For testing this, consider using https://github.com/nalexn/ViewInspector or
 // https://github.com/uber/ios-snapshot-test-case/
-
-public struct HorizontalAxisView<ScaleType: Scale>: View {
-    let leftInset: CGFloat
-    let rightInset: CGFloat
-    var scale: ScaleType
-    init(scale: ScaleType, leftInset: CGFloat?, rightInset: CGFloat?) {
-        self.leftInset = leftInset ?? 5.0
-        self.rightInset = rightInset ?? 5.0
-        self.scale = scale
-    }
-
-    public var body: some View {
-        GeometryReader { geometry in
-            Path { path in
-                // preview can call this with pathological values that may not make sense...
-                if (geometry.size.width < self.leftInset + self.rightInset) {
-                    // in case the reported width is tiny (less than insets), bail!
-                    return
-                }
-                let geometryRange = 0.0 ... Double(geometry.size.width - self.leftInset - self.rightInset)
-                let width = geometry.size.width
-                path.move(to: CGPoint(x: self.leftInset, y: 3))
-                path.addLine(to: CGPoint(x: width - self.rightInset, y: 3))
-
-                let ticks = self.scale.ticks(nil, range: geometryRange)
-
-                // get list of ticks from associated scale, draw them
-                for tick in ticks {
-                    path.move(to: CGPoint(x: self.leftInset + CGFloat(tick), y: 3))
-                    path.addLine(to: CGPoint(x: self.leftInset + CGFloat(tick), y: 8))
-
-                    // let xLoc = self.scale.scale(tick)
-                }
-
-                // then label the ticks by using scale.invert(//) with the values provided
-            }.stroke()
-        }
-    }
-}
-
-let myScale = LinearScale(domain: 0 ... 1.0, isClamped: false)
-
-let start = Date() - TimeInterval(300)
-let end = Date()
-let myTimeScale = TimeScale(domain: start ... end, isClamped: false)
-
-struct Vizview_Previews: PreviewProvider {
-    static var previews: some View {
-        HorizontalAxisView(scale: myScale, leftInset: 5.0, rightInset: 5.0)
-    }
-}
+//
+// public struct VizView: View {
+//
+//    public var body: some View {
+//    }
+// }
+//
+//
+// struct Vizview_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VizView()
+//    }
+// }
