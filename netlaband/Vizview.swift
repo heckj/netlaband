@@ -63,10 +63,10 @@ import SwiftViz
 // For testing this, consider using https://github.com/nalexn/ViewInspector or
 // https://github.com/uber/ios-snapshot-test-case/
 
-public struct AxisView<ScaleType: Scale>: View {
+public struct HorizontalAxisView<ScaleType: Scale>: View {
     let leftInset: CGFloat
     let rightInset: CGFloat
-    let scale: ScaleType
+    var scale: ScaleType
     init(scale: ScaleType, leftInset: CGFloat?, rightInset: CGFloat?) {
         self.leftInset = leftInset ?? 5.0
         self.rightInset = rightInset ?? 5.0
@@ -76,17 +76,17 @@ public struct AxisView<ScaleType: Scale>: View {
     public var body: some View {
         GeometryReader { geometry in
             Path { path in
+                // preview can call this with pathological values that may not make sense...
+                if (geometry.size.width < self.leftInset + self.rightInset) {
+                    // in case the reported width is tiny (less than insets), bail!
+                    return
+                }
+                let geometryRange = 0.0 ... Double(geometry.size.width - self.leftInset - self.rightInset)
                 let width = geometry.size.width
                 path.move(to: CGPoint(x: self.leftInset, y: 3))
                 path.addLine(to: CGPoint(x: width - self.rightInset, y: 3))
 
-                let ticks = self.scale.ticks(nil)
-                // I kind of want to set the scale range here... since
-                // this is where I know the geometry limits I'm working
-                // within... The domain needs to come from the
-                // underlying data, but the range needs definition at
-                // time of use.
-                // range is 0...(width - leftInset - rightInset)
+                let ticks = self.scale.ticks(nil, range: geometryRange)
 
                 // get list of ticks from associated scale, draw them
                 for tick in ticks {
@@ -102,14 +102,14 @@ public struct AxisView<ScaleType: Scale>: View {
     }
 }
 
-let myScale = LinearScale(domain: 0 ... 1.0, range: 0 ... 400.0, isClamped: false)
+let myScale = LinearScale(domain: 0 ... 1.0, isClamped: false)
 
 let start = Date() - TimeInterval(300)
 let end = Date()
-let myTimeScale = TimeScale(domain: start ... end, range: 0 ... 100.0, isClamped: false)
+let myTimeScale = TimeScale(domain: start ... end, isClamped: false)
 
 struct Vizview_Previews: PreviewProvider {
     static var previews: some View {
-        AxisView(scale: myScale, leftInset: 5.0, rightInset: 10.0)
+        HorizontalAxisView(scale: myScale, leftInset: 5.0, rightInset: 5.0)
     }
 }
