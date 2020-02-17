@@ -103,7 +103,11 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
     }
 
     public var metricPublisher = PassthroughSubject<NetworkAnalysisDataPoint, Never>()
+    // emits a sequence of metrics, one per site, every time the request check is initiated
+
     public var networkCheckTimerPublisher = PassthroughSubject<Date, Never>()
+    // emits a Date() object every time we commence a sequence of checking bandwidth and latency for a set of sites
+
     public var networkPathPublisher = PassthroughSubject<NWPath, Never>()
 
     public init(wifi _: String, urlsToCheck: [String]) {

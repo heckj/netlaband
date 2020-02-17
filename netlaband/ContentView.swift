@@ -13,8 +13,6 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text(message)
-                .rotation3DEffect(Angle(degrees: 30),
-                                  axis: /*@START_MENU_TOKEN@*/(x: 10.0, y: 10.0, z: 10.0)/*@END_MENU_TOKEN@*/)
 
             Button("Yo!") {
                 // no action right now
