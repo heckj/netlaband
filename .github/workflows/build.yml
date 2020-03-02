@@ -18,6 +18,11 @@ jobs:
       with:
         submodules: recursive
 
+    - name: (HACK) manually grab the SwiftViz package for this stuff
+      run: |
+          git clone https://github.com/swiftviz/swiftviz
+          ln -s swiftviz ../swiftviz
+
     - name: Switch to Xcode 11
       run: sudo xcode-select -s /Applications/Xcode_11.app
 
