@@ -19,28 +19,45 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
         self.scale = scale
     }
 
+    func tickList(geometry: GeometryProxy) -> [Tick] {
+        var result = [Tick]()
+        // protect against Preview sending in stupid values
+        // of geometry that can't be made into a reasonable range
+        // otherwise the next line will crash preview...
+        if geometry.size.width < leftInset + rightInset {
+            return result
+        }
+        let geometryRange = 0.0 ... CGFloat(geometry.size.width - leftInset - rightInset)
+        for tick in scale.ticks(nil, range: geometryRange) {
+            result.append(Tick(value: tick, location: tick + leftInset))
+        }
+        return result
+    }
+
     public var body: some View {
         GeometryReader { geometry in
-            Path { path in
-                // preview can call this with pathological values that may not make sense...
-                if geometry.size.width < self.leftInset + self.rightInset {
-                    // in case the reported width is tiny (less than insets), bail!
-                    return
-                }
-                let geometryRange = 0.0 ... Double(geometry.size.width - self.leftInset - self.rightInset)
-                let width = geometry.size.width
-                path.move(to: CGPoint(x: self.leftInset, y: 3))
-                path.addLine(to: CGPoint(x: width - self.rightInset, y: 3))
+            ZStack {
+                Path { path in
+                    if geometry.size.width < self.leftInset + self.rightInset {
+                        // preview can call this with pathological values that may not make sense...
+                        // in case the reported width is tiny (less than insets), bail!
+                        return
+                    }
 
-                let ticks = self.scale.ticks(nil, range: geometryRange)
+                    // draw base axis line
+                    path.move(to: CGPoint(x: self.leftInset, y: 3))
+                    path.addLine(to: CGPoint(x: geometry.size.width - self.rightInset, y: 3))
 
-                for tick in ticks {
-                    path.move(to: CGPoint(x: self.leftInset + CGFloat(tick), y: 3))
-                    path.addLine(to: CGPoint(x: self.leftInset + CGFloat(tick), y: 8))
-                }
-
-                // then label the ticks by using scale.invert(//) with the values provided
-            }.stroke()
+                    // draw each tick in the line
+                    for tick in self.tickList(geometry: geometry) {
+                        path.move(to: CGPoint(x: self.leftInset + tick.value, y: 3))
+                        path.addLine(to: CGPoint(x: self.leftInset + tick.value, y: 8))
+                    }
+                }.stroke()
+            }
+            ForEach(self.tickList(geometry: geometry)) { tickStruct in
+                Text(tickStruct.stringValue).position(x: tickStruct.location, y: CGFloat(15.0))
+            }
         }
     }
 }
@@ -48,7 +65,7 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
 struct HorizontalAxisView_Previews: PreviewProvider {
     static var previews: some View {
         HorizontalAxisView(scale: LinearScale(domain: 0 ... 1.0, isClamped: false),
-                           leftInset: 5.0,
-                           rightInset: 5.0)
+                           leftInset: 25.0,
+                           rightInset: 25.0)
     }
 }

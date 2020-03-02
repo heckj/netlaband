@@ -27,7 +27,7 @@ struct VerticalAxisView<ScaleType: Scale>: View {
                 if geometry.size.height < self.topInset + self.bottomInset {
                     return
                 }
-                let geometryRange = 0.0 ... Double(geometry.size.height - self.topInset - self.bottomInset)
+                let geometryRange = 0.0 ... CGFloat(geometry.size.height - self.topInset - self.bottomInset)
                 let height = geometry.size.height
 
                 path.move(to: CGPoint(x: 8, y: self.topInset))
