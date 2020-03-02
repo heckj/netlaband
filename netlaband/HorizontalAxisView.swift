@@ -29,7 +29,7 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
         }
         let geometryRange = 0.0 ... CGFloat(geometry.size.width - leftInset - rightInset)
         for tick in scale.ticks(nil, range: geometryRange) {
-            result.append(Tick(value: tick, location: tick + leftInset))
+            result.append(Tick(value: tick.0, location: tick.1 + leftInset))
         }
         return result
     }
@@ -50,8 +50,8 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
 
                     // draw each tick in the line
                     for tick in self.tickList(geometry: geometry) {
-                        path.move(to: CGPoint(x: self.leftInset + tick.value, y: 3))
-                        path.addLine(to: CGPoint(x: self.leftInset + tick.value, y: 8))
+                        path.move(to: CGPoint(x: tick.location, y: 3))
+                        path.addLine(to: CGPoint(x: tick.location, y: 8))
                     }
                 }.stroke()
             }
@@ -64,8 +64,9 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
 
 struct HorizontalAxisView_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalAxisView(scale: LinearScale(domain: 0 ... 1.0, isClamped: false),
+        HorizontalAxisView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false),
                            leftInset: 25.0,
                            rightInset: 25.0)
+            .frame(width: 400, height: 100, alignment: .center)
     }
 }

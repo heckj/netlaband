@@ -7,24 +7,29 @@
 //
 
 import SwiftUI
+import SwiftViz
 
 struct BasicSiteView: View {
     let site: String
     var body: some View {
         HStack {
             Text(site)
+
             VStack {
-//                Rectangle().stroke(Color.black)
                 GeometryReader { geometry in
                     // geometry here provides us access to know the size of the
                     // object we've been placed within...
                     // geometry.size (CGSize)
                     // geometry.frame (CGRect)
+
                     Path { path in
                         path.move(to: CGPoint(x: 0, y: geometry.size.height - 5))
                         path.addLine(to: CGPoint(x: geometry.size.width, y: geometry.size.height - 5))
-                    }.stroke(Color.blue)
+                    }.stroke(Color.red)
                 }
+                HorizontalAxisView(scale: SwiftViz.LinearScale(domain: 0 ... 10.0, isClamped: false),
+                                   leftInset: nil,
+                                   rightInset: nil)
             }
         }
     }
