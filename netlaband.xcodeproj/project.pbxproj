@@ -12,6 +12,7 @@
 		1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59732523BE84A000AB30EB /* BasicSiteView.swift */; };
 		1A9A202823E3E76000C29A1D /* SwiftViz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9A202223E3E70400C29A1D /* SwiftViz.framework */; };
 		1A9A202923E3E76000C29A1D /* SwiftViz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9A202223E3E70400C29A1D /* SwiftViz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */; };
 		1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */; };
 		1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA423B685D800D56BE1 /* ContentView.swift */; };
 		1AD6AFA723B685D900D56BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA623B685D900D56BE1 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		1A59732523BE84A000AB30EB /* BasicSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSiteView.swift; sourceTree = "<group>"; };
 		1A730F3E23B68A81007F8828 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1A9A201A23E3E70400C29A1D /* SwiftViz.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftViz.xcodeproj; path = ../swiftviz/SwiftViz.xcodeproj; sourceTree = "<group>"; };
+		1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAnalyzerControlView.swift; sourceTree = "<group>"; };
 		1AD6AF9F23B685D800D56BE1 /* netlaband.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netlaband.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AD6AFA423B685D800D56BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */,
 				1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */,
 				1AD6AFA423B685D800D56BE1 /* ContentView.swift */,
+				1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */,
 				1AD6AFA623B685D900D56BE1 /* Assets.xcassets */,
 				1AD6AFAB23B685D900D56BE1 /* Main.storyboard */,
 				1AD6AFAE23B685D900D56BE1 /* Info.plist */,
@@ -408,6 +411,7 @@
 				1AF7C67523F4615F00389040 /* HorizontalAxisView.swift in Sources */,
 				1A45BA9123F464E8001A91DD /* VerticalAxisView.swift in Sources */,
 				1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */,
+				1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */,
 				1A4A608623E273F800D10766 /* Vizview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

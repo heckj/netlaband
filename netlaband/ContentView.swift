@@ -13,18 +13,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Toggle(isOn: $networkModel.active, label: {
-                Text("Active")
-            })
-            HStack {
-                Text("Frequency: ")
-                // this seems to exhibit some sort of SwiftUI bug
-                // Text(String(format: "%.1f", networkModel.timerinterval))
-            }
-            Slider(value: $networkModel.timerinterval, in: 0.0 ... 10.0)
-            ForEach(networkModel.urlsToValidate, id: \.self) { site in
-                Text(site)
-            }
+            NetworkAnalyzerControlView(networkModel: networkModel)
             Button("Yo!") {
                 // no action right now
             }

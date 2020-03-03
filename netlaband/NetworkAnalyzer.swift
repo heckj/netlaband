@@ -70,6 +70,7 @@ public struct NetworkAnalysisDataPoint {
 }
 
 public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate, ObservableObject {
+    // triggers the activity of the NetworkAnalyzer
     @Published var active: Bool {
         didSet {
             if active {
@@ -158,6 +159,9 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate, ObservableObject
         // immediately cease all network operations in URLSession
         session?.invalidateAndCancel()
         monitor?.cancel()
+        for (_, task) in dataTasks {
+            task.cancel()
+        }
         if let cancellable = cancellableTimer {
             cancellable.cancel()
         }
