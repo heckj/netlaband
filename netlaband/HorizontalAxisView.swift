@@ -28,7 +28,7 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
             return result
         }
         let geometryRange = 0.0 ... CGFloat(geometry.size.width - leftInset - rightInset)
-        for tick in scale.ticks(nil, range: geometryRange) {
+        for tick in scale.ticks(10, range: geometryRange) {
             result.append(Tick(value: tick.0, location: tick.1 + leftInset))
         }
         return result

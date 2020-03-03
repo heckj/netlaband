@@ -33,7 +33,7 @@ struct VerticalAxisView<ScaleType: Scale>: View {
             return result
         }
         let geometryRange = 0.0 ... CGFloat(geometry.size.height - topInset - bottomInset)
-        for tick in scale.ticks(nil, range: geometryRange) {
+        for tick in scale.ticks(10, range: geometryRange) {
             result.append(Tick(value: tick.0, location: tick.1 + topInset))
         }
         return result
@@ -69,6 +69,6 @@ struct VerticalAxisView_Previews: PreviewProvider {
         VerticalAxisView(scale: LinearScale(domain: 0 ... 1.0, isClamped: false),
                          topInset: nil,
                          bottomInset: nil)
-        .frame(width: 100, height: 400, alignment: .center)
+            .frame(width: 100, height: 400, alignment: .center)
     }
 }
