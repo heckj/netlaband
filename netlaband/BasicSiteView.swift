@@ -27,9 +27,8 @@ struct BasicSiteView: View {
                         path.addLine(to: CGPoint(x: geometry.size.width, y: geometry.size.height - 5))
                     }.stroke(Color.red)
                 }
-                HorizontalAxisView(scale: SwiftViz.LinearScale(domain: 0 ... 10.0, isClamped: false),
-                                   leftInset: nil,
-                                   rightInset: nil)
+
+                HorizontalAxisView(scale: SwiftViz.LogScale(domain: 1 ... 10.0, isClamped: false))
             }
         }
     }

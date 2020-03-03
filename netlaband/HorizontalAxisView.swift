@@ -13,25 +13,21 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
     let leftInset: CGFloat
     let rightInset: CGFloat
     var scale: ScaleType
-    init(scale: ScaleType, leftInset: CGFloat?, rightInset: CGFloat?) {
-        self.leftInset = leftInset ?? 5.0
-        self.rightInset = rightInset ?? 5.0
+    init(scale: ScaleType, leftInset: CGFloat = 10, rightInset: CGFloat = 10) {
+        self.leftInset = leftInset
+        self.rightInset = rightInset
         self.scale = scale
     }
 
     func tickList(geometry: GeometryProxy) -> [Tick] {
-        var result = [Tick]()
         // protect against Preview sending in stupid values
         // of geometry that can't be made into a reasonable range
         // otherwise the next line will crash preview...
         if geometry.size.width < leftInset + rightInset {
-            return result
+            return [Tick]()
         }
         let geometryRange = 0.0 ... CGFloat(geometry.size.width - leftInset - rightInset)
-        for tick in scale.ticks(10, range: geometryRange) {
-            result.append(Tick(value: tick.0, location: tick.1 + leftInset))
-        }
-        return result
+        return scale.ticks(count: 10, range: geometryRange)
     }
 
     public var body: some View {
@@ -50,13 +46,13 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
 
                     // draw each tick in the line
                     for tick in self.tickList(geometry: geometry) {
-                        path.move(to: CGPoint(x: tick.location, y: 3))
-                        path.addLine(to: CGPoint(x: tick.location, y: 8))
+                        path.move(to: CGPoint(x: tick.rangeLocation, y: 3))
+                        path.addLine(to: CGPoint(x: tick.rangeLocation, y: 8))
                     }
                 }.stroke()
             }
             ForEach(self.tickList(geometry: geometry)) { tickStruct in
-                Text(tickStruct.stringValue).position(x: tickStruct.location, y: CGFloat(15.0))
+                Text(tickStruct.stringValue).position(x: tickStruct.rangeLocation, y: CGFloat(15.0))
             }
         }
     }
@@ -64,9 +60,16 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
 
 struct HorizontalAxisView_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalAxisView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false),
-                           leftInset: 25.0,
-                           rightInset: 25.0)
-            .frame(width: 400, height: 100, alignment: .center)
+        Group {
+            HorizontalAxisView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false),
+                               leftInset: 25.0,
+                               rightInset: 25.0)
+                .frame(width: 400, height: 50, alignment: .center)
+
+            HorizontalAxisView(scale: LogScale(domain: 1 ... 10.0, isClamped: false),
+                               leftInset: 25.0,
+                               rightInset: 25.0)
+                .frame(width: 400, height: 50, alignment: .center)
+        }
     }
 }

@@ -16,27 +16,23 @@ struct VerticalAxisView<ScaleType: Scale>: View {
     let tickLength: CGFloat
 
     var scale: ScaleType
-    init(scale: ScaleType, topInset: CGFloat?, bottomInset: CGFloat?) {
-        self.topInset = topInset ?? 25.0
-        self.bottomInset = bottomInset ?? 25.0
+    init(scale: ScaleType, topInset: CGFloat = 25, bottomInset: CGFloat = 25) {
+        self.topInset = topInset
+        self.bottomInset = bottomInset
         self.scale = scale
         leftOffset = 30
         tickLength = 5
     }
 
     func tickList(geometry: GeometryProxy) -> [Tick] {
-        var result = [Tick]()
         // protect against Preview sending in stupid values
         // of geometry that can't be made into a reasonable range
         // otherwise the next line will crash preview...
         if geometry.size.width < topInset + bottomInset {
-            return result
+            return [Tick]()
         }
         let geometryRange = 0.0 ... CGFloat(geometry.size.height - topInset - bottomInset)
-        for tick in scale.ticks(10, range: geometryRange) {
-            result.append(Tick(value: tick.0, location: tick.1 + topInset))
-        }
-        return result
+        return scale.ticks(count: 10, range: geometryRange)
     }
 
     var body: some View {
@@ -52,12 +48,12 @@ struct VerticalAxisView<ScaleType: Scale>: View {
                     path.addLine(to: CGPoint(x: self.leftOffset + self.tickLength, y: geometry.size.height - self.bottomInset))
 
                     for tick in self.tickList(geometry: geometry) {
-                        path.move(to: CGPoint(x: self.leftOffset, y: tick.location))
-                        path.addLine(to: CGPoint(x: self.leftOffset + self.tickLength, y: tick.location))
+                        path.move(to: CGPoint(x: self.leftOffset, y: tick.rangeLocation))
+                        path.addLine(to: CGPoint(x: self.leftOffset + self.tickLength, y: tick.rangeLocation))
                     }
                 }.stroke()
                 ForEach(self.tickList(geometry: geometry)) { tickStruct in
-                    Text(tickStruct.stringValue).position(x: 15, y: tickStruct.location)
+                    Text(tickStruct.stringValue).position(x: 15, y: tickStruct.rangeLocation)
                 }
             }
         }
@@ -66,9 +62,12 @@ struct VerticalAxisView<ScaleType: Scale>: View {
 
 struct VerticalAxisView_Previews: PreviewProvider {
     static var previews: some View {
-        VerticalAxisView(scale: LinearScale(domain: 0 ... 1.0, isClamped: false),
-                         topInset: nil,
-                         bottomInset: nil)
-            .frame(width: 100, height: 400, alignment: .center)
+        Group {
+            VerticalAxisView(scale: LinearScale(domain: 0 ... 1.0, isClamped: false))
+                .frame(width: 100, height: 400, alignment: .center)
+
+            VerticalAxisView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
+                .frame(width: 100, height: 400, alignment: .center)
+        }
     }
 }
