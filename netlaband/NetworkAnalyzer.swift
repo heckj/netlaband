@@ -69,8 +69,17 @@ public struct NetworkAnalysisDataPoint {
     }
 }
 
-public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
-    private var active: Bool
+public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate, ObservableObject {
+    @Published var active: Bool {
+        didSet {
+            if active {
+                start()
+            } else {
+                stop()
+            }
+        }
+    }
+
     private var session: URLSession?
     private var monitor: NWPathMonitor?
     private var cancellableTimer: Cancellable?
@@ -87,8 +96,16 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
     // - gives us a handle the cancel them if needed...
     private var dataTasks: [String: URLSessionDataTask]
 
-    public var urlsToValidate: [String]
-    public var timerinterval: TimeInterval = 5 // seconds
+    @Published public var urlsToValidate: [String]
+    @Published public var timerinterval: TimeInterval = 5 { // seconds
+        didSet {
+            os_log("updated timer interval to: %f", log: OSLog.netcheck, self.timerinterval)
+            if self.active {
+                self.stop()
+                self.start()
+            }
+        }
+    }
 
     // encapsulate but expose the specifics for the PATH to be able check
     // the status of it:
@@ -110,7 +127,7 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
 
     public var networkPathPublisher = PassthroughSubject<NWPath, Never>()
 
-    public init(wifi _: String, urlsToCheck: [String]) {
+    public init(urlsToCheck: [String]) {
         active = false
         dataTasks = [:]
         urlsToValidate = urlsToCheck
@@ -122,9 +139,8 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
         monitor?.pathUpdateHandler = networkPathUpdate
     }
 
-    public func start() {
+    private func start() {
         os_log("Activating network analyzer!", log: OSLog.netcheck, type: .info)
-        active = true
         monitor?.start(queue: queue)
         cancellableTimer = Timer.publish(every: timerinterval, on: RunLoop.main, in: .default)
             .autoconnect()
@@ -137,7 +153,7 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
             }
     }
 
-    public func stop() {
+    private func stop() {
         os_log("Deactivating network analyzer!", log: OSLog.netcheck, type: .info)
         // immediately cease all network operations in URLSession
         session?.invalidateAndCancel()
@@ -145,7 +161,6 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate {
         if let cancellable = cancellableTimer {
             cancellable.cancel()
         }
-        active = false
         // reset the session for running again in the future
         session = setupURLSession()
     }

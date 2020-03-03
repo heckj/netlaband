@@ -9,15 +9,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    let message: String
+    @ObservedObject var networkModel: NetworkAnalyzer
+
     var body: some View {
         VStack {
-            Text(message)
-
+            Toggle(isOn: $networkModel.active, label: {
+                Text("Active")
+            })
+            HStack {
+                Text("Frequency: ")
+                // this seems to exhibit some sort of SwiftUI bug
+                // Text(String(format: "%.1f", networkModel.timerinterval))
+            }
+            Slider(value: $networkModel.timerinterval, in: 0.0 ... 10.0)
+            ForEach(networkModel.urlsToValidate, id: \.self) { site in
+                Text(site)
+            }
             Button("Yo!") {
                 // no action right now
             }
-            .border(/*@START_MENU_TOKEN@*/Color.blue/*@END_MENU_TOKEN@*/, width: 3)
         }
         .frame(maxWidth: 400, maxHeight: 180)
         .background(/*@START_MENU_TOKEN@*/Color.gray/*@END_MENU_TOKEN@*/)
@@ -26,6 +36,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(message: "Hello World")
+        ContentView(networkModel: NetworkAnalyzer(urlsToCheck: ["https://google.com/"]))
     }
 }

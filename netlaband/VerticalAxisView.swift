@@ -48,12 +48,12 @@ struct VerticalAxisView<ScaleType: Scale>: View {
                     path.addLine(to: CGPoint(x: self.leftOffset + self.tickLength, y: geometry.size.height - self.bottomInset))
 
                     for tick in self.tickList(geometry: geometry) {
-                        path.move(to: CGPoint(x: self.leftOffset, y: tick.rangeLocation))
-                        path.addLine(to: CGPoint(x: self.leftOffset + self.tickLength, y: tick.rangeLocation))
+                        path.move(to: CGPoint(x: self.leftOffset, y: tick.rangeLocation + self.topInset))
+                        path.addLine(to: CGPoint(x: self.leftOffset + self.tickLength, y: tick.rangeLocation + self.topInset))
                     }
                 }.stroke()
                 ForEach(self.tickList(geometry: geometry)) { tickStruct in
-                    Text(tickStruct.stringValue).position(x: 15, y: tickStruct.rangeLocation)
+                    Text(tickStruct.stringValue).position(x: 15, y: tickStruct.rangeLocation + self.topInset)
                 }
             }
         }

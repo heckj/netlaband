@@ -46,13 +46,13 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
 
                     // draw each tick in the line
                     for tick in self.tickList(geometry: geometry) {
-                        path.move(to: CGPoint(x: tick.rangeLocation, y: 3))
-                        path.addLine(to: CGPoint(x: tick.rangeLocation, y: 8))
+                        path.move(to: CGPoint(x: tick.rangeLocation + self.leftInset, y: 3))
+                        path.addLine(to: CGPoint(x: tick.rangeLocation + self.leftInset, y: 8))
                     }
                 }.stroke()
             }
             ForEach(self.tickList(geometry: geometry)) { tickStruct in
-                Text(tickStruct.stringValue).position(x: tickStruct.rangeLocation, y: CGFloat(15.0))
+                Text(tickStruct.stringValue).position(x: tickStruct.rangeLocation + self.leftInset, y: CGFloat(15.0))
             }
         }
     }

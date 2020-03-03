@@ -15,7 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_: Notification) {
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView(message: "Hello, World!")
+        let netanalysis = NetworkAnalyzer(urlsToCheck: ["https://google.com/"])
+
+        let contentView = ContentView(networkModel: netanalysis)
 
         // Create the window and set the content view.
         window = NSWindow(
@@ -27,9 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
-
-        let netanalysis = NetworkAnalyzer(wifi: "foo", urlsToCheck: ["https://google.com/"])
-        netanalysis.start()
     }
 
     func applicationWillTerminate(_: Notification) {
