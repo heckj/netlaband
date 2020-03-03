@@ -13,6 +13,8 @@
 		1A9A202823E3E76000C29A1D /* SwiftViz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9A202223E3E70400C29A1D /* SwiftViz.framework */; };
 		1A9A202923E3E76000C29A1D /* SwiftViz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9A202223E3E70400C29A1D /* SwiftViz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */; };
+		1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD038E240F190B007A822C /* CircularBuffer.swift */; };
+		1AAD0394240F1DD1007A822C /* CircularBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD0392240F1DD1007A822C /* CircularBufferTests.swift */; };
 		1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */; };
 		1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA423B685D800D56BE1 /* ContentView.swift */; };
 		1AD6AFA723B685D900D56BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA623B685D900D56BE1 /* Assets.xcassets */; };
@@ -76,6 +78,8 @@
 		1A730F3E23B68A81007F8828 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1A9A201A23E3E70400C29A1D /* SwiftViz.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftViz.xcodeproj; path = ../swiftviz/SwiftViz.xcodeproj; sourceTree = "<group>"; };
 		1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAnalyzerControlView.swift; sourceTree = "<group>"; };
+		1AAD038E240F190B007A822C /* CircularBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularBuffer.swift; sourceTree = "<group>"; };
+		1AAD0392240F1DD1007A822C /* CircularBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularBufferTests.swift; sourceTree = "<group>"; };
 		1AD6AF9F23B685D800D56BE1 /* netlaband.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netlaband.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AD6AFA423B685D800D56BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		1AD6AFA123B685D800D56BE1 /* netlaband */ = {
 			isa = PBXGroup;
 			children = (
+				1AAD038E240F190B007A822C /* CircularBuffer.swift */,
 				1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */,
 				1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */,
 				1AD6AFA423B685D800D56BE1 /* ContentView.swift */,
@@ -190,6 +195,7 @@
 		1AD6AFB723B685D900D56BE1 /* netlabandTests */ = {
 			isa = PBXGroup;
 			children = (
+				1AAD0392240F1DD1007A822C /* CircularBufferTests.swift */,
 				1AD6AFB823B685D900D56BE1 /* netlabandTests.swift */,
 				1AD6AFBA23B685D900D56BE1 /* Info.plist */,
 			);
@@ -405,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */,
 				1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */,
 				1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */,
 				1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */,
@@ -420,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AAD0394240F1DD1007A822C /* CircularBufferTests.swift in Sources */,
 				1AD6AFB923B685D900D56BE1 /* netlabandTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

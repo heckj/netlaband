@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var networkModel: NetworkAnalyzer
+    @State private var latestMetric: [NetworkAnalysisDataPoint] = [NetworkAnalysisDataPoint]()
 
     var body: some View {
         VStack {
@@ -17,6 +18,9 @@ struct ContentView: View {
             Button("Yo!") {
                 // no action right now
             }
+            .onReceive(networkModel.metricPublisher, perform: { dp in
+                self.latestMetric.append(dp)
+            })
         }
         .frame(maxWidth: 400, maxHeight: 180)
         .background(/*@START_MENU_TOKEN@*/Color.gray/*@END_MENU_TOKEN@*/)
