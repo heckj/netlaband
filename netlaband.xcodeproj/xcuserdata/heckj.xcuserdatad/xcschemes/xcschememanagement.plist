@@ -7,7 +7,25 @@
 		<key>netlaband.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1AD6AF9E23B685D800D56BE1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1AD6AFB323B685D900D56BE1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1AD6AFBE23B685D900D56BE1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

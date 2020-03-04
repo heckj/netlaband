@@ -9,25 +9,31 @@
 import SwiftUI
 
 struct ContentView: View {
-    let message: String
+    @ObservedObject var networkModel: NetworkAnalyzer
+    @State private var metrics = CircularBuffer<NetworkAnalysisDataPoint>(initialCapacity: 10)
+
+    let date = Date()
     var body: some View {
         VStack {
-            Text(message)
-                .rotation3DEffect(Angle(degrees: 30),
-                                  axis: /*@START_MENU_TOKEN@*/(x: 10.0, y: 10.0, z: 10.0)/*@END_MENU_TOKEN@*/)
-
-            Button("Yo!") {
-                // no action right now
+            NetworkAnalyzerControlView(networkModel: networkModel)
+            HStack {
+                Text("\(metrics.count) datapoints")
             }
-            .border(/*@START_MENU_TOKEN@*/Color.blue/*@END_MENU_TOKEN@*/, width: 3)
+            List(self.metrics) { dp in
+                DataPointTextView(dp: dp)
+            }
+            .onReceive(networkModel.metricPublisher.receive(on: RunLoop.main), perform: { dp in
+                self.metrics.append(dp)
+                if self.metrics.count > 10 {
+                    self.metrics.removeFirst()
+                }
+            })
         }
-        .frame(maxWidth: 400, maxHeight: 180)
-        .background(/*@START_MENU_TOKEN@*/Color.gray/*@END_MENU_TOKEN@*/)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(message: "Hello World")
+        ContentView(networkModel: NetworkAnalyzer(urlsToCheck: ["https://google.com/"]))
     }
 }
