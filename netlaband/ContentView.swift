@@ -10,20 +10,27 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var networkModel: NetworkAnalyzer
-    @State private var latestMetric: [NetworkAnalysisDataPoint] = [NetworkAnalysisDataPoint]()
+    @State private var metrics = CircularBuffer<NetworkAnalysisDataPoint>(initialCapacity: 10)
 
+    let date = Date()
     var body: some View {
         VStack {
             NetworkAnalyzerControlView(networkModel: networkModel)
-            Button("Yo!") {
-                // no action right now
+            HStack {
+                Text("\(metrics.count) datapoints")
             }
-            .onReceive(networkModel.metricPublisher, perform: { dp in
-                self.latestMetric.append(dp)
+            List(self.metrics) { dp in
+                HStack {
+                    Text(dp.timestamp.description)
+                }
+            }
+            .onReceive(networkModel.metricPublisher.receive(on: RunLoop.main), perform: { dp in
+                self.metrics.append(dp)
+                if self.metrics.count > 10 {
+                    self.metrics.removeFirst()
+                }
             })
         }
-        .frame(maxWidth: 400, maxHeight: 180)
-        .background(/*@START_MENU_TOKEN@*/Color.gray/*@END_MENU_TOKEN@*/)
     }
 }
 

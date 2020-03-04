@@ -28,7 +28,9 @@ public enum NetworkAccessible {
     case unavailable
 }
 
-public struct NetworkAnalysisDataPoint {
+public struct NetworkAnalysisDataPoint: Hashable, Identifiable {
+    public var id = UUID()
+
     public let url: String
     public let status: NetworkAccessible
     public let timestamp: Date

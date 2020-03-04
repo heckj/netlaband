@@ -19,7 +19,7 @@ struct NetworkAnalyzerControlView: View {
                 Text("Active")
             })
             Slider(value: $networkModel.timerinterval,
-                   in: 0.0 ... 10.0,
+                   in: 0.5 ... 10.0,
                    step: 0.5,
                    label: {
                        Text(String(format: "Every %.1f seconds", arguments: [networkModel.timerinterval]))
