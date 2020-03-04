@@ -20,9 +20,7 @@ struct ContentView: View {
                 Text("\(metrics.count) datapoints")
             }
             List(self.metrics) { dp in
-                HStack {
-                    Text(dp.timestamp.description)
-                }
+                DataPointTextView(dp: dp)
             }
             .onReceive(networkModel.metricPublisher.receive(on: RunLoop.main), perform: { dp in
                 self.metrics.append(dp)

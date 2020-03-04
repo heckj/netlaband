@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A418EFF240F2EDF00E023A0 /* DataPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */; };
 		1A45BA9123F464E8001A91DD /* VerticalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */; };
 		1A4A608623E273F800D10766 /* Vizview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A608523E273F800D10766 /* Vizview.swift */; };
 		1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59732523BE84A000AB30EB /* BasicSiteView.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointTextView.swift; sourceTree = "<group>"; };
 		1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAxisView.swift; sourceTree = "<group>"; };
 		1A4A608523E273F800D10766 /* Vizview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vizview.swift; sourceTree = "<group>"; };
 		1A59732523BE84A000AB30EB /* BasicSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSiteView.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				1AD6AFAF23B685D900D56BE1 /* netlaband.entitlements */,
 				1AD6AFA823B685D900D56BE1 /* Preview Content */,
 				1A59732523BE84A000AB30EB /* BasicSiteView.swift */,
+				1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */,
 				1A4A608523E273F800D10766 /* Vizview.swift */,
 				1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */,
 				1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */,
@@ -420,6 +423,7 @@
 				1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */,
 				1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */,
 				1A4A608623E273F800D10766 /* Vizview.swift in Sources */,
+				1A418EFF240F2EDF00E023A0 /* DataPointTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

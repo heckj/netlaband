@@ -37,12 +37,6 @@ struct BasicSiteView: View {
 // https://developer.apple.com/tutorials/swiftui/drawing-paths-and-shapes
 
 struct BasicSiteView_Previews: PreviewProvider {
-    let singleExamplePoint = NetworkAnalysisDataPoint(
-        url: "https://www.google.com/",
-        latency: 43.46799850463867, // in ms
-        bandwidth: 2437.155212838014 // in Kbytes per second
-    )
-
     static var previews: some View {
         BasicSiteView(site: "https://www.google.com/")
             .frame(width: 400, height: 100, alignment: .center)
