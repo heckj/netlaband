@@ -13,40 +13,53 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
     let points: CollectionType
     var scale: ScaleType
 
+    @State private var blur: CGFloat = 1.0
+    @State private var stroke: CGFloat = 1.0
+
     func scalePosition(myScale: ScaleType, size: CGSize, point: NetworkAnalysisDataPoint) -> CGPoint {
         let xPos = myScale.scale(CGFloat(point.latency),
                                  range: 0 ... size.width)
-        let yPos = size.height / 2
-        return CGPoint(x: xPos, y: yPos)
+        // ternary structure: question ? answerYes : answerNo
+        let limitedX = xPos.isNaN ? CGFloat(0) : xPos
+        let pointval = CGPoint(x: limitedX, y: size.height / 2)
+        // print("returning: ", pointval)
+        return pointval
     }
 
     func sizeFromBandwidth(_ point: NetworkAnalysisDataPoint, size: CGSize) -> CGFloat {
-        let minRange = min(size.height, size.width)
+        if point.bandwidth < 1 {
+            return CGFloat(10)
+        }
+        let minRange = max(min(size.height, size.width), 10)
         let internalScale = LogScale(domain: 1 ... 10000.0, isClamped: false)
         let scaledSize = internalScale.scale(CGFloat(point.bandwidth), range: 10 ... minRange)
+        // print("returning: ", scaledSize)
         return scaledSize
     }
 
     var body: some View {
-        ZStack {
-            // when using a ZStack, the stuff listed at the
-            // top of the construction pattern is on the "bottom"
-            // of the stack - that is, you can think of it as
-            // building "upward" to displaying the view.
+        VStack {
+            VizControlsView(min: 0.5, max: 20.0, strokeValue: $stroke, blurVal: $blur)
+            ZStack {
+                // when using a ZStack, the stuff listed at the
+                // top of the construction pattern is on the "bottom"
+                // of the stack - that is, you can think of it as
+                // building "upward" to displaying the view.
 
-            HorizontalBandView(scale: scale)
+                HorizontalBandView(scale: scale)
 
-            GeometryReader { geometry in
-                // geometry here provides us access to know the size of the
-                // object we've been placed within...
-                // geometry.size (CGSize)
-                // geometry.frame (CGRect)
-                ForEach(self.points) { point in
-                    Circle()
-                        .stroke(Color.blue, lineWidth: 2)
-                        .blur(radius: CGFloat(3.0))
-                        .frame(width: self.sizeFromBandwidth(point, size: geometry.size), height: self.sizeFromBandwidth(point, size: geometry.size), alignment: .center)
-                        .position(self.scalePosition(myScale: self.scale, size: geometry.size, point: point))
+                GeometryReader { geometry in
+                    // geometry here provides us access to know the size of the
+                    // object we've been placed within...
+                    // geometry.size (CGSize)
+                    // geometry.frame (CGRect)
+                    ForEach(self.points) { point in
+                        Circle()
+                            .stroke(Color.blue, lineWidth: self.stroke)
+                            .blur(radius: CGFloat(self.blur))
+                            .frame(width: self.sizeFromBandwidth(point, size: geometry.size), height: self.sizeFromBandwidth(point, size: geometry.size), alignment: .center)
+                            .position(self.scalePosition(myScale: self.scale, size: geometry.size, point: point))
+                    }
                 }
             }
         }
