@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftViz
 
 struct ContentView: View {
     @ObservedObject var networkModel: NetworkAnalyzer
@@ -19,6 +20,8 @@ struct ContentView: View {
             HStack {
                 Text("\(metrics.count) datapoints")
             }
+            DataPointCollectionView(points: self.metrics, scale: LogScale(domain: 1 ... 10000.0, isClamped: false))
+
             List(self.metrics) { dp in
                 DataPointTextView(dp: dp)
             }

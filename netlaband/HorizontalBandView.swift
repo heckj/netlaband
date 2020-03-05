@@ -9,7 +9,7 @@
 import SwiftUI
 import SwiftViz
 
-struct HorizontalAxisBandView<ScaleType: Scale>: View {
+struct HorizontalBandView<ScaleType: Scale>: View {
     var scale: ScaleType
 
     init(scale: ScaleType) {
@@ -46,18 +46,18 @@ struct HorizontalAxisBandView<ScaleType: Scale>: View {
 }
 
 #if DEBUG
-    struct HorizontalAxisBandView_Previews: PreviewProvider {
+    struct HorizontalBandView_Previews: PreviewProvider {
         static var previews: some View {
             Group {
-                HorizontalAxisBandView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false))
+                HorizontalBandView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false))
                     .frame(width: 400, height: 50, alignment: .center)
                     .padding()
 
-                HorizontalAxisBandView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
+                HorizontalBandView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
                     .frame(width: 400, height: 50, alignment: .center)
                     .padding()
 
-                HorizontalAxisBandView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false))
+                HorizontalBandView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false))
                     .frame(width: 400, height: 50, alignment: .center)
                     .padding()
             }
