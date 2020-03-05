@@ -24,12 +24,12 @@ struct VerticalAxisView<ScaleType: Scale>: View {
         tickLength = 5
     }
 
-    func tickList(geometry: GeometryProxy) -> [Tick] {
+    func tickList(geometry: GeometryProxy) -> [ScaleType.TickType] {
         // protect against Preview sending in stupid values
         // of geometry that can't be made into a reasonable range
         // otherwise the next line will crash preview...
         if geometry.size.width < topInset + bottomInset {
-            return [Tick]()
+            return [ScaleType.TickType]()
         }
         let geometryRange = 0.0 ... CGFloat(geometry.size.height - topInset - bottomInset)
         return scale.ticks(count: 10, range: geometryRange)
@@ -52,9 +52,9 @@ struct VerticalAxisView<ScaleType: Scale>: View {
                         path.addLine(to: CGPoint(x: self.leftOffset + self.tickLength, y: tick.rangeLocation + self.topInset))
                     }
                 }.stroke()
-                ForEach(self.tickList(geometry: geometry)) { tickStruct in
-                    Text(tickStruct.stringValue).position(x: 15, y: tickStruct.rangeLocation + self.topInset)
-                }
+//                ForEach(self.tickList(geometry: geometry)) { tickStruct in
+//                    Text(tickStruct.stringValue).position(x: 15, y: tickStruct.rangeLocation + self.topInset)
+//                }
             }
         }
     }

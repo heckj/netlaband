@@ -19,12 +19,12 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
         self.scale = scale
     }
 
-    func tickList(geometry: GeometryProxy) -> [Tick] {
+    func tickList(geometry: GeometryProxy) -> [ScaleType.TickType] {
         // protect against Preview sending in stupid values
         // of geometry that can't be made into a reasonable range
         // otherwise the next line will crash preview...
         if geometry.size.width < leftInset + rightInset {
-            return [Tick]()
+            return [ScaleType.TickType]()
         }
         let geometryRange = 0.0 ... CGFloat(geometry.size.width - leftInset - rightInset)
         return scale.ticks(count: 10, range: geometryRange)
@@ -51,9 +51,10 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
                     }
                 }.stroke()
             }
-            ForEach(self.tickList(geometry: geometry)) { tickStruct in
-                Text(tickStruct.stringValue).position(x: tickStruct.rangeLocation + self.leftInset, y: CGFloat(15.0))
-            }
+//            ForEach(self.tickList(geometry: geometry)) { tickStruct in
+//                Text(String(format: "%.1f", arguments: [tickStruct.value]))
+//                    .position(x: tickStruct.rangeLocation + self.leftInset, y: CGFloat(15.0))
+//            }
         }
     }
 }

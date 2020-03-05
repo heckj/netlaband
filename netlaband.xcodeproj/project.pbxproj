@@ -11,6 +11,8 @@
 		1A45BA9123F464E8001A91DD /* VerticalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */; };
 		1A4A608623E273F800D10766 /* Vizview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A608523E273F800D10766 /* Vizview.swift */; };
 		1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59732523BE84A000AB30EB /* BasicSiteView.swift */; };
+		1A7EE46A241037B3008C58D3 /* HorizontalAxisBandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE469241037B3008C58D3 /* HorizontalAxisBandView.swift */; };
+		1A8F880C240F400E00763DA1 /* DataPointCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */; };
 		1AA5668C240F332200802907 /* SwiftViz in Frameworks */ = {isa = PBXBuildFile; productRef = 1AA5668B240F332200802907 /* SwiftViz */; };
 		1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */; };
 		1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD038E240F190B007A822C /* CircularBuffer.swift */; };
@@ -62,6 +64,8 @@
 		1A4A608523E273F800D10766 /* Vizview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vizview.swift; sourceTree = "<group>"; };
 		1A59732523BE84A000AB30EB /* BasicSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSiteView.swift; sourceTree = "<group>"; };
 		1A730F3E23B68A81007F8828 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1A7EE469241037B3008C58D3 /* HorizontalAxisBandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalAxisBandView.swift; sourceTree = "<group>"; };
+		1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointCollectionView.swift; sourceTree = "<group>"; };
 		1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAnalyzerControlView.swift; sourceTree = "<group>"; };
 		1AAD038E240F190B007A822C /* CircularBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularBuffer.swift; sourceTree = "<group>"; };
 		1AAD0392240F1DD1007A822C /* CircularBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularBufferTests.swift; sourceTree = "<group>"; };
@@ -153,8 +157,10 @@
 				1AD6AFA823B685D900D56BE1 /* Preview Content */,
 				1A59732523BE84A000AB30EB /* BasicSiteView.swift */,
 				1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */,
+				1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */,
 				1A4A608523E273F800D10766 /* Vizview.swift */,
 				1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */,
+				1A7EE469241037B3008C58D3 /* HorizontalAxisBandView.swift */,
 				1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */,
 			);
 			path = netlaband;
@@ -369,8 +375,10 @@
 				1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */,
 				1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */,
 				1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */,
+				1A8F880C240F400E00763DA1 /* DataPointCollectionView.swift in Sources */,
 				1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */,
 				1AF7C67523F4615F00389040 /* HorizontalAxisView.swift in Sources */,
+				1A7EE46A241037B3008C58D3 /* HorizontalAxisBandView.swift in Sources */,
 				1A45BA9123F464E8001A91DD /* VerticalAxisView.swift in Sources */,
 				1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */,
 				1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */,
