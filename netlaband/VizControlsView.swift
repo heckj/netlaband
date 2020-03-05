@@ -13,6 +13,7 @@ struct VizControlsView: View {
     let max: CGFloat
     @Binding var strokeValue: CGFloat
     @Binding var blurVal: CGFloat
+    @Binding var opacityVal: CGFloat
 
     func constrain(high: CGFloat, low: CGFloat, _ possible: CGFloat) -> CGFloat {
         if possible < low {
@@ -25,7 +26,7 @@ struct VizControlsView: View {
     }
 
     var body: some View {
-        VStack {
+        HStack {
             Stepper(onIncrement: {
                 self.strokeValue = self.constrain(high: self.max, low: self.min, self.strokeValue + 0.5)
             }, onDecrement: {
@@ -46,12 +47,22 @@ struct VizControlsView: View {
                     Text(String(format: "%.1f", arguments: [self.blurVal]))
                 }
             })
+            Stepper(onIncrement: {
+                self.opacityVal = self.constrain(high: 1.0, low: 0.0, self.opacityVal + 0.1)
+            }, onDecrement: {
+                self.opacityVal = self.constrain(high: 1.0, low: 0.0, self.opacityVal - 0.1)
+            }, label: {
+                HStack {
+                    Text("opacity")
+                    Text(String(format: "%.1f", arguments: [self.opacityVal]))
+                }
+            })
         }
     }
 }
 
 struct VizControlsView_Previews: PreviewProvider {
     static var previews: some View {
-        VizControlsView(min: 0.5, max: 30, strokeValue: .constant(2.0), blurVal: .constant(1.0))
+        VizControlsView(min: 0.5, max: 30, strokeValue: .constant(2.0), blurVal: .constant(1.0), opacityVal: .constant(1.0))
     }
 }

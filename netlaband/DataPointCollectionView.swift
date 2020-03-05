@@ -15,6 +15,7 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
 
     @State private var blur: CGFloat = 1.0
     @State private var stroke: CGFloat = 1.0
+    @State private var opacity: CGFloat = 1.0
 
     func scalePosition(myScale: ScaleType, size: CGSize, point: NetworkAnalysisDataPoint) -> CGPoint {
         let xPos = myScale.scale(CGFloat(point.latency),
@@ -30,7 +31,7 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
         if point.bandwidth < 1 {
             return CGFloat(10)
         }
-        let minRange = max(min(size.height, size.width), 10)
+        let minRange = max(min(size.height * 0.8, size.width), 10)
         let internalScale = LogScale(domain: 1 ... 10000.0, isClamped: false)
         let scaledSize = internalScale.scale(CGFloat(point.bandwidth), range: 10 ... minRange)
         // print("returning: ", scaledSize)
@@ -39,7 +40,7 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
 
     var body: some View {
         VStack {
-            VizControlsView(min: 0.5, max: 20.0, strokeValue: $stroke, blurVal: $blur)
+            VizControlsView(min: 0.5, max: 20.0, strokeValue: $stroke, blurVal: $blur, opacityVal: $opacity)
             ZStack {
                 // when using a ZStack, the stuff listed at the
                 // top of the construction pattern is on the "bottom"
@@ -59,6 +60,7 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
                             .blur(radius: CGFloat(self.blur))
                             .frame(width: self.sizeFromBandwidth(point, size: geometry.size), height: self.sizeFromBandwidth(point, size: geometry.size), alignment: .center)
                             .position(self.scalePosition(myScale: self.scale, size: geometry.size, point: point))
+                            .opacity(Double(self.opacity))
                     }
                 }
             }
