@@ -14,6 +14,7 @@ struct VizControlsView: View {
     @Binding var strokeValue: CGFloat
     @Binding var blurVal: CGFloat
     @Binding var opacityVal: CGFloat
+    @Binding var timeDurationVal: CGFloat
 
     func constrain(high: CGFloat, low: CGFloat, _ possible: CGFloat) -> CGFloat {
         if possible < low {
@@ -47,6 +48,7 @@ struct VizControlsView: View {
                     Text(String(format: "%.1f", arguments: [self.blurVal]))
                 }
             })
+
             Stepper(onIncrement: {
                 self.opacityVal = self.constrain(high: 1.0, low: 0.0, self.opacityVal + 0.1)
             }, onDecrement: {
@@ -57,12 +59,23 @@ struct VizControlsView: View {
                     Text(String(format: "%.1f", arguments: [self.opacityVal]))
                 }
             })
+
+            Stepper(onIncrement: {
+                self.timeDurationVal = self.constrain(high: 120.0, low: 0.0, self.timeDurationVal + 1.0)
+            }, onDecrement: {
+                self.timeDurationVal = self.constrain(high: 120.0, low: 0.0, self.timeDurationVal - 1.0)
+            }, label: {
+                HStack {
+                    Text("duration")
+                    Text(String(format: "%.1f", arguments: [self.timeDurationVal]))
+                }
+            })
         }
     }
 }
 
 struct VizControlsView_Previews: PreviewProvider {
     static var previews: some View {
-        VizControlsView(min: 0.5, max: 30, strokeValue: .constant(2.0), blurVal: .constant(1.0), opacityVal: .constant(1.0))
+        VizControlsView(min: 0.5, max: 30, strokeValue: .constant(2.0), blurVal: .constant(1.0), opacityVal: .constant(1.0), timeDurationVal: .constant(50.0))
     }
 }

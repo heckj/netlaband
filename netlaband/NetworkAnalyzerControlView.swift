@@ -18,7 +18,7 @@ struct NetworkAnalyzerControlView: View {
             HStack {
                 Toggle(isOn: $networkModel.active, label: {
                     Text("Active")
-                })
+                    }).padding()
                 Slider(value: $networkModel.timerinterval,
                        in: 0.5 ... 10.0,
                        step: 0.5,
@@ -26,9 +26,9 @@ struct NetworkAnalyzerControlView: View {
                            Text(String(format: "Every %.1f seconds", arguments: [networkModel.timerinterval]))
                         }).padding()
             }
-            List(networkModel.urlsToValidate, id: \.self) { site in
-                Text(site)
-            }
+//            List(networkModel.urlsToValidate, id: \.self) { site in
+//                Text(site)
+//            }
         }
     }
 }

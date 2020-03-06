@@ -13,17 +13,31 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
     let points: CollectionType
     var scale: ScaleType
 
-    @State private var blur: CGFloat = 1.0
-    @State private var stroke: CGFloat = 1.0
-    @State private var opacity: CGFloat = 1.0
+    @State private var blur: CGFloat = 2.0
+    @State private var stroke: CGFloat = 2.0
+    @State private var opacity: CGFloat = 0.8
+    @State private var timeDuration: CGFloat = 50.0
 
     func scalePosition(myScale: ScaleType, size: CGSize, point: NetworkAnalysisDataPoint) -> CGPoint {
         let xPos = myScale.scale(CGFloat(point.latency),
                                  range: 0 ... size.width)
         // ternary structure: question ? answerYes : answerNo
         let limitedX = xPos.isNaN ? CGFloat(0) : xPos
-        let pointval = CGPoint(x: limitedX, y: size.height / 2)
-        // print("returning: ", pointval)
+
+        // y-position in the middle of the view - no vertical scaling
+        // let limitedY = size.height / 2
+
+        let minDiameterToScale = 10
+        let maxDiameterToScaleSize = max(min(size.height * 0.4, size.width), CGFloat(minDiameterToScale))
+
+        // age of point
+        let age = point.timestamp.timeIntervalSinceNow * -1.0
+        print("Age: ", age)
+        // y-position scaled by age of the datapoint
+        let anotherY = LinearScale(domain: 0 ... timeDuration, isClamped: false).scale(CGFloat(age), range: 0 ... size.height - maxDiameterToScaleSize)
+
+        let pointval = CGPoint(x: limitedX, y: anotherY + maxDiameterToScaleSize / 2.0)
+        print("returning: ", pointval)
         return pointval
     }
 
@@ -31,24 +45,24 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
         if point.bandwidth < 1 {
             return CGFloat(10)
         }
-        let minRange = max(min(size.height * 0.8, size.width), 10)
+        let minDiameterToScale = 10
+        let maxDiameterToScale = max(min(size.height * 0.4, size.width), CGFloat(minDiameterToScale))
+
         let internalScale = LogScale(domain: 1 ... 10000.0, isClamped: false)
-        let scaledSize = internalScale.scale(CGFloat(point.bandwidth), range: 10 ... minRange)
-        // print("returning: ", scaledSize)
+        let scaledSize = internalScale.scale(CGFloat(point.bandwidth), range: 10 ... maxDiameterToScale)
+
         return scaledSize
     }
 
     var body: some View {
         VStack {
-            VizControlsView(min: 0.5, max: 20.0, strokeValue: $stroke, blurVal: $blur, opacityVal: $opacity)
+            VizControlsView(min: 0.5, max: 20.0, strokeValue: $stroke, blurVal: $blur, opacityVal: $opacity, timeDurationVal: $timeDuration)
             ZStack {
                 // when using a ZStack, the stuff listed at the
                 // top of the construction pattern is on the "bottom"
                 // of the stack - that is, you can think of it as
                 // building "upward" to displaying the view.
-
                 HorizontalBandView(scale: scale)
-
                 GeometryReader { geometry in
                     // geometry here provides us access to know the size of the
                     // object we've been placed within...
@@ -62,35 +76,38 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
                             .position(self.scalePosition(myScale: self.scale, size: geometry.size, point: point))
                             .opacity(Double(self.opacity))
                     }
-                }
-            }
-        }
+                } // GeometryReader
+            } // ZStack
+        } // VStack
     }
 }
 
 #if DEBUG
     private func dataPoints() -> CircularBuffer<NetworkAnalysisDataPoint> {
         var pointCollection = CircularBuffer<NetworkAnalysisDataPoint>(initialCapacity: 10)
-
         pointCollection.append(NetworkAnalysisDataPoint(
             url: "https://www.google.com/",
             latency: 55.4, // in ms
-            bandwidth: 2437.1 // in Kbytes per second
+            bandwidth: 2437.1, // in Kbytes per second
+            timeoffset: 0 // seconds ago
         ))
         pointCollection.append(NetworkAnalysisDataPoint(
             url: "https://www.google.com/",
             latency: 128.9, // in ms
-            bandwidth: 2437.15 // in Kbytes per second
+            bandwidth: 2437.15, // in Kbytes per second
+            timeoffset: 10 // seconds ago
         ))
         pointCollection.append(NetworkAnalysisDataPoint(
             url: "https://www.google.com/",
             latency: 33.42, // in ms
-            bandwidth: 3413.4 // in Kbytes per second
+            bandwidth: 3413.4, // in Kbytes per second
+            timeoffset: 20 // seconds ago
         ))
         pointCollection.append(NetworkAnalysisDataPoint(
             url: "https://www.google.com/",
             latency: 932.3, // in ms
-            bandwidth: 700.63 // in Kbytes per second
+            bandwidth: 700.63, // in Kbytes per second
+            timeoffset: 30 // seconds ago
         ))
 
         return pointCollection

@@ -38,10 +38,10 @@ public struct NetworkAnalysisDataPoint: Hashable, Identifiable {
     public let bandwidth: Double // in Kbytes per second
 
     /// Convenience initializer for quick sample data points
-    public init(url: String, latency: Double, bandwidth: Double) {
+    public init(url: String, latency: Double, bandwidth: Double, timeoffset: Double = 0) {
         self.url = url
         status = .available
-        timestamp = Date()
+        timestamp = Date() - TimeInterval(timeoffset)
         self.latency = latency
         self.bandwidth = bandwidth
     }
