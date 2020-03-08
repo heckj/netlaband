@@ -1,15 +1,15 @@
 //
-//  DataPointCollectionView.swift
+//  DataPointCollectionView2.swift
 //  netlaband
 //
-//  Created by Joseph Heck on 3/3/20.
+//  Created by Joseph Heck on 3/8/20.
 //  Copyright © 2020 JFH Consulting. All rights reserved.
 //
 
 import SwiftUI
 import SwiftViz
 
-struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType: Scale>: View where CollectionType.Element == NetworkAnalysisDataPoint, ScaleType.InputType == CGFloat {
+struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleType: Scale>: View where CollectionType.Element == NetworkAnalysisDataPoint, ScaleType.InputType == CGFloat {
     let points: CollectionType
     var scale: ScaleType
 
@@ -25,9 +25,18 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
         let limitedX = xPos.isNaN ? CGFloat(0) : xPos
 
         // y-position in the middle of the view - no vertical scaling
-        let limitedY = size.height / 2
+        // let limitedY = size.height / 2
 
-        let pointval = CGPoint(x: limitedX, y: limitedY)
+        let minDiameterToScale = 10
+        let maxDiameterToScaleSize = max(min(size.height * 0.4, size.width), CGFloat(minDiameterToScale))
+
+        // age of point
+        let age = point.timestamp.timeIntervalSinceNow * -1.0
+        print("Age: ", age)
+        // y-position scaled by age of the datapoint
+        let anotherY = LinearScale(domain: 0 ... timeDuration, isClamped: false).scale(CGFloat(age), range: 0 ... size.height - maxDiameterToScaleSize)
+
+        let pointval = CGPoint(x: limitedX, y: anotherY + maxDiameterToScaleSize / 2.0)
         print("returning: ", pointval)
         return pointval
     }
@@ -37,7 +46,7 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
             return CGFloat(10)
         }
         let minDiameterToScale = 10
-        let maxDiameterToScale = max(min(size.height * 0.8, size.width), CGFloat(minDiameterToScale))
+        let maxDiameterToScale = max(min(size.height * 0.4, size.width), CGFloat(minDiameterToScale))
 
         let internalScale = LogScale(domain: 1 ... 10000.0, isClamped: false)
         let scaledSize = internalScale.scale(CGFloat(point.bandwidth), range: 10 ... maxDiameterToScale)
@@ -108,10 +117,10 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
         return pointCollection
     }
 
-    struct DataPointCollectionView_Previews: PreviewProvider {
+    struct DataPointCollectionView2_Previews: PreviewProvider {
         static var previews: some View {
-            DataPointCollectionView(points: dataPoints(),
-                                    scale: LogScale(domain: 1 ... 10000.0, isClamped: false))
+            DataPointCollectionView2(points: dataPoints(),
+                                     scale: LogScale(domain: 1 ... 10000.0, isClamped: false))
                 .frame(width: 400, height: 100, alignment: .center)
                 .padding()
         }

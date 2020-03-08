@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1A2FCB9224117F6100A87527 /* VizControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FCB9124117F6100A87527 /* VizControlsView.swift */; };
+		1A3D2B4C2415B8D600A285AC /* DataPointCollectionView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */; };
+		1A3D2B4E2415BA0900A285AC /* HorizontalTickDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */; };
 		1A418EFF240F2EDF00E023A0 /* DataPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */; };
 		1A45BA9123F464E8001A91DD /* VerticalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */; };
 		1A4A608623E273F800D10766 /* Vizview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A608523E273F800D10766 /* Vizview.swift */; };
@@ -61,6 +63,8 @@
 
 /* Begin PBXFileReference section */
 		1A2FCB9124117F6100A87527 /* VizControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VizControlsView.swift; sourceTree = "<group>"; };
+		1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointCollectionView2.swift; sourceTree = "<group>"; };
+		1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTickDisplayView.swift; sourceTree = "<group>"; };
 		1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointTextView.swift; sourceTree = "<group>"; };
 		1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAxisView.swift; sourceTree = "<group>"; };
 		1A4A608523E273F800D10766 /* Vizview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vizview.swift; sourceTree = "<group>"; };
@@ -152,18 +156,20 @@
 				1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */,
 				1AD6AFA423B685D800D56BE1 /* ContentView.swift */,
 				1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */,
-				1A2FCB9124117F6100A87527 /* VizControlsView.swift */,
 				1AD6AFA623B685D900D56BE1 /* Assets.xcassets */,
 				1AD6AFAB23B685D900D56BE1 /* Main.storyboard */,
 				1AD6AFAE23B685D900D56BE1 /* Info.plist */,
 				1AD6AFAF23B685D900D56BE1 /* netlaband.entitlements */,
 				1AD6AFA823B685D900D56BE1 /* Preview Content */,
 				1A59732523BE84A000AB30EB /* BasicSiteView.swift */,
+				1A2FCB9124117F6100A87527 /* VizControlsView.swift */,
 				1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */,
 				1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */,
+				1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */,
 				1A4A608523E273F800D10766 /* Vizview.swift */,
 				1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */,
 				1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */,
+				1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */,
 				1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */,
 			);
 			path = netlaband;
@@ -375,7 +381,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3D2B4C2415B8D600A285AC /* DataPointCollectionView2.swift in Sources */,
 				1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */,
+				1A3D2B4E2415BA0900A285AC /* HorizontalTickDisplayView.swift in Sources */,
 				1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */,
 				1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */,
 				1A8F880C240F400E00763DA1 /* DataPointCollectionView.swift in Sources */,
