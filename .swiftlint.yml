@@ -3,6 +3,7 @@ type_name:
 disabled_rules:
   - type_body_length
   - trailing_comma
+  - force_cast
 identifier_name:
   min_length: 2
   excluded:
