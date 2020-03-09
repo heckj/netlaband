@@ -14,7 +14,7 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
     var scale: ScaleType
 
     @State private var blur: CGFloat = 2.0
-    @State private var stroke: CGFloat = 2.0
+    @State private var stroke: CGFloat = 6.0
     @State private var opacity: CGFloat = 0.8
     @State private var timeDuration: CGFloat = 50.0
 

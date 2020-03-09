@@ -26,23 +26,17 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
 
     public var body: some View {
         GeometryReader { geometry in
-            ZStack {
-                Path { path in
-                    // draw base axis line
-                    path.move(to: CGPoint(x: 0, y: self.inset))
-                    path.addLine(to: CGPoint(x: geometry.size.width, y: self.inset))
+            Path { path in
+                // draw base axis line
+                path.move(to: CGPoint(x: 0, y: self.inset))
+                path.addLine(to: CGPoint(x: geometry.size.width, y: self.inset))
 
-                    // draw each tick in the line
-                    for tick in self.tickList(geometry: geometry) {
-                        path.move(to: CGPoint(x: tick.rangeLocation, y: self.inset))
-                        path.addLine(to: CGPoint(x: tick.rangeLocation, y: self.inset + self.tickLength))
-                    }
-                }.stroke()
-            }
-//            ForEach(self.tickList(geometry: geometry)) { tickStruct in
-//                Text(String(format: "%.1f", arguments: [tickStruct.value]))
-//                    .position(x: tickStruct.rangeLocation + self.leftInset, y: CGFloat(15.0))
-//            }
+                // draw each tick in the line
+                for tick in self.tickList(geometry: geometry) {
+                    path.move(to: CGPoint(x: tick.rangeLocation, y: self.inset))
+                    path.addLine(to: CGPoint(x: tick.rangeLocation, y: self.inset + self.tickLength))
+                }
+            }.stroke(Color.primary)
         }
     }
 }
@@ -51,11 +45,11 @@ struct HorizontalAxisView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             HorizontalAxisView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false))
-                .frame(width: 400, height: 50, alignment: .center)
+                .frame(width: 400, height: 10, alignment: .center)
                 .padding()
 
             HorizontalAxisView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
-                .frame(width: 400, height: 50, alignment: .center)
+                .frame(width: 400, height: 10, alignment: .center)
                 .padding()
         }
     }
