@@ -37,7 +37,11 @@ public struct HorizontalAxisView<ScaleType: Scale>: View {
                     path.addLine(to: CGPoint(x: tick.rangeLocation, y: self.inset + self.tickLength))
                 }
             }.stroke(Color.primary)
-        }
+        }.fixedSize(horizontal: false, vertical: true)
+        // view is a fixed size vertically because I'm not sure
+        // of how to say "has to be a minimum of
+        // self.inset + self.tickLength, but otherwise you can
+        // have more space around this if needed.
     }
 }
 

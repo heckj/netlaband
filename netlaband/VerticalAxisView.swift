@@ -26,22 +26,21 @@ struct VerticalAxisView<ScaleType: Scale>: View {
 
     var body: some View {
         GeometryReader { geometry in
-            ZStack {
-                Path { path in
+            Path { path in
 
-                    path.move(to: CGPoint(x: self.inset + self.tickLength, y: 0))
-                    path.addLine(to: CGPoint(x: self.inset + self.tickLength, y: geometry.size.height))
+                path.move(to: CGPoint(x: self.inset + self.tickLength, y: 0))
+                path.addLine(to: CGPoint(x: self.inset + self.tickLength, y: geometry.size.height))
 
-                    for tick in self.tickList(geometry: geometry) {
-                        path.move(to: CGPoint(x: self.inset, y: tick.rangeLocation))
-                        path.addLine(to: CGPoint(x: self.inset + self.tickLength, y: tick.rangeLocation))
-                    }
-                }.stroke()
-//                ForEach(self.tickList(geometry: geometry)) { tickStruct in
-//                    Text(tickStruct.stringValue).position(x: 15, y: tickStruct.rangeLocation + self.topInset)
-//                }
-            }
-        }
+                for tick in self.tickList(geometry: geometry) {
+                    path.move(to: CGPoint(x: self.inset, y: tick.rangeLocation))
+                    path.addLine(to: CGPoint(x: self.inset + self.tickLength, y: tick.rangeLocation))
+                }
+            }.stroke()
+        }.fixedSize(horizontal: true, vertical: false)
+        // view is a fixed size horizontally because I'm not sure
+        // of how to say "has to be a minimum of
+        // self.inset + self.tickLength, but otherwise you can
+        // have more space around this if needed.
     }
 }
 
