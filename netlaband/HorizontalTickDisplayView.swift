@@ -9,34 +9,6 @@
 import SwiftUI
 import SwiftViz
 
-// OPENQUESTION(heckj): should this be moved into SwiftViz
-// and matched up with Ticks there?
-//
-// it's generally created with the benefit of a formatter,
-// the type that we use being dependent on the type that's
-// used for the domain of the Scale. Right now we keep the
-// formatter bits away from the underlying SwiftViz library
-// and entirely at the display logic layer... so perhaps
-// it makes sense to stay here.
-struct TickLabel: Identifiable {
-    let id: UUID
-    let rangeLocation: CGFloat
-    let value: String
-
-    init(id: UUID, rangeLocation: CGFloat, value: String) {
-        self.id = id
-        self.rangeLocation = rangeLocation
-        self.value = value
-    }
-
-    // convenience initializer
-    init(rangeLocation: CGFloat, value: String) {
-        id = UUID()
-        self.rangeLocation = rangeLocation
-        self.value = value
-    }
-}
-
 struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputType == ScaleType.TickType.InputType {
     let scale: ScaleType
     let numTicks = 10
@@ -45,7 +17,7 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
 
     init(scale: ScaleType,
          values: [ScaleType.InputType] = [],
-         formatter: Formatter = NumberFormatter()) {
+         formatter: Formatter = TickLabel.makeDefaultFormatter()) {
         self.scale = scale
         self.formatter = formatter
         tickValues = values
@@ -95,31 +67,14 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
     }
 }
 
-// extension HorizontalTickDisplayView: ViewModifier
-// //where ScaleType.InputType == ScaleType.TickType.InputType
-// {
-//        func body(content: Content) -> some View {
-//            content
-//        }
-// }
-
 #if DEBUG
-    func exampleFormatter() -> Formatter {
-        let exampleFormatter = NumberFormatter()
-        exampleFormatter.numberStyle = .decimal
-        exampleFormatter.minimumFractionDigits = 0
-        exampleFormatter.maximumFractionDigits = 2
-        return exampleFormatter
-    }
-
     struct HorizontalTickDisplayView_Previews: PreviewProvider {
         static var previews: some View {
             Group {
                 // axis view w/ linear scale - simple/short
                 VStack {
                     HorizontalAxisView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false))
-                    HorizontalTickDisplayView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false),
-                                              formatter: exampleFormatter())
+                    HorizontalTickDisplayView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false))
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()
@@ -127,8 +82,7 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 // band view w/ linear scale - simple/short
                 VStack {
                     HorizontalBandView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false))
-                    HorizontalTickDisplayView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false),
-                                              formatter: exampleFormatter())
+                    HorizontalTickDisplayView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false))
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()
@@ -136,8 +90,7 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 // axis view w/ log scale variant - simple/short
                 VStack {
                     HorizontalAxisView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
-                    HorizontalTickDisplayView(scale: LogScale(domain: 1 ... 10.0, isClamped: false),
-                                              formatter: exampleFormatter())
+                    HorizontalTickDisplayView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()
@@ -145,8 +98,7 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 // band view w/ log scale variant - simple/short
                 VStack {
                     HorizontalBandView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
-                    HorizontalTickDisplayView(scale: LogScale(domain: 1 ... 10.0, isClamped: false),
-                                              formatter: exampleFormatter())
+                    HorizontalTickDisplayView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()
@@ -162,8 +114,7 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 // "show or not-show"
                 VStack {
                     HorizontalBandView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false))
-                    HorizontalTickDisplayView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false),
-                                              formatter: exampleFormatter())
+                    HorizontalTickDisplayView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false))
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()
@@ -172,8 +123,7 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 VStack {
                     HorizontalBandView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false))
                     HorizontalTickDisplayView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false),
-                                              values: [0.1, 1.0, 10.0, 100.0],
-                                              formatter: exampleFormatter())
+                                              values: [0.1, 1.0, 10.0, 100.0])
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()
