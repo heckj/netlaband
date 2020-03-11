@@ -10,11 +10,11 @@ import SwiftUI
 import SwiftViz
 
 struct VerticalAxisView<ScaleType: Scale>: View {
+    let scale: ScaleType
     let inset: CGFloat = 3.0
     let tickLength: CGFloat = 5.0
-    var numTicks = 10
+    let numTicks = 10
 
-    var scale: ScaleType
     init(scale: ScaleType) {
         self.scale = scale
     }
@@ -48,11 +48,11 @@ struct VerticalAxisView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             VerticalAxisView(scale: LinearScale(domain: 0 ... 1.0, isClamped: false))
-                .frame(width: 100, height: 400, alignment: .center)
+                .frame(width: 50, height: 400, alignment: .center)
                 .padding()
 
             VerticalAxisView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
-                .frame(width: 100, height: 400, alignment: .center)
+                .frame(width: 50, height: 400, alignment: .center)
                 .padding()
         }
     }

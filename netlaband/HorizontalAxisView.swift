@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftViz
 
 public struct HorizontalAxisView<ScaleType: Scale>: View {
-    var scale: ScaleType
+    let scale: ScaleType
     let inset: CGFloat = 3.0
     let tickLength: CGFloat = 5.0
     var numTicks = 10

@@ -127,7 +127,8 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 // band view w/ linear scale - simple/short
                 VStack {
                     HorizontalBandView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false))
-                    HorizontalTickDisplayView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false))
+                    HorizontalTickDisplayView(scale: LinearScale(domain: 0 ... 5.0, isClamped: false),
+                                              formatter: exampleFormatter())
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()
@@ -135,7 +136,8 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 // axis view w/ log scale variant - simple/short
                 VStack {
                     HorizontalAxisView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
-                    HorizontalTickDisplayView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
+                    HorizontalTickDisplayView(scale: LogScale(domain: 1 ... 10.0, isClamped: false),
+                                              formatter: exampleFormatter())
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()
@@ -143,7 +145,8 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 // band view w/ log scale variant - simple/short
                 VStack {
                     HorizontalBandView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
-                    HorizontalTickDisplayView(scale: LogScale(domain: 1 ... 10.0, isClamped: false))
+                    HorizontalTickDisplayView(scale: LogScale(domain: 1 ... 10.0, isClamped: false),
+                                              formatter: exampleFormatter())
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()
@@ -159,7 +162,8 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 // "show or not-show"
                 VStack {
                     HorizontalBandView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false))
-                    HorizontalTickDisplayView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false))
+                    HorizontalTickDisplayView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false),
+                                              formatter: exampleFormatter())
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()
@@ -167,7 +171,9 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 // axis view w/ log scale variant - manual ticks
                 VStack {
                     HorizontalBandView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false))
-                    HorizontalTickDisplayView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false), values: [0.1, 1.0, 10.0, 100.0])
+                    HorizontalTickDisplayView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false),
+                                              values: [0.1, 1.0, 10.0, 100.0],
+                                              formatter: exampleFormatter())
                 }
                 .frame(width: 400, height: 50, alignment: .center)
                 .padding()

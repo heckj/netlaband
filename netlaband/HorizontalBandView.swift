@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftViz
 
 struct HorizontalBandView<ScaleType: Scale>: View {
-    var scale: ScaleType
+    let scale: ScaleType
 
     init(scale: ScaleType) {
         self.scale = scale
