@@ -59,6 +59,11 @@ struct HorizontalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputTy
                 ForEach(self.tickList(geometry: geometry)) { tick in
                     Text(tick.value)
                         .fontWeight(.semibold)
+                        .lineLimit(1)
+                        // we don't need an alignmentGuide
+                        // here (as VerticalTickDisplayView)
+                        // since the defaults work in our favor
+                        // for a horizontal axis
                         .foregroundColor(Color.primary)
                         .position(x: tick.rangeLocation, y: 0)
                 }

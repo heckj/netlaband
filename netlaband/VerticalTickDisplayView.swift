@@ -55,17 +55,26 @@ struct VerticalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputType
 
     var body: some View {
         GeometryReader { geometry in
-            ZStack {
+            ZStack(alignment: .trailing) {
                 ForEach(self.tickList(geometry: geometry)) { tick in
                     Text(tick.value)
                         .fontWeight(.semibold)
-                        .multilineTextAlignment(.trailing)
                         .lineLimit(1)
+                        .alignmentGuide(HorizontalAlignment.trailing, computeValue: { dimensions in
+                            dimensions[HorizontalAlignment.trailing]
+                        })
                         .foregroundColor(Color.primary)
-                        .position(x: 25, y: tick.rangeLocation)
-                    // .offset(x: 0, y: 0) // need to calculate this relative to the size of the text view itself...
+                        .position(x: geometry.size.width / 2,
+                                  y: tick.rangeLocation)
+                        .offset(x: 8, y: 0) // this is a magic
+                        // number offset for bringing the text
+                        // closer to the axis that visually makes
+                        // sense. I'm not entirely sure how I'd
+                        // calculate it.
                 }
-            }.fixedSize(horizontal: true, vertical: false)
+            }
+            .fixedSize(horizontal: true, vertical: false)
+            .frame(alignment: .trailing)
         }
     }
 }
