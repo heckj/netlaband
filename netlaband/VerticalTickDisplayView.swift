@@ -66,11 +66,11 @@ struct VerticalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputType
                         .foregroundColor(Color.primary)
                         .position(x: geometry.size.width / 2,
                                   y: tick.rangeLocation)
-                        .offset(x: 8, y: 0) // this is a magic
-                        // number offset for bringing the text
-                        // closer to the axis that visually makes
-                        // sense. I'm not entirely sure how I'd
-                        // calculate it.
+                        .offset(x: 8, y: 0)
+                    // ^^ 8 is a magic number offset for bringing
+                    // the text closer to the axis that visually
+                    // makes sense. I'm not entirely sure how I'd
+                    // calculate it.
                 }
             }
             .fixedSize(horizontal: true, vertical: false)
