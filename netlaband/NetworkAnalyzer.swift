@@ -100,7 +100,7 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate, ObservableObject
     private var dataTasks: [String: URLSessionDataTask]
 
     @Published public var urlsToValidate: [String]
-    @Published public var timerinterval: TimeInterval = 5 { // seconds
+    @Published public var timerinterval: TimeInterval = 2 { // seconds
         didSet {
             os_log("updated timer interval to: %f", log: OSLog.netcheck, self.timerinterval)
             if self.active {

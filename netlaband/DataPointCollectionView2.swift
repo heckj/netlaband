@@ -33,8 +33,16 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
         // age of point
         let age = point.timestamp.timeIntervalSinceNow * -1.0
         print("Age: ", age)
+
+        var constrainedRange: ClosedRange<CGFloat>
+        if size.height - maxDiameterToScaleSize < 0 {
+            constrainedRange = 0 ... 0
+        } else {
+            constrainedRange = 0 ... size.height - maxDiameterToScaleSize
+        }
+
         // y-position scaled by age of the datapoint
-        let anotherY = LinearScale(domain: 0 ... timeDuration, isClamped: false).scale(CGFloat(age), range: 0 ... size.height - maxDiameterToScaleSize)
+        let anotherY = LinearScale(domain: 0 ... timeDuration, isClamped: false).scale(CGFloat(age), range: constrainedRange)
 
         let pointval = CGPoint(x: limitedX, y: anotherY + maxDiameterToScaleSize / 2.0)
         print("returning: ", pointval)
@@ -56,7 +64,7 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
 
     var body: some View {
         VStack {
-            VizControlsView(min: 0.5, max: 20.0, strokeValue: $stroke, blurVal: $blur, opacityVal: $opacity, timeDurationVal: $timeDuration)
+            // VizControlsView(min: 0.5, max: 20.0, strokeValue: $stroke, blurVal: $blur, opacityVal: $opacity, timeDurationVal: $timeDuration)
             ZStack {
                 // when using a ZStack, the stuff listed at the
                 // top of the construction pattern is on the "bottom"

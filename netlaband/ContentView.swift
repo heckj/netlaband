@@ -13,20 +13,24 @@ struct ContentView: View {
     @ObservedObject var networkModel: NetworkAnalyzer
 
     var body: some View {
-        TabView {
-            IterationOneView(networkModel: networkModel)
-                .tabItem {
-                    // Image(systemName: "1.circle")
-                    // :-( no SFSymbols on Mac yet
-                    Text("1")
-                }
+        VStack {
+            NetworkAnalyzerControlView(networkModel: networkModel)
 
-            IterationTwoView(networkModel: networkModel)
-                .tabItem {
-                    // Image(systemName: "2.circle")
-                    // :-( no SFSymbols on Mac yet
-                    Text("2")
-                }
+            TabView {
+                IterationOneView(networkModel: networkModel)
+                    .tabItem {
+                        // Image(systemName: "1.circle")
+                        // :-( no SFSymbols on Mac yet
+                        Text("1")
+                    }
+
+                IterationTwoView(networkModel: networkModel)
+                    .tabItem {
+                        // Image(systemName: "2.circle")
+                        // :-( no SFSymbols on Mac yet
+                        Text("2")
+                    }
+            }
         }
     }
 }

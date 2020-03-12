@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
         window.canHide = true
         window.isOpaque = true
-        window.minSize = CGSize(width: 300, height: 250)
+        window.minSize = CGSize(width: 400, height: 300)
         // ^^ widow.minSize appears to be ignored when I'm
         // using swiftUI elements within... or I'm just missing
         // something.

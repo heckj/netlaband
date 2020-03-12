@@ -15,7 +15,6 @@ struct IterationOneView: View {
 
     var body: some View {
         VStack {
-            NetworkAnalyzerControlView(networkModel: networkModel)
             HStack {
                 Text("\(metrics.count) datapoints")
             }
