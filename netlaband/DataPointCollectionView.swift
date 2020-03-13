@@ -49,8 +49,12 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
         let minDiameterToScale = 10
         let maxDiameterToScale = max(min(size.height * 0.8, size.width), CGFloat(minDiameterToScale))
 
-        let internalScale = LogScale(domain: 1 ... 10000.0, isClamped: false)
+        let internalScale = LogScale(domain: 1 ... 100_000.0, isClamped: false)
         let scaledSize = internalScale.scale(CGFloat(point.bandwidth), range: 10 ... maxDiameterToScale)
+        if scaledSize.isNaN {
+            print("Bandwidth reported: \(point.bandwidth) resulted in NaN, returning 0.0")
+            return 0.0
+        }
         print("sizeFromBandwidth returning: ", scaledSize)
         return scaledSize
     }

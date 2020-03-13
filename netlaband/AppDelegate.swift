@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_: Notification) {
         // Create the SwiftUI view that provides the window contents.
-        let netanalysis = NetworkAnalyzer(urlsToCheck: ["https://google.com/"])
+        let netanalysis = NetworkAnalyzer(urlsToCheck: ["https://google.com/", "https://www.facebook.com", "https://amazon.com"])
 
         let contentView = ContentView(networkModel: netanalysis)
 
