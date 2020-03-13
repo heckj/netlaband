@@ -9,14 +9,12 @@
 import SwiftUI
 import SwiftViz
 
-struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType: Scale>: View where CollectionType.Element == NetworkAnalysisDataPoint, ScaleType.InputType == CGFloat {
+struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType: Scale>: View
+    where CollectionType.Element == NetworkAnalysisDataPoint,
+    ScaleType.InputType == CGFloat,
+    ScaleType.TickType.InputType == CGFloat {
     let points: CollectionType
     var scale: ScaleType
-
-    @State private var blur: CGFloat = 2.0
-    @State private var stroke: CGFloat = 6.0
-    @State private var opacity: CGFloat = 0.8
-    @State private var timeDuration: CGFloat = 50.0
 
     func scalePosition(myScale: ScaleType, size: CGSize, point: NetworkAnalysisDataPoint) -> CGPoint {
         let xPos = myScale.scale(CGFloat(point.latency),
@@ -28,7 +26,7 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
         let limitedY = size.height / 2
 
         let pointval = CGPoint(x: limitedX, y: limitedY)
-        print("returning: ", pointval)
+        print("scalePosition returning: ", pointval)
         return pointval
     }
 
@@ -41,13 +39,12 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
 
         let internalScale = LogScale(domain: 1 ... 10000.0, isClamped: false)
         let scaledSize = internalScale.scale(CGFloat(point.bandwidth), range: 10 ... maxDiameterToScale)
-
+        print("sizeFromBandwidth returning: ", scaledSize)
         return scaledSize
     }
 
     var body: some View {
         VStack {
-            VizControlsView(min: 0.5, max: 20.0, strokeValue: $stroke, blurVal: $blur, opacityVal: $opacity, timeDurationVal: $timeDuration)
             ZStack {
                 // when using a ZStack, the stuff listed at the
                 // top of the construction pattern is on the "bottom"
@@ -64,15 +61,21 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
                     // geometry.size (CGSize)
                     // geometry.frame (CGRect)
                     ForEach(self.points) { point in
-                        Circle()
-                            .stroke(Color.blue, lineWidth: self.stroke)
-                            .blur(radius: CGFloat(self.blur))
-                            .frame(width: self.sizeFromBandwidth(point, size: geometry.size), height: self.sizeFromBandwidth(point, size: geometry.size), alignment: .center)
-                            .position(self.scalePosition(myScale: self.scale, size: geometry.size, point: point))
-                            .opacity(Double(self.opacity))
+
+                        CircleDataPoint(size: self.sizeFromBandwidth(point,
+                                                                     size: geometry.size),
+                                        position: self.scalePosition(myScale: self.scale,
+                                                                     size: geometry.size,
+                                                                     point: point))
                     }
                 } // GeometryReader
             } // ZStack
+            // TODO(heckj): need to update the HorizontalTickDisplayView
+            // (or the underlying code that it uses) so that values entered
+            // OUTSIDE the domain the scale provided don't cause utter havoc
+            // on the resulting view (crashes with an issue drawing origin)
+            HorizontalTickDisplayView(scale: scale,
+                                      values: [1.0, 10.0, 100.0, 1000.0, 10000.0])
         } // VStack
     }
 }

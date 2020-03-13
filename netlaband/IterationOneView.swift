@@ -19,6 +19,7 @@ struct IterationOneView: View {
                 Text("\(metrics.count) datapoints")
             }
             DataPointCollectionView(points: self.metrics, scale: LogScale(domain: 1 ... 10000.0, isClamped: false))
+                .padding()
 
             List(self.metrics) { dp in
                 DataPointTextView(dp: dp)

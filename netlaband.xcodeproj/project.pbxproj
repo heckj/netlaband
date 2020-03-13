@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A105135241AFE080098A207 /* CircleDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A105134241AFE080098A207 /* CircleDataPoint.swift */; };
 		1A2FCB9224117F6100A87527 /* VizControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FCB9124117F6100A87527 /* VizControlsView.swift */; };
 		1A334EE22416CD3600AA3D04 /* ASimpleExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */; };
 		1A3D2B4C2415B8D600A285AC /* DataPointCollectionView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A105134241AFE080098A207 /* CircleDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleDataPoint.swift; sourceTree = "<group>"; };
 		1A2FCB9124117F6100A87527 /* VizControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VizControlsView.swift; sourceTree = "<group>"; };
 		1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASimpleExampleView.swift; sourceTree = "<group>"; };
 		1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointCollectionView2.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				1A2FCB9124117F6100A87527 /* VizControlsView.swift */,
 				1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */,
 				1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */,
+				1A105134241AFE080098A207 /* CircleDataPoint.swift */,
 				1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */,
 				1A4A608523E273F800D10766 /* Vizview.swift */,
 				1A5D28EF2419901F00BEC549 /* TickLabel.swift */,
@@ -401,6 +404,7 @@
 				1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */,
 				1ABEF9DD241AC2DE00626C45 /* IterationOneView.swift in Sources */,
 				1A3D2B4E2415BA0900A285AC /* HorizontalTickDisplayView.swift in Sources */,
+				1A105135241AFE080098A207 /* CircleDataPoint.swift in Sources */,
 				1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */,
 				1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */,
 				1A5D28F02419901F00BEC549 /* TickLabel.swift in Sources */,
