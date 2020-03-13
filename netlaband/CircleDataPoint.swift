@@ -58,6 +58,7 @@ struct CircleDataPoint_Previews: PreviewProvider {
                             position: CGPoint(x: 30, y: 30))
                 .environment(\.colorScheme, .light)
                 .previewDisplayName("40, light")
+
             CircleDataPoint(size: 40,
                             position: CGPoint(x: 30, y: 30))
                 .environment(\.colorScheme, .dark)
