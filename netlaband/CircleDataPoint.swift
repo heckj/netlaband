@@ -12,7 +12,7 @@ struct CircleDataPoint: View {
     let size: CGFloat
     let position: CGPoint
     let stroke: CGFloat = 3.0
-    let opacity = 0.3
+    let opacity = 0.2
 
     var body: some View {
         ZStack {
@@ -47,9 +47,21 @@ struct CircleDataPoint_Previews: PreviewProvider {
         Group {
             CircleDataPoint(size: 20,
                             position: CGPoint(x: 30, y: 30))
+                .environment(\.colorScheme, .light)
+                .previewDisplayName("20, light")
 
+            CircleDataPoint(size: 20,
+                            position: CGPoint(x: 30, y: 30))
+                .environment(\.colorScheme, .dark)
+                .previewDisplayName("20, dark")
             CircleDataPoint(size: 40,
                             position: CGPoint(x: 30, y: 30))
+                .environment(\.colorScheme, .light)
+                .previewDisplayName("40, light")
+            CircleDataPoint(size: 40,
+                            position: CGPoint(x: 30, y: 30))
+                .environment(\.colorScheme, .dark)
+                .previewDisplayName("40, dark")
         }
         .frame(width: 60, height: 60, alignment: .center)
         .padding()

@@ -9,9 +9,9 @@
 import SwiftUI
 import SwiftViz
 
-struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType: Scale>: View
-    where CollectionType.Element == NetworkAnalysisDataPoint,
-    ScaleType.InputType == CGFloat,
+struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType: Scale>: View where
+    CollectionType.Element == NetworkAnalysisDataPoint,
+    ScaleType.TickType.InputType == ScaleType.InputType,
     ScaleType.TickType.InputType == CGFloat {
     let points: CollectionType
     var scale: ScaleType
