@@ -35,6 +35,7 @@
 		1AD6AFC423B685D900D56BE1 /* netlabandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFC323B685D900D56BE1 /* netlabandUITests.swift */; };
 		1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */; };
 		1AF7C67523F4615F00389040 /* HorizontalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */; };
+		1AFD3B54241C0002000450B6 /* NeuromorphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFD3B53241C0002000450B6 /* NeuromorphicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		1AD6AFC523B685D900D56BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAnalyzer.swift; sourceTree = "<group>"; };
 		1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalAxisView.swift; sourceTree = "<group>"; };
+		1AFD3B53241C0002000450B6 /* NeuromorphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				1AAD038E240F190B007A822C /* CircularBuffer.swift */,
 				1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */,
 				1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */,
+				1AFD3B52241BFFD5000450B6 /* VisualEffectsExperiments */,
 				1AD6AFA423B685D800D56BE1 /* ContentView.swift */,
 				1ABEF9DC241AC2DE00626C45 /* IterationOneView.swift */,
 				1ABEF9DE241AC2ED00626C45 /* IterationTwoView.swift */,
@@ -218,6 +221,14 @@
 				1AD6AFC523B685D900D56BE1 /* Info.plist */,
 			);
 			path = netlabandUITests;
+			sourceTree = "<group>";
+		};
+		1AFD3B52241BFFD5000450B6 /* VisualEffectsExperiments */ = {
+			isa = PBXGroup;
+			children = (
+				1AFD3B53241C0002000450B6 /* NeuromorphicView.swift */,
+			);
+			path = VisualEffectsExperiments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A3D2B4C2415B8D600A285AC /* DataPointCollectionView2.swift in Sources */,
+				1AFD3B54241C0002000450B6 /* NeuromorphicView.swift in Sources */,
 				1ABEF9DF241AC2ED00626C45 /* IterationTwoView.swift in Sources */,
 				1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */,
 				1ABEF9DD241AC2DE00626C45 /* IterationOneView.swift in Sources */,
