@@ -47,33 +47,31 @@ struct LaserLightShape<Content>: View where Content: Shape {
             if colorSchemeMode == .dark {
                 // pushes in a bit of additional lightness in dark mode
                 content()
-                    .stroke(Color.primary, lineWidth: lineWidth )
+                    .stroke(Color.primary, lineWidth: lineWidth)
                     .blendMode(.softLight)
             }
             // middle layer, half-width of the stroke and blended
             // with reduced opacity. re-inforces the underlying
             // color - blended to impact the color, but not blurred
             content()
-                .stroke(color, lineWidth: lineWidth / 2 )
+                .stroke(color, lineWidth: lineWidth / 2)
                 .blendMode(blendMode)
 
             // bottom layer - broad, blurred out, semi-transparent
             // this is the "glow" around the shape
             if colorSchemeMode == .dark {
-            content()
-                .stroke(color, lineWidth: lineWidth )
-                .blur(radius: lineWidth)
-                .opacity(0.9)
+                content()
+                    .stroke(color, lineWidth: lineWidth)
+                    .blur(radius: lineWidth)
+                    .opacity(0.9)
             } else {
                 // knock back the blur/background effects on
                 // light mode vs. dark mode
                 content()
-                    .stroke(color, lineWidth: lineWidth / 2 )
-                    .blur(radius: lineWidth / 1.5 )
+                    .stroke(color, lineWidth: lineWidth / 2)
+                    .blur(radius: lineWidth / 1.5)
                     .opacity(0.8)
-
             }
-
         }
     }
 }

@@ -9,6 +9,8 @@
 import SwiftUI
 
 /// Just an interesting shape...
+/// But it turns out to be useless for my purposes, as I want the SVG from it, and it's inaccessible
+/// from the level of the View itself... grrr...
 struct TwiddleView: View {
     var body: some View {
         GeometryReader { geometry in
