@@ -14,13 +14,16 @@ struct VerticalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputType
     let numTicks = 10
     let formatter: Formatter
     let tickValues: [ScaleType.InputType]
+    let labeledValues: [(ScaleType.InputType, String)]
 
     init(scale: ScaleType,
          values: [ScaleType.InputType] = [],
+         labeledValues: [(ScaleType.InputType, String)] = [],
          formatter: Formatter = TickLabel.makeDefaultFormatter()) {
         self.scale = scale
         self.formatter = formatter
         tickValues = values
+        self.labeledValues = labeledValues
     }
 
     func tickLabel(_ tick: ScaleType.TickType) -> TickLabel {
@@ -42,14 +45,21 @@ struct VerticalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputType
     func tickList(geometry: GeometryProxy) -> [TickLabel] {
         let geometryRange = 0.0 ... CGFloat(geometry.size.height)
 
-        if tickValues.isEmpty {
+        // first try the labelled values, if they exist
+        if !labeledValues.isEmpty {
+            return scale.labeledTickValues(labeledValues, range: geometryRange)
+        } else
+        // if not, then try any provided raw values if they exist
+        if !tickValues.isEmpty {
+            return makeTickLabels(ticks: tickValues, range: geometryRange)
+        } else {
+            // all else fails, generate a default set
+
             let listOfTicks = scale.ticks(count: numTicks, range: geometryRange)
             let listOfTickLabels = listOfTicks.map { tick in
                 tickLabel(tick)
             }
             return listOfTickLabels
-        } else {
-            return makeTickLabels(ticks: tickValues, range: geometryRange)
         }
     }
 
@@ -95,6 +105,20 @@ struct VerticalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputType
                 HStack {
                     VerticalTickDisplayView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false),
                                             values: [0.1, 1.0, 10.0, 100.0])
+                    VerticalAxisView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false))
+                }
+                .frame(width: 60, height: 200, alignment: .center)
+                .padding()
+
+                // axis view w/ log scale variant - labelled values for ticks
+                HStack {
+                    VerticalTickDisplayView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false),
+                                            labeledValues: [
+                                                (CGFloat(0.1), "uber"),
+                                                (CGFloat(1), "rabbit"),
+                                                (CGFloat(10), "tortoise"),
+                                                (CGFloat(100), "slug"),
+                                            ])
                     VerticalAxisView(scale: LogScale(domain: 0.1 ... 100.0, isClamped: false))
                 }
                 .frame(width: 60, height: 200, alignment: .center)
