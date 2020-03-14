@@ -19,10 +19,12 @@ import SwiftUI
 struct NeonEffect<Content>: View where Content: Shape {
     let content: () -> Content
     let color: Color
+    let blendMode: BlendMode
 
-    init(color: Color, @ViewBuilder content: @escaping () -> Content) {
+    init(color: Color, blendMode: BlendMode, @ViewBuilder content: @escaping () -> Content) {
         self.content = content
         self.color = color
+        self.blendMode = blendMode
     }
 
     // I'm not sure handing in Color is what I want to do here...
@@ -44,7 +46,7 @@ struct NeonEffect<Content>: View where Content: Shape {
             content()
                 .stroke(Color.white, lineWidth: 1)
                 .blur(radius: 1)
-                .blendMode(.screen)
+                .blendMode(blendMode)
 
             // another layer of the original color
             // blurred, narrow, and a touch transparent
@@ -59,7 +61,7 @@ struct NeonEffect<Content>: View where Content: Shape {
             content()
                 .stroke(Color.white, lineWidth: 2)
                 .blur(radius: 0.5)
-                .blendMode(.screen)
+                .blendMode(blendMode)
                 .opacity(0.8)
 
             // bottom layer - broad, blurred out, semi-transparent
@@ -71,23 +73,104 @@ struct NeonEffect<Content>: View where Content: Shape {
     }
 }
 
+/* blend modes kinda confuse me - so here's a primer with external
+ // visuals:
+ // https://www.slrlounge.com/workshop/the-ultimate-visual-guide-to-understanding-blend-modes/
+
+ lighten:
+  lighten
+ screen
+ colorDodge
+ LighterColor
+
+ darken:
+ darken
+ multiply
+ color burn
+ darker color
+
+ contrast:
+ overlay
+ softlight
+ hardlight
+ vivid light
+ pin light
+
+ inversion:
+ difference
+ exclusion
+ extract
+ divide
+
+ component:
+ hue
+ saturation
+ color
+ luminosity
+ */
+
+func blendList() -> [BlendMode] {
+    [
+//        BlendMode.color, //  ?? solid color, kinda dark
+        BlendMode.colorBurn, // (darken) nice glow, no white - otherwise good
+        // maybe best choice for light mode, since it darkens into the color
+
+        BlendMode.colorDodge, // (lighten) lighter center, but not white
+        // ^^ best so far on black
+
+//        BlendMode.darken, // (darken) darker, not lighter
+//        BlendMode.destinationOut, // ?? darker, not lighter
+//        BlendMode.destinationOver, // ?? nice glow, no white  otherwise good
+
+//        BlendMode.difference, // (inversion) darker core
+//        BlendMode.exclusion, // (inversion) darker
+
+//        BlendMode.hardLight, // (contrast) kind of faded, but good on black
+
+//        BlendMode.hue, // (component) darker
+//        BlendMode.lighten, // (lighten) akine to hardlight
+
+        BlendMode.luminosity, // (component) slighter glow on white, brighter on black
+
+//        BlendMode.multiply, // (darken)
+//        BlendMode.normal, // normal
+//        BlendMode.overlay, // ??
+//        BlendMode.plusDarker, // (darken)
+        BlendMode.plusLighter, // (lighten) blurry on white, sharper on black
+        // ^^ maybe best dark-mode choice
+
+//        BlendMode.saturation, (component)
+//        BlendMode.screen, // (lighten) sorta blurry
+//        BlendMode.softLight, // (contrast) nice deep color on white, no "lightening" there, but ends up darker on dark background
+//        BlendMode.sourceAtop, // ?
+    ]
+}
+
 struct NeonEffect_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            NeonEffect(color: Color.primary) {
-                Rectangle()
-            }.padding()
+        ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
+            ForEach(blendList(), id: \.self) { blendMode in
+                PreviewBackground(content: {
+                    VStack {
+                        NeonEffect(color: Color.primary, blendMode: blendMode) {
+                            Rectangle()
+                        }
 
-            NeonEffect(color: Color.red) {
-                Circle()
-            }.padding()
+                        NeonEffect(color: Color.red, blendMode: blendMode) {
+                            Circle()
+                        }
 
-            NeonEffect(color: Color.blue) {
-                Path { path in
-                    path.move(to: CGPoint(x: 0, y: 0))
-                    path.addLine(to: CGPoint(x: 50, y: 50))
-                }
-            }.padding()
+                        NeonEffect(color: Color.blue, blendMode: blendMode) {
+                            Path { path in
+                                path.move(to: CGPoint(x: 0, y: 0))
+                                path.addLine(to: CGPoint(x: 50, y: 50))
+                            }
+                        }
+                    }.padding()
+            }).environment(\.colorScheme, colorScheme)
+                    .frame(width: 100, height: 200, alignment: .center)
+                    .previewDisplayName("\(colorScheme) mode, blend: \(blendMode)")
+            }
         }
     }
 }
