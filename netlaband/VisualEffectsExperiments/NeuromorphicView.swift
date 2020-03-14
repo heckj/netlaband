@@ -8,6 +8,9 @@
 
 import SwiftUI
 
+// most of these pieces are straight from Paul Hudson's article
+// https://www.hackingwithswift.com/articles/213/how-to-build-neumorphic-designs-with-swiftui
+
 extension Color {
     static let offWhite = Color(red: 225 / 255, green: 225 / 255, blue: 235 / 255)
 

@@ -12,14 +12,20 @@ struct CircleDataPoint: View {
     let size: CGFloat
     let position: CGPoint
     let stroke: CGFloat = 3.0
-    let opacity = 0.2
+    let backgroundOpacity = 0.2
+    let borderOpacity = 0.5
 
     var body: some View {
         ZStack {
             Circle()
                 .foregroundColor(Color.accentColor)
-                .overlay(Circle().stroke(Color.primary, lineWidth: stroke))
-                .opacity(opacity)
+                .opacity(backgroundOpacity)
+
+            // second circle isn't an overlay on the first
+            // so that we can apply a different opacity to it.
+            Circle()
+                .stroke(lineWidth: stroke)
+                .opacity(borderOpacity)
 
             GeometryReader { geometry in
                 Path { path in
@@ -45,24 +51,33 @@ struct CircleDataPoint: View {
 struct CircleDataPoint_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CircleDataPoint(size: 20,
-                            position: CGPoint(x: 30, y: 30))
-                .environment(\.colorScheme, .light)
-                .previewDisplayName("20, light")
+            PreviewBackground {
+                CircleDataPoint(size: 20,
+                                position: CGPoint(x: 30, y: 30))
+            }
+            .environment(\.colorScheme, .light)
+            .previewDisplayName("20, light")
 
-            CircleDataPoint(size: 20,
-                            position: CGPoint(x: 30, y: 30))
-                .environment(\.colorScheme, .dark)
-                .previewDisplayName("20, dark")
-            CircleDataPoint(size: 40,
-                            position: CGPoint(x: 30, y: 30))
-                .environment(\.colorScheme, .light)
-                .previewDisplayName("40, light")
+            PreviewBackground {
+                CircleDataPoint(size: 40,
+                                position: CGPoint(x: 30, y: 30))
+            }
+            .environment(\.colorScheme, .light)
+            .previewDisplayName("40, light")
 
-            CircleDataPoint(size: 40,
-                            position: CGPoint(x: 30, y: 30))
-                .environment(\.colorScheme, .dark)
-                .previewDisplayName("40, dark")
+            PreviewBackground {
+                CircleDataPoint(size: 20,
+                                position: CGPoint(x: 30, y: 30))
+            }
+            .environment(\.colorScheme, .dark)
+            .previewDisplayName("20, dark")
+
+            PreviewBackground {
+                CircleDataPoint(size: 40,
+                                position: CGPoint(x: 30, y: 30))
+            }
+            .environment(\.colorScheme, .dark)
+            .previewDisplayName("40, dark")
         }
         .frame(width: 60, height: 60, alignment: .center)
         .padding()

@@ -10,6 +10,10 @@
 		1A105135241AFE080098A207 /* CircleDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A105134241AFE080098A207 /* CircleDataPoint.swift */; };
 		1A2FCB9224117F6100A87527 /* VizControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FCB9124117F6100A87527 /* VizControlsView.swift */; };
 		1A334EE22416CD3600AA3D04 /* ASimpleExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */; };
+		1A3663E1241C46DF000DBF20 /* PreviewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E0241C46DF000DBF20 /* PreviewBackground.swift */; };
+		1A3663E3241C4CC7000DBF20 /* SampleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E2241C4CC7000DBF20 /* SampleShape.swift */; };
+		1A3663E5241C4CDE000DBF20 /* ViewModifierExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */; };
+		1A3663E7241C4F2A000DBF20 /* NeonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E6241C4F2A000DBF20 /* NeonEffect.swift */; };
 		1A3D2B4C2415B8D600A285AC /* DataPointCollectionView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */; };
 		1A3D2B4E2415BA0900A285AC /* HorizontalTickDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */; };
 		1A418EFF240F2EDF00E023A0 /* DataPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */; };
@@ -72,6 +76,10 @@
 		1A105134241AFE080098A207 /* CircleDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleDataPoint.swift; sourceTree = "<group>"; };
 		1A2FCB9124117F6100A87527 /* VizControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VizControlsView.swift; sourceTree = "<group>"; };
 		1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASimpleExampleView.swift; sourceTree = "<group>"; };
+		1A3663E0241C46DF000DBF20 /* PreviewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewBackground.swift; sourceTree = "<group>"; };
+		1A3663E2241C4CC7000DBF20 /* SampleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleShape.swift; sourceTree = "<group>"; };
+		1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifierExample.swift; sourceTree = "<group>"; };
+		1A3663E6241C4F2A000DBF20 /* NeonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonEffect.swift; sourceTree = "<group>"; };
 		1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointCollectionView2.swift; sourceTree = "<group>"; };
 		1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTickDisplayView.swift; sourceTree = "<group>"; };
 		1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointTextView.swift; sourceTree = "<group>"; };
@@ -227,6 +235,10 @@
 			isa = PBXGroup;
 			children = (
 				1AFD3B53241C0002000450B6 /* NeuromorphicView.swift */,
+				1A3663E0241C46DF000DBF20 /* PreviewBackground.swift */,
+				1A3663E2241C4CC7000DBF20 /* SampleShape.swift */,
+				1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */,
+				1A3663E6241C4F2A000DBF20 /* NeonEffect.swift */,
 			);
 			path = VisualEffectsExperiments;
 			sourceTree = "<group>";
@@ -416,7 +428,9 @@
 				1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */,
 				1ABEF9DD241AC2DE00626C45 /* IterationOneView.swift in Sources */,
 				1A3D2B4E2415BA0900A285AC /* HorizontalTickDisplayView.swift in Sources */,
+				1A3663E5241C4CDE000DBF20 /* ViewModifierExample.swift in Sources */,
 				1A105135241AFE080098A207 /* CircleDataPoint.swift in Sources */,
+				1A3663E3241C4CC7000DBF20 /* SampleShape.swift in Sources */,
 				1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */,
 				1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */,
 				1A5D28F02419901F00BEC549 /* TickLabel.swift in Sources */,
@@ -428,9 +442,11 @@
 				1A2FCB9224117F6100A87527 /* VizControlsView.swift in Sources */,
 				1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */,
 				1A334EE22416CD3600AA3D04 /* ASimpleExampleView.swift in Sources */,
+				1A3663E7241C4F2A000DBF20 /* NeonEffect.swift in Sources */,
 				1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */,
 				1A5D28EE24198F7C00BEC549 /* VerticalTickDisplayView.swift in Sources */,
 				1A4A608623E273F800D10766 /* Vizview.swift in Sources */,
+				1A3663E1241C46DF000DBF20 /* PreviewBackground.swift in Sources */,
 				1A418EFF240F2EDF00E023A0 /* DataPointTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
