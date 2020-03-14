@@ -87,10 +87,6 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
                 } // GeometryReader
             } // ZStack
 
-            // TODO(heckj): need to update the HorizontalTickDisplayView
-            // (or the underlying code that it uses) so that values entered
-            // OUTSIDE the domain the scale provided don't cause utter havoc
-            // on the resulting view (crashes with an issue drawing origin)
             HorizontalTickDisplayView(scale: scale,
                                       values: [1.0, 10.0, 100.0, 1000.0, 10000.0],
                                       formatter: formatter)
