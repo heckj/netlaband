@@ -15,18 +15,20 @@ struct NetworkAnalyzerControlView: View {
 
     var body: some View {
         VStack {
-            Toggle(isOn: $networkModel.active, label: {
-                Text("Active")
-            })
-            Slider(value: $networkModel.timerinterval,
-                   in: 0.5 ... 10.0,
-                   step: 0.5,
-                   label: {
-                       Text(String(format: "Every %.1f seconds", arguments: [networkModel.timerinterval]))
+            HStack {
+                Toggle(isOn: $networkModel.active, label: {
+                    Text("Active")
                     }).padding()
-            List(networkModel.urlsToValidate, id: \.self) { site in
-                Text(site)
+                Slider(value: $networkModel.timerinterval,
+                       in: 0.5 ... 10.0,
+                       step: 0.5,
+                       label: {
+                           Text(String(format: "Every %.1f seconds", arguments: [networkModel.timerinterval]))
+                        }).padding()
             }
+//            List(networkModel.urlsToValidate, id: \.self) { site in
+//                Text(site)
+//            }
         }
     }
 }

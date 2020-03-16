@@ -7,14 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A105135241AFE080098A207 /* CircleDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A105134241AFE080098A207 /* CircleDataPoint.swift */; };
+		1A2B2AA3241FFA430093F043 /* PreviewBackground in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2B2AA2241FFA430093F043 /* PreviewBackground */; };
+		1A2FCB9224117F6100A87527 /* VizControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FCB9124117F6100A87527 /* VizControlsView.swift */; };
+		1A334EE22416CD3600AA3D04 /* ASimpleExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */; };
+		1A3663E3241C4CC7000DBF20 /* SampleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E2241C4CC7000DBF20 /* SampleShape.swift */; };
+		1A3663E5241C4CDE000DBF20 /* ViewModifierExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */; };
+		1A3663E7241C4F2A000DBF20 /* NeonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E6241C4F2A000DBF20 /* NeonShape.swift */; };
+		1A3D2B4C2415B8D600A285AC /* DataPointCollectionView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */; };
+		1A3D2B4E2415BA0900A285AC /* HorizontalTickDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */; };
 		1A418EFF240F2EDF00E023A0 /* DataPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */; };
 		1A45BA9123F464E8001A91DD /* VerticalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */; };
 		1A4A608623E273F800D10766 /* Vizview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A608523E273F800D10766 /* Vizview.swift */; };
 		1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59732523BE84A000AB30EB /* BasicSiteView.swift */; };
+		1A5D28EE24198F7C00BEC549 /* VerticalTickDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D28ED24198F7C00BEC549 /* VerticalTickDisplayView.swift */; };
+		1A7EE46A241037B3008C58D3 /* HorizontalBandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */; };
+		1A8F880C240F400E00763DA1 /* DataPointCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */; };
+		1A99E461241D6385009E6479 /* LaserLightShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99E460241D6385009E6479 /* LaserLightShape.swift */; };
 		1AA5668C240F332200802907 /* SwiftViz in Frameworks */ = {isa = PBXBuildFile; productRef = 1AA5668B240F332200802907 /* SwiftViz */; };
 		1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */; };
 		1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD038E240F190B007A822C /* CircularBuffer.swift */; };
 		1AAD0394240F1DD1007A822C /* CircularBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD0392240F1DD1007A822C /* CircularBufferTests.swift */; };
+		1ABEF9DD241AC2DE00626C45 /* IterationOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABEF9DC241AC2DE00626C45 /* IterationOneView.swift */; };
+		1ABEF9DF241AC2ED00626C45 /* IterationTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABEF9DE241AC2ED00626C45 /* IterationTwoView.swift */; };
 		1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */; };
 		1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA423B685D800D56BE1 /* ContentView.swift */; };
 		1AD6AFA723B685D900D56BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6AFA623B685D900D56BE1 /* Assets.xcassets */; };
@@ -23,7 +38,9 @@
 		1AD6AFB923B685D900D56BE1 /* netlabandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFB823B685D900D56BE1 /* netlabandTests.swift */; };
 		1AD6AFC423B685D900D56BE1 /* netlabandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFC323B685D900D56BE1 /* netlabandUITests.swift */; };
 		1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */; };
+		1AE5F02B241FFF5E00636701 /* SquareDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F02A241FFF5E00636701 /* SquareDataPoint.swift */; };
 		1AF7C67523F4615F00389040 /* HorizontalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */; };
+		1AFD3B54241C0002000450B6 /* NeuromorphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFD3B53241C0002000450B6 /* NeuromorphicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,14 +74,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A105134241AFE080098A207 /* CircleDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleDataPoint.swift; sourceTree = "<group>"; };
+		1A2FCB9124117F6100A87527 /* VizControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VizControlsView.swift; sourceTree = "<group>"; };
+		1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASimpleExampleView.swift; sourceTree = "<group>"; };
+		1A3663E2241C4CC7000DBF20 /* SampleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleShape.swift; sourceTree = "<group>"; };
+		1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifierExample.swift; sourceTree = "<group>"; };
+		1A3663E6241C4F2A000DBF20 /* NeonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonShape.swift; sourceTree = "<group>"; };
+		1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointCollectionView2.swift; sourceTree = "<group>"; };
+		1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTickDisplayView.swift; sourceTree = "<group>"; };
 		1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointTextView.swift; sourceTree = "<group>"; };
 		1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAxisView.swift; sourceTree = "<group>"; };
 		1A4A608523E273F800D10766 /* Vizview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vizview.swift; sourceTree = "<group>"; };
 		1A59732523BE84A000AB30EB /* BasicSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSiteView.swift; sourceTree = "<group>"; };
+		1A5D28ED24198F7C00BEC549 /* VerticalTickDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTickDisplayView.swift; sourceTree = "<group>"; };
 		1A730F3E23B68A81007F8828 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBandView.swift; sourceTree = "<group>"; };
+		1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointCollectionView.swift; sourceTree = "<group>"; };
+		1A99E460241D6385009E6479 /* LaserLightShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserLightShape.swift; sourceTree = "<group>"; };
 		1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAnalyzerControlView.swift; sourceTree = "<group>"; };
 		1AAD038E240F190B007A822C /* CircularBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularBuffer.swift; sourceTree = "<group>"; };
 		1AAD0392240F1DD1007A822C /* CircularBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularBufferTests.swift; sourceTree = "<group>"; };
+		1ABEF9DC241AC2DE00626C45 /* IterationOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterationOneView.swift; sourceTree = "<group>"; };
+		1ABEF9DE241AC2ED00626C45 /* IterationTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterationTwoView.swift; sourceTree = "<group>"; };
 		1AD6AF9F23B685D800D56BE1 /* netlaband.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netlaband.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AD6AFA423B685D800D56BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,7 +111,9 @@
 		1AD6AFC323B685D900D56BE1 /* netlabandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = netlabandUITests.swift; sourceTree = "<group>"; };
 		1AD6AFC523B685D900D56BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAnalyzer.swift; sourceTree = "<group>"; };
+		1AE5F02A241FFF5E00636701 /* SquareDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareDataPoint.swift; sourceTree = "<group>"; };
 		1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalAxisView.swift; sourceTree = "<group>"; };
+		1AFD3B53241C0002000450B6 /* NeuromorphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuromorphicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA5668C240F332200802907 /* SwiftViz in Frameworks */,
+				1A2B2AA3241FFA430093F043 /* PreviewBackground in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +178,10 @@
 				1AAD038E240F190B007A822C /* CircularBuffer.swift */,
 				1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */,
 				1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */,
+				1AFD3B52241BFFD5000450B6 /* VisualEffectsExperiments */,
 				1AD6AFA423B685D800D56BE1 /* ContentView.swift */,
+				1ABEF9DC241AC2DE00626C45 /* IterationOneView.swift */,
+				1ABEF9DE241AC2ED00626C45 /* IterationTwoView.swift */,
 				1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */,
 				1AD6AFA623B685D900D56BE1 /* Assets.xcassets */,
 				1AD6AFAB23B685D900D56BE1 /* Main.storyboard */,
@@ -152,9 +189,18 @@
 				1AD6AFAF23B685D900D56BE1 /* netlaband.entitlements */,
 				1AD6AFA823B685D900D56BE1 /* Preview Content */,
 				1A59732523BE84A000AB30EB /* BasicSiteView.swift */,
+				1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */,
+				1A2FCB9124117F6100A87527 /* VizControlsView.swift */,
 				1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */,
+				1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */,
+				1A105134241AFE080098A207 /* CircleDataPoint.swift */,
+				1AE5F02A241FFF5E00636701 /* SquareDataPoint.swift */,
+				1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */,
 				1A4A608523E273F800D10766 /* Vizview.swift */,
 				1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */,
+				1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */,
+				1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */,
+				1A5D28ED24198F7C00BEC549 /* VerticalTickDisplayView.swift */,
 				1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */,
 			);
 			path = netlaband;
@@ -187,6 +233,18 @@
 			path = netlabandUITests;
 			sourceTree = "<group>";
 		};
+		1AFD3B52241BFFD5000450B6 /* VisualEffectsExperiments */ = {
+			isa = PBXGroup;
+			children = (
+				1AFD3B53241C0002000450B6 /* NeuromorphicView.swift */,
+				1A3663E2241C4CC7000DBF20 /* SampleShape.swift */,
+				1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */,
+				1A3663E6241C4F2A000DBF20 /* NeonShape.swift */,
+				1A99E460241D6385009E6479 /* LaserLightShape.swift */,
+			);
+			path = VisualEffectsExperiments;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +266,7 @@
 			name = netlaband;
 			packageProductDependencies = (
 				1AA5668B240F332200802907 /* SwiftViz */,
+				1A2B2AA2241FFA430093F043 /* PreviewBackground */,
 			);
 			productName = netlaband;
 			productReference = 1AD6AF9F23B685D800D56BE1 /* netlaband.app */;
@@ -283,6 +342,7 @@
 			mainGroup = 1AD6AF9623B685D800D56BE1;
 			packageReferences = (
 				1AA5668A240F332200802907 /* XCRemoteSwiftPackageReference "swiftviz" */,
+				1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */,
 			);
 			productRefGroup = 1AD6AFA023B685D800D56BE1 /* Products */;
 			projectDirPath = "";
@@ -366,14 +426,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3D2B4C2415B8D600A285AC /* DataPointCollectionView2.swift in Sources */,
+				1AFD3B54241C0002000450B6 /* NeuromorphicView.swift in Sources */,
+				1ABEF9DF241AC2ED00626C45 /* IterationTwoView.swift in Sources */,
 				1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */,
+				1ABEF9DD241AC2DE00626C45 /* IterationOneView.swift in Sources */,
+				1A3D2B4E2415BA0900A285AC /* HorizontalTickDisplayView.swift in Sources */,
+				1A3663E5241C4CDE000DBF20 /* ViewModifierExample.swift in Sources */,
+				1A105135241AFE080098A207 /* CircleDataPoint.swift in Sources */,
+				1A3663E3241C4CC7000DBF20 /* SampleShape.swift in Sources */,
+				1AE5F02B241FFF5E00636701 /* SquareDataPoint.swift in Sources */,
 				1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */,
 				1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */,
+				1A99E461241D6385009E6479 /* LaserLightShape.swift in Sources */,
+				1A8F880C240F400E00763DA1 /* DataPointCollectionView.swift in Sources */,
 				1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */,
 				1AF7C67523F4615F00389040 /* HorizontalAxisView.swift in Sources */,
+				1A7EE46A241037B3008C58D3 /* HorizontalBandView.swift in Sources */,
 				1A45BA9123F464E8001A91DD /* VerticalAxisView.swift in Sources */,
+				1A2FCB9224117F6100A87527 /* VizControlsView.swift in Sources */,
 				1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */,
+				1A334EE22416CD3600AA3D04 /* ASimpleExampleView.swift in Sources */,
+				1A3663E7241C4F2A000DBF20 /* NeonShape.swift in Sources */,
 				1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */,
+				1A5D28EE24198F7C00BEC549 /* VerticalTickDisplayView.swift in Sources */,
 				1A4A608623E273F800D10766 /* Vizview.swift in Sources */,
 				1A418EFF240F2EDF00E023A0 /* DataPointTextView.swift in Sources */,
 			);
@@ -704,17 +780,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/heckj/PreviewBackground.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 		1AA5668A240F332200802907 /* XCRemoteSwiftPackageReference "swiftviz" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/swiftviz/swiftviz/";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1A2B2AA2241FFA430093F043 /* PreviewBackground */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */;
+			productName = PreviewBackground;
+		};
 		1AA5668B240F332200802907 /* SwiftViz */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1AA5668A240F332200802907 /* XCRemoteSwiftPackageReference "swiftviz" */;

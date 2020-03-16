@@ -7,27 +7,30 @@
 //
 
 import SwiftUI
+import SwiftViz
 
 struct ContentView: View {
     @ObservedObject var networkModel: NetworkAnalyzer
-    @State private var metrics = CircularBuffer<NetworkAnalysisDataPoint>(initialCapacity: 10)
 
-    let date = Date()
     var body: some View {
         VStack {
             NetworkAnalyzerControlView(networkModel: networkModel)
-            HStack {
-                Text("\(metrics.count) datapoints")
+
+            TabView {
+                IterationOneView(networkModel: networkModel)
+                    .tabItem {
+                        // Image(systemName: "1.circle")
+                        // :-( no SFSymbols on Mac yet
+                        Text("1")
+                    }
+
+                IterationTwoView(networkModel: networkModel)
+                    .tabItem {
+                        // Image(systemName: "2.circle")
+                        // :-( no SFSymbols on Mac yet
+                        Text("2")
+                    }
             }
-            List(self.metrics) { dp in
-                DataPointTextView(dp: dp)
-            }
-            .onReceive(networkModel.metricPublisher.receive(on: RunLoop.main), perform: { dp in
-                self.metrics.append(dp)
-                if self.metrics.count > 10 {
-                    self.metrics.removeFirst()
-                }
-            })
         }
     }
 }

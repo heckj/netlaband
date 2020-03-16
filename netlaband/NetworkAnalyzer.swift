@@ -38,10 +38,10 @@ public struct NetworkAnalysisDataPoint: Hashable, Identifiable {
     public let bandwidth: Double // in Kbytes per second
 
     /// Convenience initializer for quick sample data points
-    public init(url: String, latency: Double, bandwidth: Double) {
+    public init(url: String, latency: Double, bandwidth: Double, timeoffset: Double = 0) {
         self.url = url
         status = .available
-        timestamp = Date()
+        timestamp = Date() - TimeInterval(timeoffset)
         self.latency = latency
         self.bandwidth = bandwidth
     }
@@ -100,7 +100,7 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate, ObservableObject
     private var dataTasks: [String: URLSessionDataTask]
 
     @Published public var urlsToValidate: [String]
-    @Published public var timerinterval: TimeInterval = 5 { // seconds
+    @Published public var timerinterval: TimeInterval = 2 { // seconds
         didSet {
             os_log("updated timer interval to: %f", log: OSLog.netcheck, self.timerinterval)
             if self.active {
