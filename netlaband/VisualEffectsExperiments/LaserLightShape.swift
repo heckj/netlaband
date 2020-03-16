@@ -6,6 +6,7 @@
 //  Copyright © 2020 JFH Consulting. All rights reserved.
 //
 
+import PreviewBackground
 import SwiftUI
 
 struct LaserLightShape<Content>: View where Content: Shape {
