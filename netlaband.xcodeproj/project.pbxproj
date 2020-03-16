@@ -9,6 +9,30 @@
 /* Begin PBXBuildFile section */
 		1A105135241AFE080098A207 /* CircleDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A105134241AFE080098A207 /* CircleDataPoint.swift */; };
 		1A1D0C572420385D00B74CA8 /* DiamondDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1D0C562420385D00B74CA8 /* DiamondDataPoint.swift */; };
+		1A1D0C5924203F3600B74CA8 /* NetworkAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */; };
+		1A1D0C5A2420402300B74CA8 /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD038E240F190B007A822C /* CircularBuffer.swift */; };
+		1A1D0C5B2420402E00B74CA8 /* NeuromorphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFD3B53241C0002000450B6 /* NeuromorphicView.swift */; };
+		1A1D0C5C2420402E00B74CA8 /* SampleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E2241C4CC7000DBF20 /* SampleShape.swift */; };
+		1A1D0C5D2420402E00B74CA8 /* ViewModifierExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */; };
+		1A1D0C5E2420402E00B74CA8 /* NeonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E6241C4F2A000DBF20 /* NeonShape.swift */; };
+		1A1D0C5F2420402E00B74CA8 /* LaserLightShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99E460241D6385009E6479 /* LaserLightShape.swift */; };
+		1A1D0C602420403700B74CA8 /* IterationOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABEF9DC241AC2DE00626C45 /* IterationOneView.swift */; };
+		1A1D0C612420403700B74CA8 /* IterationTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABEF9DE241AC2ED00626C45 /* IterationTwoView.swift */; };
+		1A1D0C622420403700B74CA8 /* NetworkAnalyzerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */; };
+		1A1D0C642420409E00B74CA8 /* VizControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FCB9124117F6100A87527 /* VizControlsView.swift */; };
+		1A1D0C652420409E00B74CA8 /* DataPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */; };
+		1A1D0C662420409E00B74CA8 /* DataPointCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */; };
+		1A1D0C672420409E00B74CA8 /* CircleDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A105134241AFE080098A207 /* CircleDataPoint.swift */; };
+		1A1D0C682420409E00B74CA8 /* SquareDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F02A241FFF5E00636701 /* SquareDataPoint.swift */; };
+		1A1D0C692420409E00B74CA8 /* DiamondDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1D0C562420385D00B74CA8 /* DiamondDataPoint.swift */; };
+		1A1D0C6A2420409E00B74CA8 /* DataPointCollectionView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */; };
+		1A1D0C6B2420409E00B74CA8 /* HorizontalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */; };
+		1A1D0C6C2420409E00B74CA8 /* HorizontalBandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */; };
+		1A1D0C6D2420409E00B74CA8 /* HorizontalTickDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */; };
+		1A1D0C6E2420409E00B74CA8 /* VerticalTickDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D28ED24198F7C00BEC549 /* VerticalTickDisplayView.swift */; };
+		1A1D0C6F2420409E00B74CA8 /* VerticalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */; };
+		1A1D0C70242040B600B74CA8 /* Vizview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A608523E273F800D10766 /* Vizview.swift */; };
+		1A1D0C71242040BE00B74CA8 /* ASimpleExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */; };
 		1A2B2AA3241FFA430093F043 /* PreviewBackground in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2B2AA2241FFA430093F043 /* PreviewBackground */; };
 		1A2D94F1242014E000E4012F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D94F0242014E000E4012F /* AppDelegate.swift */; };
 		1A2D94F3242014E000E4012F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D94F2242014E000E4012F /* SceneDelegate.swift */; };
@@ -188,6 +212,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A1D0C5824203E9700B74CA8 /* NetworkCommon */ = {
+			isa = PBXGroup;
+			children = (
+				1AAD038E240F190B007A822C /* CircularBuffer.swift */,
+				1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */,
+			);
+			path = NetworkCommon;
+			sourceTree = "<group>";
+		};
+		1A1D0C632420406300B74CA8 /* SwiftUIVizComponents */ = {
+			isa = PBXGroup;
+			children = (
+				1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */,
+				1A2FCB9124117F6100A87527 /* VizControlsView.swift */,
+				1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */,
+				1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */,
+				1A105134241AFE080098A207 /* CircleDataPoint.swift */,
+				1AE5F02A241FFF5E00636701 /* SquareDataPoint.swift */,
+				1A1D0C562420385D00B74CA8 /* DiamondDataPoint.swift */,
+				1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */,
+				1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */,
+				1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */,
+				1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */,
+				1A5D28ED24198F7C00BEC549 /* VerticalTickDisplayView.swift */,
+				1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */,
+				1A4A608523E273F800D10766 /* Vizview.swift */,
+				1A59732523BE84A000AB30EB /* BasicSiteView.swift */,
+				1ABEF9DC241AC2DE00626C45 /* IterationOneView.swift */,
+				1ABEF9DE241AC2ED00626C45 /* IterationTwoView.swift */,
+			);
+			path = SwiftUIVizComponents;
+			sourceTree = "<group>";
+		};
 		1A2D94EF242014E000E4012F /* CoffeeshopNetworkAdvisor */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +287,9 @@
 			isa = PBXGroup;
 			children = (
 				1A730F3E23B68A81007F8828 /* README.md */,
+				1AFD3B52241BFFD5000450B6 /* VisualEffectsExperiments */,
+				1A1D0C5824203E9700B74CA8 /* NetworkCommon */,
+				1A1D0C632420406300B74CA8 /* SwiftUIVizComponents */,
 				1AD6AFA123B685D800D56BE1 /* netlaband */,
 				1AD6AFB723B685D900D56BE1 /* netlabandTests */,
 				1AD6AFC223B685D900D56BE1 /* netlabandUITests */,
@@ -255,34 +315,13 @@
 		1AD6AFA123B685D800D56BE1 /* netlaband */ = {
 			isa = PBXGroup;
 			children = (
-				1AAD038E240F190B007A822C /* CircularBuffer.swift */,
-				1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */,
 				1AD6AFA223B685D800D56BE1 /* AppDelegate.swift */,
-				1AFD3B52241BFFD5000450B6 /* VisualEffectsExperiments */,
 				1AD6AFA423B685D800D56BE1 /* ContentView.swift */,
-				1ABEF9DC241AC2DE00626C45 /* IterationOneView.swift */,
-				1ABEF9DE241AC2ED00626C45 /* IterationTwoView.swift */,
-				1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */,
 				1AD6AFA623B685D900D56BE1 /* Assets.xcassets */,
 				1AD6AFAB23B685D900D56BE1 /* Main.storyboard */,
 				1AD6AFAE23B685D900D56BE1 /* Info.plist */,
 				1AD6AFAF23B685D900D56BE1 /* netlaband.entitlements */,
 				1AD6AFA823B685D900D56BE1 /* Preview Content */,
-				1A59732523BE84A000AB30EB /* BasicSiteView.swift */,
-				1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */,
-				1A2FCB9124117F6100A87527 /* VizControlsView.swift */,
-				1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */,
-				1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */,
-				1A105134241AFE080098A207 /* CircleDataPoint.swift */,
-				1AE5F02A241FFF5E00636701 /* SquareDataPoint.swift */,
-				1A1D0C562420385D00B74CA8 /* DiamondDataPoint.swift */,
-				1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */,
-				1A4A608523E273F800D10766 /* Vizview.swift */,
-				1AF7C67423F4615F00389040 /* HorizontalAxisView.swift */,
-				1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */,
-				1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */,
-				1A5D28ED24198F7C00BEC549 /* VerticalTickDisplayView.swift */,
-				1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */,
 			);
 			path = netlaband;
 			sourceTree = "<group>";
@@ -321,6 +360,7 @@
 				1A3663E2241C4CC7000DBF20 /* SampleShape.swift */,
 				1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */,
 				1A3663E6241C4F2A000DBF20 /* NeonShape.swift */,
+				1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */,
 				1A99E460241D6385009E6479 /* LaserLightShape.swift */,
 			);
 			path = VisualEffectsExperiments;
@@ -334,6 +374,8 @@
 			buildConfigurationList = 1A2D950E242014E000E4012F /* Build configuration list for PBXNativeTarget "CoffeeshopNetworkAdvisor" */;
 			buildPhases = (
 				1A2D94EA242014DF00E4012F /* Sources */,
+				1A1D0C72242041BF00B74CA8 /* Run Script (swiftformat) */,
+				1A1D0C73242041DA00B74CA8 /* Run Script (swiftlint) */,
 				1A2D94EB242014DF00E4012F /* Frameworks */,
 				1A2D94EC242014DF00E4012F /* Resources */,
 			);
@@ -529,6 +571,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1A1D0C72242041BF00B74CA8 /* Run Script (swiftformat) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script (swiftformat)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat >/dev/null; then\nswiftformat . --exclude dependencies\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+		1A1D0C73242041DA00B74CA8 /* Run Script (swiftlint) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script (swiftlint)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		1A730F3C23B688A4007F8828 /* Run Script (swiftformat) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,9 +650,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A1D0C5924203F3600B74CA8 /* NetworkAnalyzer.swift in Sources */,
+				1A1D0C5B2420402E00B74CA8 /* NeuromorphicView.swift in Sources */,
+				1A1D0C5D2420402E00B74CA8 /* ViewModifierExample.swift in Sources */,
+				1A1D0C662420409E00B74CA8 /* DataPointCollectionView.swift in Sources */,
 				1A2D94F1242014E000E4012F /* AppDelegate.swift in Sources */,
+				1A1D0C622420403700B74CA8 /* NetworkAnalyzerControlView.swift in Sources */,
+				1A1D0C71242040BE00B74CA8 /* ASimpleExampleView.swift in Sources */,
+				1A1D0C6A2420409E00B74CA8 /* DataPointCollectionView2.swift in Sources */,
+				1A1D0C6F2420409E00B74CA8 /* VerticalAxisView.swift in Sources */,
+				1A1D0C692420409E00B74CA8 /* DiamondDataPoint.swift in Sources */,
+				1A1D0C6D2420409E00B74CA8 /* HorizontalTickDisplayView.swift in Sources */,
+				1A1D0C5F2420402E00B74CA8 /* LaserLightShape.swift in Sources */,
+				1A1D0C612420403700B74CA8 /* IterationTwoView.swift in Sources */,
+				1A1D0C5C2420402E00B74CA8 /* SampleShape.swift in Sources */,
+				1A1D0C6C2420409E00B74CA8 /* HorizontalBandView.swift in Sources */,
+				1A1D0C682420409E00B74CA8 /* SquareDataPoint.swift in Sources */,
+				1A1D0C642420409E00B74CA8 /* VizControlsView.swift in Sources */,
+				1A1D0C70242040B600B74CA8 /* Vizview.swift in Sources */,
+				1A1D0C672420409E00B74CA8 /* CircleDataPoint.swift in Sources */,
+				1A1D0C652420409E00B74CA8 /* DataPointTextView.swift in Sources */,
+				1A1D0C6B2420409E00B74CA8 /* HorizontalAxisView.swift in Sources */,
+				1A1D0C5E2420402E00B74CA8 /* NeonShape.swift in Sources */,
 				1A2D94F3242014E000E4012F /* SceneDelegate.swift in Sources */,
 				1A2D94F5242014E000E4012F /* ContentView.swift in Sources */,
+				1A1D0C602420403700B74CA8 /* IterationOneView.swift in Sources */,
+				1A1D0C6E2420409E00B74CA8 /* VerticalTickDisplayView.swift in Sources */,
+				1A1D0C5A2420402300B74CA8 /* CircularBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +785,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoffeeshopNetworkAdvisor/Preview Content\"";
+				DEVELOPMENT_TEAM = BDV4VC27D3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CoffeeshopNetworkAdvisor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -704,6 +807,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoffeeshopNetworkAdvisor/Preview Content\"";
+				DEVELOPMENT_TEAM = BDV4VC27D3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CoffeeshopNetworkAdvisor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;

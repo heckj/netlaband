@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let netanalysis = NetworkAnalyzer(urlsToCheck: ["https://google.com/", "https://www.facebook.com", "https://amazon.com"])
+        let contentView = ContentView(networkModel: netanalysis)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
