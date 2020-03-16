@@ -50,4 +50,4 @@ jobs:
       env:
         scheme: ${{ matrix.run-config['scheme'] }}
         destination: ${{ matrix.run-config['destination'] }}
-      run: xcodebuild clean test -scheme ${scheme} -destination "${destination}" -showBuildTimingSummary
+      run: xcodebuild clean test -scheme ${scheme} -destination '${destination}' -showBuildTimingSummary
