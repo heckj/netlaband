@@ -48,6 +48,8 @@ jobs:
 
     - name: build and test
       env:
-        scheme: ${{ matrix.run-config['scheme'] }}
-        destination: ${{ matrix.run-config['destination'] }}
-      run: xcodebuild clean test -scheme ${scheme} -destination '${destination}' -showBuildTimingSummary
+        SCHEME: ${{ matrix.run-config['scheme'] }}
+        DEST: ${{ matrix.run-config['destination'] }}
+      run: |
+          set -x
+          xcodebuild clean test -scheme "${SCHEME}" -destination "${DEST}" -showBuildTimingSummary
