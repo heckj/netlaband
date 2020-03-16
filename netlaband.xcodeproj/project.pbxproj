@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		1A105135241AFE080098A207 /* CircleDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A105134241AFE080098A207 /* CircleDataPoint.swift */; };
 		1A2B2AA3241FFA430093F043 /* PreviewBackground in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2B2AA2241FFA430093F043 /* PreviewBackground */; };
+		1A2D94F1242014E000E4012F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D94F0242014E000E4012F /* AppDelegate.swift */; };
+		1A2D94F3242014E000E4012F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D94F2242014E000E4012F /* SceneDelegate.swift */; };
+		1A2D94F5242014E000E4012F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D94F4242014E000E4012F /* ContentView.swift */; };
+		1A2D94F7242014E000E4012F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2D94F6242014E000E4012F /* Assets.xcassets */; };
+		1A2D94FA242014E000E4012F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2D94F9242014E000E4012F /* Preview Assets.xcassets */; };
+		1A2D94FD242014E000E4012F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A2D94FB242014E000E4012F /* LaunchScreen.storyboard */; };
+		1A2D9508242014E000E4012F /* CoffeeshopNetworkAdvisorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D9507242014E000E4012F /* CoffeeshopNetworkAdvisorTests.swift */; };
+		1A2D95112420151400E4012F /* SwiftViz in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2D95102420151400E4012F /* SwiftViz */; };
+		1A2D95132420151900E4012F /* PreviewBackground in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2D95122420151900E4012F /* PreviewBackground */; };
 		1A2FCB9224117F6100A87527 /* VizControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FCB9124117F6100A87527 /* VizControlsView.swift */; };
 		1A334EE22416CD3600AA3D04 /* ASimpleExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */; };
 		1A3663E3241C4CC7000DBF20 /* SampleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E2241C4CC7000DBF20 /* SampleShape.swift */; };
@@ -44,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1A2D9504242014E000E4012F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AD6AF9723B685D800D56BE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A2D94ED242014DF00E4012F;
+			remoteInfo = CoffeeshopNetworkAdvisor;
+		};
 		1AD6AFB523B685D900D56BE1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AD6AF9723B685D800D56BE1 /* Project object */;
@@ -75,6 +91,17 @@
 
 /* Begin PBXFileReference section */
 		1A105134241AFE080098A207 /* CircleDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleDataPoint.swift; sourceTree = "<group>"; };
+		1A2D94EE242014DF00E4012F /* CoffeeshopNetworkAdvisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeshopNetworkAdvisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A2D94F0242014E000E4012F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A2D94F2242014E000E4012F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1A2D94F4242014E000E4012F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1A2D94F6242014E000E4012F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A2D94F9242014E000E4012F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1A2D94FC242014E000E4012F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1A2D94FE242014E000E4012F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A2D9503242014E000E4012F /* CoffeeshopNetworkAdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeshopNetworkAdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A2D9507242014E000E4012F /* CoffeeshopNetworkAdvisorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeshopNetworkAdvisorTests.swift; sourceTree = "<group>"; };
+		1A2D9509242014E000E4012F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A2FCB9124117F6100A87527 /* VizControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VizControlsView.swift; sourceTree = "<group>"; };
 		1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASimpleExampleView.swift; sourceTree = "<group>"; };
 		1A3663E2241C4CC7000DBF20 /* SampleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleShape.swift; sourceTree = "<group>"; };
@@ -117,6 +144,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1A2D94EB242014DF00E4012F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A2D95112420151400E4012F /* SwiftViz in Frameworks */,
+				1A2D95132420151900E4012F /* PreviewBackground in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A2D9500242014E000E4012F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AD6AF9C23B685D800D56BE1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +186,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A2D94EF242014E000E4012F /* CoffeeshopNetworkAdvisor */ = {
+			isa = PBXGroup;
+			children = (
+				1A2D94F0242014E000E4012F /* AppDelegate.swift */,
+				1A2D94F2242014E000E4012F /* SceneDelegate.swift */,
+				1A2D94F4242014E000E4012F /* ContentView.swift */,
+				1A2D94F6242014E000E4012F /* Assets.xcassets */,
+				1A2D94FB242014E000E4012F /* LaunchScreen.storyboard */,
+				1A2D94FE242014E000E4012F /* Info.plist */,
+				1A2D94F8242014E000E4012F /* Preview Content */,
+			);
+			path = CoffeeshopNetworkAdvisor;
+			sourceTree = "<group>";
+		};
+		1A2D94F8242014E000E4012F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1A2D94F9242014E000E4012F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A2D9506242014E000E4012F /* CoffeeshopNetworkAdvisorTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A2D9507242014E000E4012F /* CoffeeshopNetworkAdvisorTests.swift */,
+				1A2D9509242014E000E4012F /* Info.plist */,
+			);
+			path = CoffeeshopNetworkAdvisorTests;
+			sourceTree = "<group>";
+		};
 		1A9A202723E3E76000C29A1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +231,8 @@
 				1AD6AFA123B685D800D56BE1 /* netlaband */,
 				1AD6AFB723B685D900D56BE1 /* netlabandTests */,
 				1AD6AFC223B685D900D56BE1 /* netlabandUITests */,
+				1A2D94EF242014E000E4012F /* CoffeeshopNetworkAdvisor */,
+				1A2D9506242014E000E4012F /* CoffeeshopNetworkAdvisorTests */,
 				1AD6AFA023B685D800D56BE1 /* Products */,
 				1A9A202723E3E76000C29A1D /* Frameworks */,
 			);
@@ -168,6 +244,8 @@
 				1AD6AF9F23B685D800D56BE1 /* netlaband.app */,
 				1AD6AFB423B685D900D56BE1 /* netlabandTests.xctest */,
 				1AD6AFBF23B685D900D56BE1 /* netlabandUITests.xctest */,
+				1A2D94EE242014DF00E4012F /* CoffeeshopNetworkAdvisor.app */,
+				1A2D9503242014E000E4012F /* CoffeeshopNetworkAdvisorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,6 +326,45 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1A2D94ED242014DF00E4012F /* CoffeeshopNetworkAdvisor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A2D950E242014E000E4012F /* Build configuration list for PBXNativeTarget "CoffeeshopNetworkAdvisor" */;
+			buildPhases = (
+				1A2D94EA242014DF00E4012F /* Sources */,
+				1A2D94EB242014DF00E4012F /* Frameworks */,
+				1A2D94EC242014DF00E4012F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoffeeshopNetworkAdvisor;
+			packageProductDependencies = (
+				1A2D95102420151400E4012F /* SwiftViz */,
+				1A2D95122420151900E4012F /* PreviewBackground */,
+			);
+			productName = CoffeeshopNetworkAdvisor;
+			productReference = 1A2D94EE242014DF00E4012F /* CoffeeshopNetworkAdvisor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1A2D9502242014E000E4012F /* CoffeeshopNetworkAdvisorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A2D950F242014E000E4012F /* Build configuration list for PBXNativeTarget "CoffeeshopNetworkAdvisorTests" */;
+			buildPhases = (
+				1A2D94FF242014E000E4012F /* Sources */,
+				1A2D9500242014E000E4012F /* Frameworks */,
+				1A2D9501242014E000E4012F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A2D9505242014E000E4012F /* PBXTargetDependency */,
+			);
+			name = CoffeeshopNetworkAdvisorTests;
+			productName = CoffeeshopNetworkAdvisorTests;
+			productReference = 1A2D9503242014E000E4012F /* CoffeeshopNetworkAdvisorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		1AD6AF9E23B685D800D56BE1 /* netlaband */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1AD6AFC823B685D900D56BE1 /* Build configuration list for PBXNativeTarget "netlaband" */;
@@ -318,6 +435,13 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "JFH Consulting";
 				TargetAttributes = {
+					1A2D94ED242014DF00E4012F = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					1A2D9502242014E000E4012F = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 1A2D94ED242014DF00E4012F;
+					};
 					1AD6AF9E23B685D800D56BE1 = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -351,11 +475,30 @@
 				1AD6AF9E23B685D800D56BE1 /* netlaband */,
 				1AD6AFB323B685D900D56BE1 /* netlabandTests */,
 				1AD6AFBE23B685D900D56BE1 /* netlabandUITests */,
+				1A2D94ED242014DF00E4012F /* CoffeeshopNetworkAdvisor */,
+				1A2D9502242014E000E4012F /* CoffeeshopNetworkAdvisorTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1A2D94EC242014DF00E4012F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A2D94FD242014E000E4012F /* LaunchScreen.storyboard in Resources */,
+				1A2D94FA242014E000E4012F /* Preview Assets.xcassets in Resources */,
+				1A2D94F7242014E000E4012F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A2D9501242014E000E4012F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AD6AF9D23B685D800D56BE1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,6 +565,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1A2D94EA242014DF00E4012F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A2D94F1242014E000E4012F /* AppDelegate.swift in Sources */,
+				1A2D94F3242014E000E4012F /* SceneDelegate.swift in Sources */,
+				1A2D94F5242014E000E4012F /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A2D94FF242014E000E4012F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A2D9508242014E000E4012F /* CoffeeshopNetworkAdvisorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AD6AF9B23B685D800D56BE1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,6 +636,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1A2D9505242014E000E4012F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A2D94ED242014DF00E4012F /* CoffeeshopNetworkAdvisor */;
+			targetProxy = 1A2D9504242014E000E4012F /* PBXContainerItemProxy */;
+		};
 		1AD6AFB623B685D900D56BE1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1AD6AF9E23B685D800D56BE1 /* netlaband */;
@@ -488,6 +654,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1A2D94FB242014E000E4012F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A2D94FC242014E000E4012F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		1AD6AFAB23B685D900D56BE1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -499,6 +673,94 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1A2D950A242014E000E4012F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CoffeeshopNetworkAdvisor/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = CoffeeshopNetworkAdvisor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonabwy.CoffeeshopNetworkAdvisor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A2D950B242014E000E4012F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CoffeeshopNetworkAdvisor/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = CoffeeshopNetworkAdvisor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonabwy.CoffeeshopNetworkAdvisor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A2D950C242014E000E4012F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CoffeeshopNetworkAdvisorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonabwy.CoffeeshopNetworkAdvisorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoffeeshopNetworkAdvisor.app/CoffeeshopNetworkAdvisor";
+			};
+			name = Debug;
+		};
+		1A2D950D242014E000E4012F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CoffeeshopNetworkAdvisorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonabwy.CoffeeshopNetworkAdvisorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoffeeshopNetworkAdvisor.app/CoffeeshopNetworkAdvisor";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		1AD6AFC623B685D900D56BE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -741,6 +1003,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1A2D950E242014E000E4012F /* Build configuration list for PBXNativeTarget "CoffeeshopNetworkAdvisor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A2D950A242014E000E4012F /* Debug */,
+				1A2D950B242014E000E4012F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A2D950F242014E000E4012F /* Build configuration list for PBXNativeTarget "CoffeeshopNetworkAdvisorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A2D950C242014E000E4012F /* Debug */,
+				1A2D950D242014E000E4012F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1AD6AF9A23B685D800D56BE1 /* Build configuration list for PBXProject "netlaband" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -800,6 +1080,16 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		1A2B2AA2241FFA430093F043 /* PreviewBackground */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */;
+			productName = PreviewBackground;
+		};
+		1A2D95102420151400E4012F /* SwiftViz */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AA5668A240F332200802907 /* XCRemoteSwiftPackageReference "swiftviz" */;
+			productName = SwiftViz;
+		};
+		1A2D95122420151900E4012F /* PreviewBackground */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */;
 			productName = PreviewBackground;
