@@ -88,7 +88,13 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
             } // ZStack
 
             HorizontalTickDisplayView(scale: scale,
-                                      values: [1.0, 10.0, 100.0, 1000.0, 10000.0],
+                                      labeledValues: [
+                                          (CGFloat(1.0), "1 ms"),
+                                          (CGFloat(10), "10 ms"),
+                                          (CGFloat(100), "100 ms"),
+                                          (CGFloat(1000), "1 s"),
+                                          (CGFloat(10000), "10 s"),
+                                      ],
                                       formatter: formatter)
         } // VStack
     }

@@ -52,35 +52,18 @@ struct CircleDataPoint: View {
 struct CircleDataPoint_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PreviewBackground {
-                CircleDataPoint(size: 20,
-                                position: CGPoint(x: 30, y: 30))
-            }
-            .environment(\.colorScheme, .light)
-            .previewDisplayName("20, light")
-
-            PreviewBackground {
-                CircleDataPoint(size: 40,
-                                position: CGPoint(x: 30, y: 30))
-            }
-            .environment(\.colorScheme, .light)
-            .previewDisplayName("40, light")
-
-            PreviewBackground {
-                CircleDataPoint(size: 20,
-                                position: CGPoint(x: 30, y: 30))
-            }
-            .environment(\.colorScheme, .dark)
-            .previewDisplayName("20, dark")
-
-            PreviewBackground {
-                CircleDataPoint(size: 40,
-                                position: CGPoint(x: 30, y: 30))
-            }
-            .environment(\.colorScheme, .dark)
-            .previewDisplayName("40, dark")
+            ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
+                ForEach([20, 40], id: \.self) { size in
+                    PreviewBackground {
+                        CircleDataPoint(size: size,
+                                        position: CGPoint(x: 30, y: 30))
+                            .previewDisplayName("\(size), \(colorScheme)")
+                    } // PreviewBackground
+                    .environment(\.colorScheme, colorScheme)
+                } // ForEach size
+            } // ForEach colorScheme
         }
-        .frame(width: 60, height: 60, alignment: .center)
+        .frame(width: 120, height: 60, alignment: .center)
         .padding()
     }
 }
