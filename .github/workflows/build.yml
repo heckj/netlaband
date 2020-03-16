@@ -10,7 +10,7 @@ jobs:
       matrix:
         run-config:
           - { scheme: 'netlaband', destination: 'platform=macOS'}
-          - { scheme: 'CoffeeshopNetworkAdvisor', destination: 'platform=iOS Simulator,OS:13.3, name:iPhone 8' }
+          - { scheme: 'CoffeeshopNetworkAdvisor', destination: 'platform=iOS Simulator, OS=13.3, name=iPhone 8' }
 
     steps:
     - name: Checkout Project
@@ -49,4 +49,5 @@ jobs:
     - name: build and test
       env:
         scheme: ${{ matrix.run-config['scheme'] }}
-      run: xcodebuild clean test -scheme ${scheme}
+        destination: ${{ matrix.run-config['destination'] }}
+      run: xcodebuild clean test -scheme ${scheme} -destination "${destination}" -showBuildTimingSummary
