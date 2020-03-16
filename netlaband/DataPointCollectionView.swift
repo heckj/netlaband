@@ -15,17 +15,10 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
     ScaleType.TickType.InputType == CGFloat {
     let points: CollectionType
     let scale: ScaleType
-    let formatter: Formatter
 
     init(points: CollectionType, scale: ScaleType) {
         self.points = points
         self.scale = scale
-
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 0
-        self.formatter = formatter
     }
 
     func scalePosition(myScale: ScaleType, size: CGSize, point: NetworkAnalysisDataPoint) -> CGPoint {
@@ -94,8 +87,7 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
                                           (CGFloat(100), "100 ms"),
                                           (CGFloat(1000), "1 s"),
                                           (CGFloat(10000), "10 s"),
-                                      ],
-                                      formatter: formatter)
+                                      ])
         } // VStack
     }
 }

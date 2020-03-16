@@ -9,7 +9,9 @@
 import SwiftUI
 import SwiftViz
 
-struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleType: Scale>: View where CollectionType.Element == NetworkAnalysisDataPoint, ScaleType.InputType == CGFloat {
+struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleType: Scale>: View where CollectionType.Element == NetworkAnalysisDataPoint,
+    ScaleType.TickType.InputType == ScaleType.InputType,
+    ScaleType.TickType.InputType == CGFloat {
     let points: CollectionType
     var scale: ScaleType
 
@@ -90,6 +92,14 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
                     }
                 } // GeometryReader
             } // ZStack
+            HorizontalTickDisplayView(scale: scale,
+                                      labeledValues: [
+                                          (CGFloat(1.0), "1 ms"),
+                                          (CGFloat(10), "10 ms"),
+                                          (CGFloat(100), "100 ms"),
+                                          (CGFloat(1000), "1 s"),
+                                          (CGFloat(10000), "10 s"),
+                                      ])
         } // VStack
     }
 }
