@@ -22,17 +22,26 @@ view the schemes and targets:
 
     xcodebuild -list
 
-view destinations:
+schemes:
 
-    xcodebuild -scheme netlaband -showdestinations
+- `netlaband` - macOS
+- `CoffeeshopNetworkAdvisor` - iOS
 
 do a build:
 
-    # xcodebuild -scheme netlaband -sdk iphoneos13.2 -configuration Debug
-    # xcodebuild -scheme netlaband -sdk iphoneos13.2 -configuration Release
-    xcodebuild -scheme netlaband
+    #mac
+    xcodebuild clean build -scheme 'netlaband' -destination 'plaform=macOS' -showBuildTimingSummary
+    #ios
+    xcodebuild clean build -scheme 'CoffeeshopNetworkAdvisor' -destination 'platform=iOS Simulator,OS=13.3,name=iPhone 8' -showBuildTimingSummary
 
 run the tests:
 
-    # xcodebuild clean test -scheme netlaband -sdk iphoneos13.2 -destination 'platform=iOS Simulator,OS=13.3,name=iPhone 8'
-    xcodebuild clean test -scheme netlaband
+    #mac
+    xcodebuild test -scheme 'netlaband' -destination 'plaform=macOS' -showBuildTimingSummary -enableCodeCoverage YES
+    #ios
+    xcodebuild test -scheme 'CoffeeshopNetworkAdvisor' \
+    -destination 'platform=iOS Simulator,OS=13.3,name=iPhone 8' \
+    -showBuildTimingSummary -enableCodeCoverage YES
+
+
+
