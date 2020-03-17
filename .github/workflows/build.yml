@@ -43,4 +43,4 @@ jobs:
         brew install swiftformat
 
     - name: build and test
-      run: "set -x;xcodebuild clean test -scheme ${{ matrix.run-config['scheme'] }} -destination ${{ matrix.run-config['destination'] }} -showBuildTimingSummary"
+      run: "set -x;xcodebuild clean test -scheme \"${{ matrix.run-config['scheme'] }}\" -destination \"${{ matrix.run-config['destination'] }}\" -showBuildTimingSummary"
