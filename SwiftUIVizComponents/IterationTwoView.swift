@@ -10,8 +10,9 @@ import SwiftUI
 import SwiftViz
 
 struct IterationTwoView: View {
+    let capacity = 50
     @ObservedObject var networkModel: NetworkAnalyzer
-    @State private var metrics = CircularBuffer<NetworkAnalysisDataPoint>(initialCapacity: 10)
+    @State private var metrics = CircularBuffer<NetworkAnalysisDataPoint>(initialCapacity: 50)
 
     var body: some View {
         VStack {
@@ -24,7 +25,7 @@ struct IterationTwoView: View {
 //                .padding()
         }.onReceive(networkModel.metricPublisher.receive(on: RunLoop.main), perform: { dp in
             self.metrics.append(dp)
-            if self.metrics.count > 10 {
+            if self.metrics.count > self.capacity {
                 self.metrics.removeFirst()
             }
         })

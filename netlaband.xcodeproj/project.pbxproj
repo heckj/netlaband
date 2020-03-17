@@ -53,6 +53,8 @@
 		1A418EFF240F2EDF00E023A0 /* DataPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */; };
 		1A45BA9123F464E8001A91DD /* VerticalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */; };
 		1A4A608623E273F800D10766 /* Vizview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A608523E273F800D10766 /* Vizview.swift */; };
+		1A592A2524212B5200B7ABB6 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A592A2424212B5200B7ABB6 /* GridStack.swift */; };
+		1A592A2624212C0E00B7ABB6 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A592A2424212B5200B7ABB6 /* GridStack.swift */; };
 		1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59732523BE84A000AB30EB /* BasicSiteView.swift */; };
 		1A5D28EE24198F7C00BEC549 /* VerticalTickDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D28ED24198F7C00BEC549 /* VerticalTickDisplayView.swift */; };
 		1A7EE46A241037B3008C58D3 /* HorizontalBandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */; };
@@ -138,6 +140,7 @@
 		1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointTextView.swift; sourceTree = "<group>"; };
 		1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAxisView.swift; sourceTree = "<group>"; };
 		1A4A608523E273F800D10766 /* Vizview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vizview.swift; sourceTree = "<group>"; };
+		1A592A2424212B5200B7ABB6 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
 		1A59732523BE84A000AB30EB /* BasicSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSiteView.swift; sourceTree = "<group>"; };
 		1A5D28ED24198F7C00BEC549 /* VerticalTickDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTickDisplayView.swift; sourceTree = "<group>"; };
 		1A730F3E23B68A81007F8828 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -362,6 +365,7 @@
 				1A3663E6241C4F2A000DBF20 /* NeonShape.swift */,
 				1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */,
 				1A99E460241D6385009E6479 /* LaserLightShape.swift */,
+				1A592A2424212B5200B7ABB6 /* GridStack.swift */,
 			);
 			path = VisualEffectsExperiments;
 			sourceTree = "<group>";
@@ -668,6 +672,7 @@
 				1A1D0C682420409E00B74CA8 /* SquareDataPoint.swift in Sources */,
 				1A1D0C642420409E00B74CA8 /* VizControlsView.swift in Sources */,
 				1A1D0C70242040B600B74CA8 /* Vizview.swift in Sources */,
+				1A592A2624212C0E00B7ABB6 /* GridStack.swift in Sources */,
 				1A1D0C672420409E00B74CA8 /* CircleDataPoint.swift in Sources */,
 				1A1D0C652420409E00B74CA8 /* DataPointTextView.swift in Sources */,
 				1A1D0C6B2420409E00B74CA8 /* HorizontalAxisView.swift in Sources */,
@@ -710,6 +715,7 @@
 				1A1D0C572420385D00B74CA8 /* DiamondDataPoint.swift in Sources */,
 				1AF7C67523F4615F00389040 /* HorizontalAxisView.swift in Sources */,
 				1A7EE46A241037B3008C58D3 /* HorizontalBandView.swift in Sources */,
+				1A592A2524212B5200B7ABB6 /* GridStack.swift in Sources */,
 				1A45BA9123F464E8001A91DD /* VerticalAxisView.swift in Sources */,
 				1A2FCB9224117F6100A87527 /* VizControlsView.swift in Sources */,
 				1AD6AFA323B685D800D56BE1 /* AppDelegate.swift in Sources */,
