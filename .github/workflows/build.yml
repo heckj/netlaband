@@ -52,4 +52,4 @@ jobs:
         DEST: ${{ matrix.run-config['destination'] }}
       run: |
           set -x
-          xcodebuild clean test -scheme ${SCHEME} -destination \"${DEST}\" -showBuildTimingSummary
+          xcodebuild clean test -scheme $(SCHEME) -destination $(DEST) -showBuildTimingSummary
