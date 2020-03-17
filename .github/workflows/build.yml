@@ -5,18 +5,16 @@ on: [push]
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         run-config:
-          - { scheme: 'netlaband', destination: "platform=macOS"}
-          - { scheme: 'CoffeeshopNetworkAdvisor', destination: "platform=iOS Simulator, OS=13.3, name=iPhone 8" }
+          - { scheme: "netlaband", destination: "platform=macOS" }
+          - { scheme: "CoffeeshopNetworkAdvisor", destination: "platform=iOS Simulator, OS=13.3, name=iPhone 8" }
 
     steps:
     - name: Checkout Project
-      uses: actions/checkout@v1
-      with:
-        submodules: recursive
+      uses: actions/checkout@v2
 
     - name: Show the currently detailed version of Xcode for CLI
       run: xcode-select -p
@@ -37,9 +35,7 @@ jobs:
       run: xcodebuild -showsdks
 
     - name: Show Available Destinations
-      env:
-        scheme: ${{ matrix.run-config['scheme'] }}
-      run: xcodebuild -scheme ${scheme} -showdestinations
+      run: xcodebuild -scheme ${{ matrix.run-config['scheme'] }} -showdestinations
 
     - name: Homebrew build helpers install
       run: |
@@ -47,9 +43,4 @@ jobs:
         brew install swiftformat
 
     - name: build and test
-      env:
-        SCHEME: ${{ matrix.run-config['scheme'] }}
-        DEST: ${{ matrix.run-config['destination'] }}
-      run: |
-          set -x
-          xcodebuild clean test -scheme \"${SCHEME}\" -destination \"${DEST}\" -showBuildTimingSummary
+      run: "set -x;xcodebuild clean test -scheme ${{ matrix.run-config['scheme'] }} -destination ${{ matrix.run-config['destination'] }} -showBuildTimingSummary"
