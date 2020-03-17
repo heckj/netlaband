@@ -13,12 +13,12 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
     ScaleType.TickType.InputType == ScaleType.InputType,
     ScaleType.TickType.InputType == CGFloat {
     let points: CollectionType
-    var scale: ScaleType
+    var scale: ScaleType // horizontal scale
 
-    @State private var blur: CGFloat = 2.0
+//    @State private var blur: CGFloat = 2.0
     @State private var stroke: CGFloat = 2.0
-    @State private var opacity: CGFloat = 0.8
-    @State private var timeDuration: CGFloat = 50.0
+//    @State private var opacity: CGFloat = 0.8
+    @State private var timeDuration: CGFloat = 20.0
 
     func scalePosition(myScale: ScaleType, size: CGSize, point: NetworkAnalysisDataPoint) -> CGPoint {
         let xPos = myScale.scale(CGFloat(point.latency),
@@ -26,82 +26,107 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
         // ternary structure: question ? answerYes : answerNo
         let limitedX = xPos.isNaN ? CGFloat(0) : xPos
 
-        // y-position in the middle of the view - no vertical scaling
-        // let limitedY = size.height / 2
-
-        let minDiameterToScale = 10
-        let maxDiameterToScaleSize = max(min(size.height * 0.4, size.width), CGFloat(minDiameterToScale))
+        // incoming size.height is the max range for applying
+        // the time scale/age for the data points. Domain is
+        // the expected input values (0 to ?? seconds old)
+        let verticalScale = LinearScale(domain: 0 ... timeDuration)
 
         // age of point
         let age = point.timestamp.timeIntervalSinceNow * -1.0
-        print("Age: ", age)
-
-        var constrainedRange: ClosedRange<CGFloat>
-        if size.height - maxDiameterToScaleSize < 0 {
-            constrainedRange = 0 ... 0
-        } else {
-            constrainedRange = 0 ... size.height - maxDiameterToScaleSize
-        }
+        // print("Age: ", age)
 
         // y-position scaled by age of the datapoint
-        let anotherY = LinearScale(domain: 0 ... timeDuration, isClamped: false).scale(CGFloat(age), range: constrainedRange)
+        let scaledY = verticalScale.scale(CGFloat(age), range: 0 ... size.height)
 
-        let pointval = CGPoint(x: limitedX, y: anotherY + maxDiameterToScaleSize / 2.0)
-        print("returning: ", pointval)
+        let pointval = CGPoint(x: limitedX, y: scaledY)
+        // print("returning: ", pointval)
         return pointval
     }
 
-    func sizeFromBandwidth(_ point: NetworkAnalysisDataPoint, size: CGSize) -> CGFloat {
-        if point.bandwidth < 1 {
-            return CGFloat(10)
+    func opacityFromAge(point: NetworkAnalysisDataPoint) -> Double {
+        let verticalScale = LinearScale(domain: 0 ... timeDuration)
+        // age of point
+        let age = point.timestamp.timeIntervalSinceNow * -1.0
+        let scaledOpacity = verticalScale.scale(CGFloat(age), range: 0 ... 1.0)
+        print("scaled opacity = ", scaledOpacity)
+        if scaledOpacity.isNaN {
+            return 1.0
         }
-        let minDiameterToScale = 10
-        let maxDiameterToScale = max(min(size.height * 0.4, size.width), CGFloat(minDiameterToScale))
+        return Double(1 - scaledOpacity)
+    }
 
-        let internalScale = LogScale(domain: 1 ... 10000.0, isClamped: false)
-        let scaledSize = internalScale.scale(CGFloat(point.bandwidth), range: 10 ... maxDiameterToScale)
-
-        return scaledSize
+    func discreteSizeFromBandwidth(_ point: NetworkAnalysisDataPoint, size _: CGSize) -> CGFloat {
+        // 3 sizes:
+        //  - sm (<100)
+        //  - med (>100)
+        //  - large (>1k)
+        // if the bandwidth < 1, min size
+        if point.bandwidth > 1000 {
+            return CGFloat(20)
+        }
+        if point.bandwidth > 100, point.bandwidth < 1000 {
+            return CGFloat(15)
+        }
+        // if point.bandwidth < 100
+        return CGFloat(10)
     }
 
     var body: some View {
         VStack {
-            // VizControlsView(min: 0.5, max: 20.0, strokeValue: $stroke, blurVal: $blur, opacityVal: $opacity, timeDurationVal: $timeDuration)
-            ZStack {
-                // when using a ZStack, the stuff listed at the
-                // top of the construction pattern is on the "bottom"
-                // of the stack - that is, you can think of it as
-                // building "upward" to displaying the view.
+//             VizControlsView(min: 0.5, max: 20.0, strokeValue: $stroke, blurVal: $blur, opacityVal: $opacity, timeDurationVal: $timeDuration)
+            HStack { // top row of "grid"
+                // vertical axis tick labels
+//                VerticalTickDisplayView(scale: LinearScale(domain: 0 ... timeDuration, isClamped: false),
+//                                        labeledValues: [
+//                                            (CGFloat(20), "20"),
+//                                            (CGFloat(40), "40"),
+//                                        ])
+//                ZStack { // vertical axis
+//                    VerticalAxisView(scale: LinearScale(domain: 0 ... timeDuration, isClamped: false))
+//                }
+                VStack { // data view
+                    ZStack {
+                        // when using a ZStack, the stuff listed at the
+                        // top of the construction pattern is on the "bottom"
+                        // of the stack - that is, you can think of it as
+                        // building "upward" to displaying the view.
 
-                // this presents the logrithmic background to the view
-                HorizontalBandView(scale: scale)
+                        // this presents the logrithmic background to the view
+                        HorizontalBandView(scale: scale)
 
-                // and this wraps the data presentation over that background
-                GeometryReader { geometry in
-                    // geometry here provides us access to know the size of the
-                    // object we've been placed within...
-                    // geometry.size (CGSize)
-                    // geometry.frame (CGRect)
-                    ForEach(self.points) { point in
-                        Circle()
-                            .stroke(Color.blue, lineWidth: self.stroke)
-                            .blur(radius: CGFloat(self.blur))
-                            .frame(width: self.sizeFromBandwidth(point, size: geometry.size), height: self.sizeFromBandwidth(point, size: geometry.size), alignment: .center)
-                            .position(self.scalePosition(myScale: self.scale, size: geometry.size, point: point))
-                            .opacity(Double(self.opacity))
-                    }
-                } // GeometryReader
-            } // ZStack
-            HorizontalTickDisplayView(scale: scale,
-                                      labeledValues: [
-                                          (CGFloat(1.0), "1 ms"),
-                                          (CGFloat(10), "10 ms"),
-                                          (CGFloat(100), "100 ms"),
-                                          (CGFloat(1000), "1 s"),
-                                          (CGFloat(10000), "10 s"),
-                                      ])
-        } // VStack
-    }
+                        // and this wraps the data presentation over that background
+                        GeometryReader { geometry in
+                            // geometry here provides us access to know the size of the
+                            // object we've been placed within...
+                            // geometry.size (CGSize)
+                            // geometry.frame (CGRect)
+                            ForEach(self.points) { point in
+                                Circle()
+                                    .stroke(Color.blue, lineWidth: self.stroke)
+//                                    .blur(radius: CGFloat(self.blur))
+                                    .frame(width: self.discreteSizeFromBandwidth(point, size: geometry.size), height: self.discreteSizeFromBandwidth(point, size: geometry.size), alignment: .center)
+                                    .position(self.scalePosition(myScale: self.scale, size: geometry.size, point: point))
+                                    .opacity(self.opacityFromAge(point: point))
+                            }
+                        } // GeometryReader
+                    } // ZStack
+                } // VStack - data view
+            } // HStack - top row of "grid"
+            HStack { // bottom sequence of grid - next "row"
+//                ZStack { Spacer() } // to match tick display
+//                ZStack { Spacer() } // to match axis
+                // then hopefullt this tick display will match the 3rd cell - data view
+                HorizontalTickDisplayView(scale: scale,
+                                          labeledValues: [
+                                              (CGFloat(1.0), "1 ms"),
+                                              (CGFloat(10), "10 ms"),
+                                              (CGFloat(100), "100 ms"),
+                                              (CGFloat(1000), "1 s"),
+                                              (CGFloat(10000), "10 s"),
+                                          ])
+            } // bottom sequence of grid - next "row"
+        }
+    } // VStack
 }
 
 #if DEBUG
@@ -131,6 +156,12 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
             bandwidth: 700.63, // in Kbytes per second
             timeoffset: 30 // seconds ago
         ))
+        pointCollection.append(NetworkAnalysisDataPoint(
+            url: "https://www.google.com/",
+            latency: 213, // in ms
+            bandwidth: 99.63, // in Kbytes per second
+            timeoffset: 40 // seconds ago
+        ))
 
         return pointCollection
     }
@@ -139,7 +170,7 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
         static var previews: some View {
             DataPointCollectionView2(points: dataPoints(),
                                      scale: LogScale(domain: 1 ... 10000.0, isClamped: false))
-                .frame(width: 400, height: 100, alignment: .center)
+                .frame(width: 250, height: 400, alignment: .center)
                 .padding()
         }
     }
