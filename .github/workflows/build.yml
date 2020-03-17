@@ -35,7 +35,7 @@ jobs:
       run: xcodebuild -showsdks
 
     - name: Show Available Destinations
-      run: xcodebuild -scheme ${{ matrix.run-config['scheme'] }} -showdestinations
+      run: xcodebuild -scheme '${{ matrix.run-config['scheme'] }}' -showdestinations
 
     - name: Homebrew build helpers install
       run: |
@@ -43,4 +43,4 @@ jobs:
         brew install swiftformat
 
     - name: build and test
-      run: "set -x;xcodebuild clean test -scheme ${{ matrix.run-config['scheme'] }} -destination ${{ matrix.run-config['destination'] }} -showBuildTimingSummary"
+      run: "set -x;xcodebuild clean test -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary"
