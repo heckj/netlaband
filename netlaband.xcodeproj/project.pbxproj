@@ -41,10 +41,11 @@
 		1A2D94FA242014E000E4012F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2D94F9242014E000E4012F /* Preview Assets.xcassets */; };
 		1A2D94FD242014E000E4012F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A2D94FB242014E000E4012F /* LaunchScreen.storyboard */; };
 		1A2D9508242014E000E4012F /* CoffeeshopNetworkAdvisorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D9507242014E000E4012F /* CoffeeshopNetworkAdvisorTests.swift */; };
-		1A2D95112420151400E4012F /* SwiftViz in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2D95102420151400E4012F /* SwiftViz */; };
 		1A2D95132420151900E4012F /* PreviewBackground in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2D95122420151900E4012F /* PreviewBackground */; };
 		1A2FCB9224117F6100A87527 /* VizControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FCB9124117F6100A87527 /* VizControlsView.swift */; };
 		1A334EE22416CD3600AA3D04 /* ASimpleExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */; };
+		1A35CE17242410F8000C9B62 /* SwiftViz in Frameworks */ = {isa = PBXBuildFile; productRef = 1A35CE16242410F8000C9B62 /* SwiftViz */; };
+		1A35CE1924241111000C9B62 /* SwiftViz in Frameworks */ = {isa = PBXBuildFile; productRef = 1A35CE1824241111000C9B62 /* SwiftViz */; };
 		1A3663E3241C4CC7000DBF20 /* SampleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E2241C4CC7000DBF20 /* SampleShape.swift */; };
 		1A3663E5241C4CDE000DBF20 /* ViewModifierExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */; };
 		1A3663E7241C4F2A000DBF20 /* NeonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E6241C4F2A000DBF20 /* NeonShape.swift */; };
@@ -60,7 +61,6 @@
 		1A7EE46A241037B3008C58D3 /* HorizontalBandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */; };
 		1A8F880C240F400E00763DA1 /* DataPointCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */; };
 		1A99E461241D6385009E6479 /* LaserLightShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99E460241D6385009E6479 /* LaserLightShape.swift */; };
-		1AA5668C240F332200802907 /* SwiftViz in Frameworks */ = {isa = PBXBuildFile; productRef = 1AA5668B240F332200802907 /* SwiftViz */; };
 		1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */; };
 		1AAD038F240F190B007A822C /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD038E240F190B007A822C /* CircularBuffer.swift */; };
 		1AAD0394240F1DD1007A822C /* CircularBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD0392240F1DD1007A822C /* CircularBufferTests.swift */; };
@@ -177,7 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A2D95112420151400E4012F /* SwiftViz in Frameworks */,
+				1A35CE1924241111000C9B62 /* SwiftViz in Frameworks */,
 				1A2D95132420151900E4012F /* PreviewBackground in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,7 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AA5668C240F332200802907 /* SwiftViz in Frameworks */,
+				1A35CE17242410F8000C9B62 /* SwiftViz in Frameworks */,
 				1A2B2AA3241FFA430093F043 /* PreviewBackground in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,8 +389,8 @@
 			);
 			name = CoffeeshopNetworkAdvisor;
 			packageProductDependencies = (
-				1A2D95102420151400E4012F /* SwiftViz */,
 				1A2D95122420151900E4012F /* PreviewBackground */,
+				1A35CE1824241111000C9B62 /* SwiftViz */,
 			);
 			productName = CoffeeshopNetworkAdvisor;
 			productReference = 1A2D94EE242014DF00E4012F /* CoffeeshopNetworkAdvisor.app */;
@@ -431,8 +431,8 @@
 			);
 			name = netlaband;
 			packageProductDependencies = (
-				1AA5668B240F332200802907 /* SwiftViz */,
 				1A2B2AA2241FFA430093F043 /* PreviewBackground */,
+				1A35CE16242410F8000C9B62 /* SwiftViz */,
 			);
 			productName = netlaband;
 			productReference = 1AD6AF9F23B685D800D56BE1 /* netlaband.app */;
@@ -514,8 +514,8 @@
 			);
 			mainGroup = 1AD6AF9623B685D800D56BE1;
 			packageReferences = (
-				1AA5668A240F332200802907 /* XCRemoteSwiftPackageReference "swiftviz" */,
 				1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */,
+				1A35CE15242410F8000C9B62 /* XCRemoteSwiftPackageReference "SwiftViz" */,
 			);
 			productRefGroup = 1AD6AFA023B685D800D56BE1 /* Products */;
 			projectDirPath = "";
@@ -1182,12 +1182,12 @@
 				minimumVersion = 0.1.1;
 			};
 		};
-		1AA5668A240F332200802907 /* XCRemoteSwiftPackageReference "swiftviz" */ = {
+		1A35CE15242410F8000C9B62 /* XCRemoteSwiftPackageReference "SwiftViz" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/swiftviz/swiftviz/";
+			repositoryURL = "https://github.com/SwiftViz/SwiftViz";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
+				minimumVersion = 0.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1198,19 +1198,19 @@
 			package = 1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */;
 			productName = PreviewBackground;
 		};
-		1A2D95102420151400E4012F /* SwiftViz */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1AA5668A240F332200802907 /* XCRemoteSwiftPackageReference "swiftviz" */;
-			productName = SwiftViz;
-		};
 		1A2D95122420151900E4012F /* PreviewBackground */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */;
 			productName = PreviewBackground;
 		};
-		1AA5668B240F332200802907 /* SwiftViz */ = {
+		1A35CE16242410F8000C9B62 /* SwiftViz */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1AA5668A240F332200802907 /* XCRemoteSwiftPackageReference "swiftviz" */;
+			package = 1A35CE15242410F8000C9B62 /* XCRemoteSwiftPackageReference "SwiftViz" */;
+			productName = SwiftViz;
+		};
+		1A35CE1824241111000C9B62 /* SwiftViz */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A35CE15242410F8000C9B62 /* XCRemoteSwiftPackageReference "SwiftViz" */;
 			productName = SwiftViz;
 		};
 /* End XCSwiftPackageProductDependency section */
