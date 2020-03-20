@@ -49,6 +49,8 @@
 		1A3663E3241C4CC7000DBF20 /* SampleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E2241C4CC7000DBF20 /* SampleShape.swift */; };
 		1A3663E5241C4CDE000DBF20 /* ViewModifierExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */; };
 		1A3663E7241C4F2A000DBF20 /* NeonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3663E6241C4F2A000DBF20 /* NeonShape.swift */; };
+		1A37EEB224257DC00067F72A /* FaviconDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A37EEB124257DC00067F72A /* FaviconDataPoint.swift */; };
+		1A37EEB324257DC00067F72A /* FaviconDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A37EEB124257DC00067F72A /* FaviconDataPoint.swift */; };
 		1A3D2B4C2415B8D600A285AC /* DataPointCollectionView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */; };
 		1A3D2B4E2415BA0900A285AC /* HorizontalTickDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */; };
 		1A418EFF240F2EDF00E023A0 /* DataPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */; };
@@ -140,6 +142,7 @@
 		1A3663E2241C4CC7000DBF20 /* SampleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleShape.swift; sourceTree = "<group>"; };
 		1A3663E4241C4CDE000DBF20 /* ViewModifierExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifierExample.swift; sourceTree = "<group>"; };
 		1A3663E6241C4F2A000DBF20 /* NeonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonShape.swift; sourceTree = "<group>"; };
+		1A37EEB124257DC00067F72A /* FaviconDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconDataPoint.swift; sourceTree = "<group>"; };
 		1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointCollectionView2.swift; sourceTree = "<group>"; };
 		1A3D2B4D2415BA0900A285AC /* HorizontalTickDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTickDisplayView.swift; sourceTree = "<group>"; };
 		1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointTextView.swift; sourceTree = "<group>"; };
@@ -240,6 +243,7 @@
 				1A418EFE240F2EDF00E023A0 /* DataPointTextView.swift */,
 				1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */,
 				1A105134241AFE080098A207 /* CircleDataPoint.swift */,
+				1A37EEB124257DC00067F72A /* FaviconDataPoint.swift */,
 				1AE5F02A241FFF5E00636701 /* SquareDataPoint.swift */,
 				1A1D0C562420385D00B74CA8 /* DiamondDataPoint.swift */,
 				1A3D2B4B2415B8D600A285AC /* DataPointCollectionView2.swift */,
@@ -690,6 +694,7 @@
 				1A1D0C6B2420409E00B74CA8 /* HorizontalAxisView.swift in Sources */,
 				1A1D0C5E2420402E00B74CA8 /* NeonShape.swift in Sources */,
 				1A2D94F3242014E000E4012F /* SceneDelegate.swift in Sources */,
+				1A37EEB324257DC00067F72A /* FaviconDataPoint.swift in Sources */,
 				1A2D94F5242014E000E4012F /* ContentView.swift in Sources */,
 				1A1D0C602420403700B74CA8 /* IterationOneView.swift in Sources */,
 				1A1D0C6E2420409E00B74CA8 /* VerticalTickDisplayView.swift in Sources */,
@@ -737,6 +742,7 @@
 				1A3663E7241C4F2A000DBF20 /* NeonShape.swift in Sources */,
 				1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */,
 				1A5D28EE24198F7C00BEC549 /* VerticalTickDisplayView.swift in Sources */,
+				1A37EEB224257DC00067F72A /* FaviconDataPoint.swift in Sources */,
 				1A4A608623E273F800D10766 /* Vizview.swift in Sources */,
 				1A418EFF240F2EDF00E023A0 /* DataPointTextView.swift in Sources */,
 			);
