@@ -132,11 +132,16 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
                             // geometry.size (CGSize)
                             // geometry.frame (CGRect)
                             ForEach(self.points) { point in
-                                Circle()
-                                    .stroke(Color.blue, lineWidth: self.sizeFromBandwidth(point, size: geometry.size).stroke)
+                                FaviconDataPoint(siteName: NetworkTargets.nameFromTarget(url: point.url))
                                     .frame(width: self.sizeFromBandwidth(point, size: geometry.size).size, height: self.sizeFromBandwidth(point, size: geometry.size).size, alignment: .center)
                                     .position(self.scalePosition(myScale: self.scale, size: geometry.size, point: point))
                                     .opacity(self.opacityFromAge(point: point))
+
+                                //                                Circle()
+//                                    .stroke(Color.blue, lineWidth: self.sizeFromBandwidth(point, size: geometry.size).stroke)
+//                                    .frame(width: self.sizeFromBandwidth(point, size: geometry.size).size, height: self.sizeFromBandwidth(point, size: geometry.size).size, alignment: .center)
+//                                    .position(self.scalePosition(myScale: self.scale, size: geometry.size, point: point))
+//                                    .opacity(self.opacityFromAge(point: point))
                             }
                         } // GeometryReader
                     } // ZStack
