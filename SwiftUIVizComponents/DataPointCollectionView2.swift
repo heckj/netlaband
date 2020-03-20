@@ -9,16 +9,43 @@
 import SwiftUI
 import SwiftViz
 
+enum DataPointSize {
+    case small
+    case medium
+    case large
+
+    public static let maxOffset = CGFloat(15 / 2 + 10 / 2)
+    public static let minOffset = CGFloat(10 / 2 + 10 / 2)
+
+    var size: CGFloat {
+        switch self {
+        case .small:
+            return CGFloat(10.0)
+        case .medium:
+            return CGFloat(10.0)
+        case .large:
+            return CGFloat(10.0)
+        }
+    }
+
+    var stroke: CGFloat {
+        switch self {
+        case .small:
+            return CGFloat(1.0)
+        case .medium:
+            return CGFloat(3.0)
+        case .large:
+            return CGFloat(5.0)
+        }
+    }
+}
+
 struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleType: Scale>: View where CollectionType.Element == NetworkAnalysisDataPoint,
     ScaleType.TickType.InputType == ScaleType.InputType,
     ScaleType.TickType.InputType == CGFloat {
     let points: CollectionType
     var scale: ScaleType // horizontal scale
-
-//    @State private var blur: CGFloat = 2.0
-    @State private var stroke: CGFloat = 2.0
-//    @State private var opacity: CGFloat = 0.8
-    @State private var timeDuration: CGFloat = 20.0
+    let maxDurationNeeded: CGFloat
 
     func scalePosition(myScale: ScaleType, size: CGSize, point: NetworkAnalysisDataPoint) -> CGPoint {
         let xPos = myScale.scale(CGFloat(point.latency),
@@ -29,14 +56,20 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
         // incoming size.height is the max range for applying
         // the time scale/age for the data points. Domain is
         // the expected input values (0 to ?? seconds old)
-        let verticalScale = LinearScale(domain: 0 ... timeDuration)
+        let verticalScale = LinearScale(domain: 0 ... maxDurationNeeded, isClamped: true)
 
         // age of point
         let age = point.timestamp.timeIntervalSinceNow * -1.0
         // print("Age: ", age)
 
+        var insetRange: ClosedRange<CGFloat>
+        if DataPointSize.maxOffset > size.height - DataPointSize.maxOffset {
+            insetRange = DataPointSize.maxOffset ... DataPointSize.maxOffset
+        } else {
+            insetRange = DataPointSize.maxOffset ... size.height - DataPointSize.maxOffset
+        }
         // y-position scaled by age of the datapoint
-        let scaledY = verticalScale.scale(CGFloat(age), range: 0 ... size.height)
+        let scaledY = verticalScale.scale(CGFloat(age), range: insetRange)
 
         let pointval = CGPoint(x: limitedX, y: scaledY)
         // print("returning: ", pointval)
@@ -44,10 +77,10 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
     }
 
     func opacityFromAge(point: NetworkAnalysisDataPoint) -> Double {
-        let verticalScale = LinearScale(domain: 0 ... timeDuration)
+        let verticalScale = LinearScale(domain: 0 ... maxDurationNeeded)
         // age of point
         let age = point.timestamp.timeIntervalSinceNow * -1.0
-        let scaledOpacity = verticalScale.scale(CGFloat(age), range: 0 ... 1.0)
+        let scaledOpacity = verticalScale.scale(CGFloat(age), range: 0.0 ... 0.8)
         print("scaled opacity = ", scaledOpacity)
         if scaledOpacity.isNaN {
             return 1.0
@@ -55,20 +88,18 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
         return Double(1 - scaledOpacity)
     }
 
-    func discreteSizeFromBandwidth(_ point: NetworkAnalysisDataPoint, size _: CGSize) -> CGFloat {
+    func sizeFromBandwidth(_ point: NetworkAnalysisDataPoint, size _: CGSize) -> DataPointSize {
         // 3 sizes:
-        //  - sm (<100)
-        //  - med (>100)
         //  - large (>1k)
-        // if the bandwidth < 1, min size
         if point.bandwidth > 1000 {
-            return CGFloat(20)
+            return .large
         }
+        //  - medium (>100)
         if point.bandwidth > 100, point.bandwidth < 1000 {
-            return CGFloat(15)
+            return .medium
         }
-        // if point.bandwidth < 100
-        return CGFloat(10)
+        // if point.bandwidth < 100 : small
+        return .small
     }
 
     var body: some View {
@@ -102,9 +133,8 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
                             // geometry.frame (CGRect)
                             ForEach(self.points) { point in
                                 Circle()
-                                    .stroke(Color.blue, lineWidth: self.stroke)
-//                                    .blur(radius: CGFloat(self.blur))
-                                    .frame(width: self.discreteSizeFromBandwidth(point, size: geometry.size), height: self.discreteSizeFromBandwidth(point, size: geometry.size), alignment: .center)
+                                    .stroke(Color.blue, lineWidth: self.sizeFromBandwidth(point, size: geometry.size).stroke)
+                                    .frame(width: self.sizeFromBandwidth(point, size: geometry.size).size, height: self.sizeFromBandwidth(point, size: geometry.size).size, alignment: .center)
                                     .position(self.scalePosition(myScale: self.scale, size: geometry.size, point: point))
                                     .opacity(self.opacityFromAge(point: point))
                             }
@@ -124,7 +154,7 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
                                               (CGFloat(1000), "1 s"),
                                               (CGFloat(10000), "10 s"),
                                           ])
-            } // bottom sequence of grid - next "row"
+            }.frame(minHeight: 10, idealHeight: 20, maxHeight: 20, alignment: .center) // bottom sequence of grid - next "row"
         }
     } // VStack
 }
@@ -135,7 +165,7 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
         pointCollection.append(NetworkAnalysisDataPoint(
             url: "https://www.google.com/",
             latency: 55.4, // in ms
-            bandwidth: 2437.1, // in Kbytes per second
+            bandwidth: 37.1, // in Kbytes per second
             timeoffset: 0 // seconds ago
         ))
         pointCollection.append(NetworkAnalysisDataPoint(
@@ -169,7 +199,7 @@ struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleTyp
     struct DataPointCollectionView2_Previews: PreviewProvider {
         static var previews: some View {
             DataPointCollectionView2(points: dataPoints(),
-                                     scale: LogScale(domain: 1 ... 10000.0, isClamped: false))
+                                     scale: LogScale(domain: 1 ... 10000.0, isClamped: true), maxDurationNeeded: 40.0)
                 .frame(width: 250, height: 400, alignment: .center)
                 .padding()
         }
