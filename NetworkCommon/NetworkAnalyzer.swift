@@ -27,6 +27,9 @@ public enum NetworkAccessible {
     case unavailable
 }
 
+/// Encapsulates metrics collected from URLSession when making HTTP requests.
+/// Provides an overall status of the request (success/failure), timestamp, URL string
+/// of the requested resource, and calculated latency and bandwidth of the response.
 public struct NetworkAnalysisDataPoint: Hashable, Identifiable {
     public var id = UUID()
 
@@ -36,7 +39,7 @@ public struct NetworkAnalysisDataPoint: Hashable, Identifiable {
     public let latency: Double // in ms
     public let bandwidth: Double // in Kbytes per second
 
-    /// Convenience initializer for quick sample data points
+    /// Convenience initializer for making sample data points
     public init(url: String, latency: Double, bandwidth: Double, timeoffset: Double = 0) {
         self.url = url
         status = .available
@@ -70,6 +73,14 @@ public struct NetworkAnalysisDataPoint: Hashable, Identifiable {
     }
 }
 
+/// A wrapper object around URLSession that makes repeateded requests at a given frequency
+/// on a background thread, and reports the metrics as a Combine Publisher. Since it was
+/// convenient, the object also wraps the TCP multi-path NWPathMonitor, reflecting it's status
+/// as a property, conforming to the ObservableObject protocol. The NWPathMonitor is explicitly
+/// configured to constrain to .wifi or better networks, to avoid abusing cellular networks.
+///
+/// The calculated metrics include latency of the request and bandwidth of data transfered,
+/// encapsulated as NetworkAnalysisDataPoint value types.
 public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate, ObservableObject {
     // triggers the activity of the NetworkAnalyzer
     @Published var active: Bool {
@@ -257,7 +268,6 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate, ObservableObject
     // and the first thing is a 301 redirect to www.google.com, followed by the request there, following the
     // redirect. The final metric is the more "useful" one, especially w/ bandwith - as it seems you really need
     // to transfer a fair bit to get to a meaningful value there.
-
     public func urlSession(_: URLSession,
                            task _: URLSessionTask,
                            didFinishCollecting metrics: URLSessionTaskMetrics) {
