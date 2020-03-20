@@ -59,6 +59,11 @@
 		1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59732523BE84A000AB30EB /* BasicSiteView.swift */; };
 		1A5D28EE24198F7C00BEC549 /* VerticalTickDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D28ED24198F7C00BEC549 /* VerticalTickDisplayView.swift */; };
 		1A7EE46A241037B3008C58D3 /* HorizontalBandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */; };
+		1A8D4D24242558FB00FE7084 /* NetworkTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D4D23242558FB00FE7084 /* NetworkTargets.swift */; };
+		1A8D4D2524255B1600FE7084 /* NetworkTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D4D23242558FB00FE7084 /* NetworkTargets.swift */; };
+		1A8D4D2624255B2700FE7084 /* BasicSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59732523BE84A000AB30EB /* BasicSiteView.swift */; };
+		1A8D4D2824255CBD00FE7084 /* IterationThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D4D2724255CBD00FE7084 /* IterationThreeView.swift */; };
+		1A8D4D2924255CBD00FE7084 /* IterationThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D4D2724255CBD00FE7084 /* IterationThreeView.swift */; };
 		1A8F880C240F400E00763DA1 /* DataPointCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */; };
 		1A99E461241D6385009E6479 /* LaserLightShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99E460241D6385009E6479 /* LaserLightShape.swift */; };
 		1AAD0389240F127C007A822C /* NetworkAnalyzerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */; };
@@ -145,6 +150,8 @@
 		1A5D28ED24198F7C00BEC549 /* VerticalTickDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTickDisplayView.swift; sourceTree = "<group>"; };
 		1A730F3E23B68A81007F8828 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1A7EE469241037B3008C58D3 /* HorizontalBandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBandView.swift; sourceTree = "<group>"; };
+		1A8D4D23242558FB00FE7084 /* NetworkTargets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTargets.swift; sourceTree = "<group>"; };
+		1A8D4D2724255CBD00FE7084 /* IterationThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterationThreeView.swift; sourceTree = "<group>"; };
 		1A8F880B240F400E00763DA1 /* DataPointCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointCollectionView.swift; sourceTree = "<group>"; };
 		1A99E460241D6385009E6479 /* LaserLightShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserLightShape.swift; sourceTree = "<group>"; };
 		1AAD0388240F127C007A822C /* NetworkAnalyzerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAnalyzerControlView.swift; sourceTree = "<group>"; };
@@ -220,6 +227,7 @@
 			children = (
 				1AAD038E240F190B007A822C /* CircularBuffer.swift */,
 				1AD6AFD223B6877700D56BE1 /* NetworkAnalyzer.swift */,
+				1A8D4D23242558FB00FE7084 /* NetworkTargets.swift */,
 			);
 			path = NetworkCommon;
 			sourceTree = "<group>";
@@ -244,6 +252,7 @@
 				1A59732523BE84A000AB30EB /* BasicSiteView.swift */,
 				1ABEF9DC241AC2DE00626C45 /* IterationOneView.swift */,
 				1ABEF9DE241AC2ED00626C45 /* IterationTwoView.swift */,
+				1A8D4D2724255CBD00FE7084 /* IterationThreeView.swift */,
 			);
 			path = SwiftUIVizComponents;
 			sourceTree = "<group>";
@@ -662,6 +671,7 @@
 				1A1D0C622420403700B74CA8 /* NetworkAnalyzerControlView.swift in Sources */,
 				1A1D0C71242040BE00B74CA8 /* ASimpleExampleView.swift in Sources */,
 				1A1D0C6A2420409E00B74CA8 /* DataPointCollectionView2.swift in Sources */,
+				1A8D4D2624255B2700FE7084 /* BasicSiteView.swift in Sources */,
 				1A1D0C6F2420409E00B74CA8 /* VerticalAxisView.swift in Sources */,
 				1A1D0C692420409E00B74CA8 /* DiamondDataPoint.swift in Sources */,
 				1A1D0C6D2420409E00B74CA8 /* HorizontalTickDisplayView.swift in Sources */,
@@ -669,11 +679,13 @@
 				1A1D0C612420403700B74CA8 /* IterationTwoView.swift in Sources */,
 				1A1D0C5C2420402E00B74CA8 /* SampleShape.swift in Sources */,
 				1A1D0C6C2420409E00B74CA8 /* HorizontalBandView.swift in Sources */,
+				1A8D4D2524255B1600FE7084 /* NetworkTargets.swift in Sources */,
 				1A1D0C682420409E00B74CA8 /* SquareDataPoint.swift in Sources */,
 				1A1D0C642420409E00B74CA8 /* VizControlsView.swift in Sources */,
 				1A1D0C70242040B600B74CA8 /* Vizview.swift in Sources */,
 				1A592A2624212C0E00B7ABB6 /* GridStack.swift in Sources */,
 				1A1D0C672420409E00B74CA8 /* CircleDataPoint.swift in Sources */,
+				1A8D4D2924255CBD00FE7084 /* IterationThreeView.swift in Sources */,
 				1A1D0C652420409E00B74CA8 /* DataPointTextView.swift in Sources */,
 				1A1D0C6B2420409E00B74CA8 /* HorizontalAxisView.swift in Sources */,
 				1A1D0C5E2420402E00B74CA8 /* NeonShape.swift in Sources */,
@@ -706,12 +718,14 @@
 				1A3663E5241C4CDE000DBF20 /* ViewModifierExample.swift in Sources */,
 				1A105135241AFE080098A207 /* CircleDataPoint.swift in Sources */,
 				1A3663E3241C4CC7000DBF20 /* SampleShape.swift in Sources */,
+				1A8D4D2824255CBD00FE7084 /* IterationThreeView.swift in Sources */,
 				1AE5F02B241FFF5E00636701 /* SquareDataPoint.swift in Sources */,
 				1A59732623BE84A000AB30EB /* BasicSiteView.swift in Sources */,
 				1AD6AFD423B6877700D56BE1 /* NetworkAnalyzer.swift in Sources */,
 				1A99E461241D6385009E6479 /* LaserLightShape.swift in Sources */,
 				1A8F880C240F400E00763DA1 /* DataPointCollectionView.swift in Sources */,
 				1AD6AFA523B685D800D56BE1 /* ContentView.swift in Sources */,
+				1A8D4D24242558FB00FE7084 /* NetworkTargets.swift in Sources */,
 				1A1D0C572420385D00B74CA8 /* DiamondDataPoint.swift in Sources */,
 				1AF7C67523F4615F00389040 /* HorizontalAxisView.swift in Sources */,
 				1A7EE46A241037B3008C58D3 /* HorizontalBandView.swift in Sources */,

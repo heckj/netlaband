@@ -14,9 +14,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
 
     func applicationDidFinishLaunching(_: Notification) {
-        // Create the SwiftUI view that provides the window contents.
-        let netanalysis = NetworkAnalyzer(urlsToCheck: ["https://google.com/", "https://www.facebook.com", "https://amazon.com"])
+        // network analysis engine
+        let netanalysis = NetworkAnalyzer(urlsToCheck: Array(NetworkTargets.top10USASites.choose(4)))
 
+        // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView(networkModel: netanalysis)
 
         // Create the window and set the content view.

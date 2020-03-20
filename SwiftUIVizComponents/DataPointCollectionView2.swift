@@ -22,9 +22,9 @@ enum DataPointSize {
         case .small:
             return CGFloat(10.0)
         case .medium:
-            return CGFloat(10.0)
+            return CGFloat(9.0)
         case .large:
-            return CGFloat(10.0)
+            return CGFloat(8.0)
         }
     }
 

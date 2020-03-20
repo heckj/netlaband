@@ -13,7 +13,10 @@ struct ContentView: View {
     @ObservedObject var networkModel: NetworkAnalyzer
 
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            NetworkAnalyzerControlView(networkModel: networkModel)
+            IterationThreeView(networkModel: networkModel).padding()
+        }
     }
 }
 
