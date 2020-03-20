@@ -89,7 +89,7 @@ struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType
                                           (CGFloat(10000), "10 s"),
                                       ])
         } // VStack
-    }
+    }.animation(.default)
 }
 
 #if DEBUG
