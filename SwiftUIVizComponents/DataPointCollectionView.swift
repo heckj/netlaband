@@ -12,7 +12,8 @@ import SwiftViz
 struct DataPointCollectionView<CollectionType: RandomAccessCollection, ScaleType: Scale>: View where
     CollectionType.Element == NetworkAnalysisDataPoint,
     ScaleType.TickType.InputType == ScaleType.InputType,
-    ScaleType.TickType.InputType == CGFloat {
+    ScaleType.TickType.InputType == CGFloat
+{
     let points: CollectionType
     let scale: ScaleType
 

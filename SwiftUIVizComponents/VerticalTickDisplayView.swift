@@ -19,7 +19,8 @@ struct VerticalTickDisplayView<ScaleType: Scale>: View where ScaleType.InputType
     init(scale: ScaleType,
          values: [ScaleType.InputType] = [],
          labeledValues: [(ScaleType.InputType, String)] = [],
-         formatter: Formatter = TickLabel.makeDefaultFormatter()) {
+         formatter: Formatter = TickLabel.makeDefaultFormatter())
+    {
         self.scale = scale
         self.formatter = formatter
         tickValues = values

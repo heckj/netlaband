@@ -325,11 +325,11 @@ extension CircularBuffer: RandomAccessCollection {
     }
 }
 
-extension CircularBuffer {
+public extension CircularBuffer {
     /// Allocates a buffer that can hold up to `initialCapacity` elements and initialise an empty ring backed by
     /// the buffer. When the ring grows to more than `initialCapacity` elements the buffer will be expanded.
     @inlinable
-    public init(initialCapacity: Int) {
+    init(initialCapacity: Int) {
         let capacity = Int(UInt32(initialCapacity).nextPowerOf2())
         headBackingIndex = 0
         tailBackingIndex = 0
@@ -339,7 +339,7 @@ extension CircularBuffer {
 
     /// Allocates an empty buffer.
     @inlinable
-    public init() {
+    init() {
         self = .init(initialCapacity: 16)
     }
 
@@ -347,7 +347,7 @@ extension CircularBuffer {
     ///
     /// Amortized *O(1)*
     @inlinable
-    public mutating func append(_ value: Element) {
+    mutating func append(_ value: Element) {
         _buffer[tailBackingIndex] = value
         advanceTailIdx(by: 1)
 
@@ -361,7 +361,7 @@ extension CircularBuffer {
     ///
     /// Amortized *O(1)*
     @inlinable
-    public mutating func prepend(_ value: Element) {
+    mutating func prepend(_ value: Element) {
         let idx = indexBeforeHeadIdx()
         _buffer[idx] = value
         advanceHeadIdx(by: -1)
@@ -397,7 +397,7 @@ extension CircularBuffer {
     ///
     /// *O(1)*
     @inlinable
-    public subscript(offset offset: Int) -> Element {
+    subscript(offset offset: Int) -> Element {
         get {
             self[index(startIndex, offsetBy: offset)]
         }
@@ -408,13 +408,13 @@ extension CircularBuffer {
 
     /// Returns whether the ring is empty.
     @inlinable
-    public var isEmpty: Bool {
+    var isEmpty: Bool {
         headBackingIndex == tailBackingIndex
     }
 
     /// Returns the number of element in the ring.
     @inlinable
-    public var count: Int {
+    var count: Int {
         if tailBackingIndex >= headBackingIndex {
             return tailBackingIndex &- headBackingIndex
         } else {
@@ -424,13 +424,13 @@ extension CircularBuffer {
 
     /// The total number of elements that the ring can contain without allocating new storage.
     @inlinable
-    public var capacity: Int {
+    var capacity: Int {
         _buffer.count
     }
 
     /// Removes all members from the circular buffer whist keeping the capacity.
     @inlinable
-    public mutating func removeAll(keepingCapacity: Bool = false) {
+    mutating func removeAll(keepingCapacity: Bool = false) {
         if keepingCapacity {
             removeFirst(count)
         } else {
@@ -458,14 +458,14 @@ extension CircularBuffer {
     ///     - index: The index of the object that should be modified. If this index is invalid this function will trap.
     ///     - modifyFunc: The function to apply to the modified object.
     @inlinable
-    public mutating func modify<Result>(_ index: Index, _ modifyFunc: (inout Element) throws -> Result) rethrows -> Result {
+    mutating func modify<Result>(_ index: Index, _ modifyFunc: (inout Element) throws -> Result) rethrows -> Result {
         try modifyFunc(&_buffer[index.backingIndex]!)
     }
 
     // MARK: CustomStringConvertible implementation
 
     /// Returns a human readable description of the ring.
-    public var description: String {
+    var description: String {
         var desc = "[ "
         for el in _buffer.enumerated() {
             if el.0 == headBackingIndex {
@@ -728,7 +728,7 @@ extension CircularBuffer: RangeReplaceableCollection {
 
 extension CircularBuffer {
     @usableFromInline
-    internal func verifyInvariants() -> Bool {
+    func verifyInvariants() -> Bool {
         var index = headBackingIndex
         while index != tailBackingIndex {
             if _buffer[index] == nil {
@@ -751,7 +751,7 @@ extension CircularBuffer {
         return true
     }
 
-    internal func testOnly_verifyInvariantsForNonSlices() -> Bool {
+    func testOnly_verifyInvariantsForNonSlices() -> Bool {
         verifyInvariants() && unreachableAreNil()
     }
 }

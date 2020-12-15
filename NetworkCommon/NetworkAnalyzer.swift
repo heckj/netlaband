@@ -112,10 +112,10 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate, ObservableObject
     @Published public var urlsToValidate: [String]
     @Published public var timerinterval: TimeInterval = 2 { // seconds
         didSet {
-            os_log("updated timer interval to: %f", log: OSLog.netcheck, self.timerinterval)
-            if self.active {
-                self.stop()
-                self.start()
+            os_log("updated timer interval to: %f", log: OSLog.netcheck, timerinterval)
+            if active {
+                stop()
+                start()
             }
         }
     }
@@ -270,7 +270,8 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate, ObservableObject
     // to transfer a fair bit to get to a meaningful value there.
     public func urlSession(_: URLSession,
                            task _: URLSessionTask,
-                           didFinishCollecting metrics: URLSessionTaskMetrics) {
+                           didFinishCollecting metrics: URLSessionTaskMetrics)
+    {
         // check the metrics
         print("task duration (ms): ", metrics.taskInterval.duration * 1000)
         // rather than iterate over the whole set, we'll just grab the final metric under the (hopefully
@@ -291,7 +292,8 @@ public class NetworkAnalyzer: NSObject, URLSessionTaskDelegate, ObservableObject
             // the metrics don't universally exist on the "repeat" checkings...
             // not entirely sure why, need to spend a while with the debugger and seeing what's getting triggered
             if let domainStart = metric.domainLookupStartDate,
-                let domainEnd = metric.domainLookupEndDate {
+               let domainEnd = metric.domainLookupEndDate
+            {
                 print("domainDuration (ms) ", domainEnd.timeIntervalSince(domainStart) * 1000)
             } else {
                 print("NO domainDuration")

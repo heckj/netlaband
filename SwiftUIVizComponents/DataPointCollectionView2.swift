@@ -42,7 +42,8 @@ enum DataPointSize {
 
 struct DataPointCollectionView2<CollectionType: RandomAccessCollection, ScaleType: Scale>: View where CollectionType.Element == NetworkAnalysisDataPoint,
     ScaleType.TickType.InputType == ScaleType.InputType,
-    ScaleType.TickType.InputType == CGFloat {
+    ScaleType.TickType.InputType == CGFloat
+{
     let points: CollectionType
     var scale: ScaleType // horizontal scale
     let maxDurationNeeded: CGFloat

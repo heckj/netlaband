@@ -55,7 +55,7 @@ struct SquareDataPoint_Previews: PreviewProvider {
             ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
                 ForEach([20, 40], id: \.self) { size in
                     PreviewBackground {
-                        SquareDataPoint(size: size,
+                        SquareDataPoint(size: CGFloat(size),
                                         position: CGPoint(x: 30, y: 30))
                             .previewDisplayName("\(size), \(colorScheme)")
                     } // PreviewBackground

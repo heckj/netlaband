@@ -12,7 +12,7 @@ extension Collection {
     func choose(_ number: Int) -> ArraySlice<Element> { shuffled().prefix(number) }
 }
 
-struct NetworkTargets {
+enum NetworkTargets {
     static let top10USASites = [
         "https://google.com/",
         "https://youtube.com/",
