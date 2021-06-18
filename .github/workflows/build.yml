@@ -37,9 +37,9 @@ jobs:
     - name: Show Available Destinations
       run: xcodebuild -scheme '${{ matrix.run-config['scheme'] }}' -showdestinations
 
-    - name: Homebrew build helpers install
-      run: |
-        brew bundle
+        #- name: Homebrew build helpers install
+        #run: |
+        #brew bundle
 
     - name: build and test
       run: xcodebuild clean test -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary
