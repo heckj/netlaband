@@ -6,7 +6,6 @@
 //  Copyright © 2020 JFH Consulting. All rights reserved.
 //
 
-import PreviewBackground
 import SwiftUI
 
 struct LaserLightShape<Content>: View where Content: Shape {
@@ -119,27 +118,25 @@ struct LaserLightShape<Content>: View where Content: Shape {
 struct LaserLightShape_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
+            VStack {
+                LaserLightShape(color: Color.orange, lineWidth: 1) {
+                    Rectangle()
+                }
 
-            PreviewBackground(content: {
-                VStack {
-                    LaserLightShape(color: Color.orange, lineWidth: 1) {
-                        Rectangle()
-                    }
+                LaserLightShape(color: Color.red, lineWidth: 2) {
+                    Circle()
+                }
 
-                    LaserLightShape(color: Color.red, lineWidth: 2) {
-                        Circle()
+                LaserLightShape(color: Color.blue, lineWidth: 0.5) {
+                    Path { path in
+                        path.move(to: CGPoint(x: 0, y: 0))
+                        path.addLine(to: CGPoint(x: 50, y: 50))
                     }
-
-                    LaserLightShape(color: Color.blue, lineWidth: 0.5) {
-                        Path { path in
-                            path.move(to: CGPoint(x: 0, y: 0))
-                            path.addLine(to: CGPoint(x: 50, y: 50))
-                        }
-                    }
-                }.padding()
-            }).environment(\.colorScheme, colorScheme)
-                .frame(width: 100, height: 200, alignment: .center)
-                .previewDisplayName("\(colorScheme) mode")
+                }
+            }.padding()
+            .environment(\.colorScheme, colorScheme)
+            .frame(width: 100, height: 200, alignment: .center)
+            .previewDisplayName("\(colorScheme) mode")
         }
     }
 }

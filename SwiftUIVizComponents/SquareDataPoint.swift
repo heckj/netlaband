@@ -6,7 +6,6 @@
 //  Copyright © 2020 JFH Consulting. All rights reserved.
 //
 
-import PreviewBackground
 import SwiftUI
 
 struct SquareDataPoint: View {
@@ -54,11 +53,9 @@ struct SquareDataPoint_Previews: PreviewProvider {
         Group {
             ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
                 ForEach([20, 40], id: \.self) { size in
-                    PreviewBackground {
-                        SquareDataPoint(size: CGFloat(size),
-                                        position: CGPoint(x: 30, y: 30))
-                            .previewDisplayName("\(size), \(colorScheme)")
-                    } // PreviewBackground
+                    SquareDataPoint(size: CGFloat(size),
+                                    position: CGPoint(x: 30, y: 30))
+                    .previewDisplayName("\(size), \(colorScheme)")
                     .environment(\.colorScheme, colorScheme)
                 } // ForEach size
             } // ForEach colorScheme

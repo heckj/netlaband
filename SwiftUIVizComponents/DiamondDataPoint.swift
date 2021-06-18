@@ -6,7 +6,6 @@
 //  Copyright © 2020 JFH Consulting. All rights reserved.
 //
 
-import PreviewBackground
 import SwiftUI
 
 struct DiamondDataPoint: View {
@@ -67,11 +66,9 @@ struct DiamondDataPoint_Previews: PreviewProvider {
         Group {
             ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
                 ForEach([20, 40], id: \.self) { size in
-                    PreviewBackground {
-                        DiamondDataPoint(size: CGFloat(size),
-                                         position: CGPoint(x: 30, y: 30))
-                            .previewDisplayName("\(size), \(colorScheme)")
-                    } // PreviewBackground
+                    DiamondDataPoint(size: CGFloat(size),
+                                     position: CGPoint(x: 30, y: 30))
+                    .previewDisplayName("\(size), \(colorScheme)")
                     .environment(\.colorScheme, colorScheme)
                 } // ForEach size
             } // ForEach colorScheme

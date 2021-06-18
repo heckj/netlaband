@@ -33,7 +33,6 @@
 		1A1D0C6F2420409E00B74CA8 /* VerticalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BA9023F464E8001A91DD /* VerticalAxisView.swift */; };
 		1A1D0C70242040B600B74CA8 /* Vizview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A608523E273F800D10766 /* Vizview.swift */; };
 		1A1D0C71242040BE00B74CA8 /* ASimpleExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */; };
-		1A2B2AA3241FFA430093F043 /* PreviewBackground in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2B2AA2241FFA430093F043 /* PreviewBackground */; };
 		1A2D94F1242014E000E4012F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D94F0242014E000E4012F /* AppDelegate.swift */; };
 		1A2D94F3242014E000E4012F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D94F2242014E000E4012F /* SceneDelegate.swift */; };
 		1A2D94F5242014E000E4012F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D94F4242014E000E4012F /* ContentView.swift */; };
@@ -41,7 +40,6 @@
 		1A2D94FA242014E000E4012F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2D94F9242014E000E4012F /* Preview Assets.xcassets */; };
 		1A2D94FD242014E000E4012F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A2D94FB242014E000E4012F /* LaunchScreen.storyboard */; };
 		1A2D9508242014E000E4012F /* CoffeeshopNetworkAdvisorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2D9507242014E000E4012F /* CoffeeshopNetworkAdvisorTests.swift */; };
-		1A2D95132420151900E4012F /* PreviewBackground in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2D95122420151900E4012F /* PreviewBackground */; };
 		1A2FCB9224117F6100A87527 /* VizControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FCB9124117F6100A87527 /* VizControlsView.swift */; };
 		1A334EE22416CD3600AA3D04 /* ASimpleExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A334EE12416CD3600AA3D04 /* ASimpleExampleView.swift */; };
 		1A35CE17242410F8000C9B62 /* SwiftViz in Frameworks */ = {isa = PBXBuildFile; productRef = 1A35CE16242410F8000C9B62 /* SwiftViz */; };
@@ -188,7 +186,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A35CE1924241111000C9B62 /* SwiftViz in Frameworks */,
-				1A2D95132420151900E4012F /* PreviewBackground in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +201,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A35CE17242410F8000C9B62 /* SwiftViz in Frameworks */,
-				1A2B2AA3241FFA430093F043 /* PreviewBackground in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +398,6 @@
 			);
 			name = CoffeeshopNetworkAdvisor;
 			packageProductDependencies = (
-				1A2D95122420151900E4012F /* PreviewBackground */,
 				1A35CE1824241111000C9B62 /* SwiftViz */,
 			);
 			productName = CoffeeshopNetworkAdvisor;
@@ -444,7 +439,6 @@
 			);
 			name = netlaband;
 			packageProductDependencies = (
-				1A2B2AA2241FFA430093F043 /* PreviewBackground */,
 				1A35CE16242410F8000C9B62 /* SwiftViz */,
 			);
 			productName = netlaband;
@@ -527,7 +521,6 @@
 			);
 			mainGroup = 1AD6AF9623B685D800D56BE1;
 			packageReferences = (
-				1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */,
 				1A35CE15242410F8000C9B62 /* XCRemoteSwiftPackageReference "SwiftViz" */,
 			);
 			productRefGroup = 1AD6AFA023B685D800D56BE1 /* Products */;
@@ -1196,14 +1189,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/heckj/PreviewBackground.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.1;
-			};
-		};
 		1A35CE15242410F8000C9B62 /* XCRemoteSwiftPackageReference "SwiftViz" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftViz/SwiftViz";
@@ -1215,16 +1200,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1A2B2AA2241FFA430093F043 /* PreviewBackground */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */;
-			productName = PreviewBackground;
-		};
-		1A2D95122420151900E4012F /* PreviewBackground */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1A2B2AA1241FFA430093F043 /* XCRemoteSwiftPackageReference "PreviewBackground" */;
-			productName = PreviewBackground;
-		};
 		1A35CE16242410F8000C9B62 /* SwiftViz */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1A35CE15242410F8000C9B62 /* XCRemoteSwiftPackageReference "SwiftViz" */;
